@@ -8,6 +8,8 @@ import com.watabou.pixeldungeon.PixelDungeon;
 import com.watabou.pixeldungeon.Preferences;
 import com.watabou.utils.PDPlatformSupport;
 
+import org.lwjgl.opengl.Display;
+
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		String version = DesktopLauncher.class.getPackage().getSpecificationVersion();
@@ -15,6 +17,7 @@ public class DesktopLauncher {
 			version = "???";
 		}
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.resizable = (Display.getPixelScaleFactor() != 1.0f);
 
 		if (SharedLibraryLoader.isMac) {
 			config.preferencesDirectory = "Library/Application Support/Pixel Dungeon/";

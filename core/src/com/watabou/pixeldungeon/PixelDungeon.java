@@ -18,12 +18,15 @@
 package com.watabou.pixeldungeon;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.watabou.noosa.Game;
 import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.scenes.GameScene;
 import com.watabou.pixeldungeon.scenes.TitleScene;
 import com.watabou.utils.PDPlatformSupport;
+
+import sun.rmi.runtime.Log;
 
 public class PixelDungeon extends Game {
 
@@ -114,7 +117,10 @@ public class PixelDungeon extends Game {
 	public void resize(int width, int height) {
 		super.resize(width, height);
 
-		if (!fullscreen()) {
+		Graphics.DisplayMode mode = Gdx.graphics.getDesktopDisplayMode();
+		boolean maximized = width >= mode.width || height >= mode.height;
+
+		if (!maximized && !fullscreen()) {
 			final Preferences prefs = Preferences.INSTANCE;
 			prefs.put(Preferences.KEY_WINDOW_WIDTH, width);
 			prefs.put(Preferences.KEY_WINDOW_HEIGHT, height);

@@ -149,6 +149,7 @@ public class WndSettings extends Window {
 						PixelDungeon.fullscreen(!PixelDungeon.fullscreen());
 					}
 				};
+			//	btnResolution.enable( Display.getPixelScaleFactor() == 1.0f );
 				btnResolution.setRect(0, btnSound.bottom() + GAP, WIDTH, BTN_HEIGHT);
 				add(btnResolution);
 
