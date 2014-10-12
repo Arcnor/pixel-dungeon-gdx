@@ -18,8 +18,13 @@
 package com.watabou.pixeldungeon.scenes;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.I18NBundle;
 import com.watabou.input.NoosaInputProcessor;
-import com.watabou.noosa.*;
+import com.watabou.noosa.BitmapTextMultiline;
+import com.watabou.noosa.Camera;
+import com.watabou.noosa.Game;
+import com.watabou.noosa.Image;
+import com.watabou.noosa.TouchArea;
 import com.watabou.pixeldungeon.effects.Flare;
 import com.watabou.pixeldungeon.ui.Archs;
 import com.watabou.pixeldungeon.ui.Icons;
@@ -27,21 +32,16 @@ import com.watabou.pixeldungeon.ui.Window;
 
 public class AboutScene extends PixelScene {
 
-	private static final String TXT = 
-		"Original code & graphics: Watabou\n" +
-		"LibGDX port: Arcnor\n" +
-		"Music: Cube_Code\n\n" + 
-		"This game is inspired by Brian Walker's Brogue. " +
-		"Try it on Windows, Mac OS or Linux - it's awesome! ;)\n\n" +
-		"Please visit official website for additional info:";
-	
+	private static final String TXT = "about_txt";
+
 	private static final String LNK = "pixeldungeon.watabou.ru";
 	
 	@Override
 	public void create() {
 		super.create();
-		
-		BitmapTextMultiline text = createMultiline( TXT, 8 );
+
+		final I18NBundle i18nBundle = Game.instance.getI18nBundle();
+		BitmapTextMultiline text = createMultiline(i18nBundle.format(TXT, "Watabou", "Arcnor", "Cubic_Code", "Brian Walker", "Brogue"), 8);
 		text.maxWidth = Math.min( Camera.main.width, 120 );
 		text.measure();
 		add( text );

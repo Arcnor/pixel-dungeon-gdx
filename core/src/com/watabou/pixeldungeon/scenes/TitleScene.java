@@ -34,10 +34,10 @@ import com.watabou.pixeldungeon.ui.PrefsButton;
 
 public class TitleScene extends PixelScene {
 
-	private static final String TXT_PLAY		= "play";
-	private static final String TXT_HIGHSCORES	= "rankings";
-	private static final String TXT_BADGES		= "badges";
-	private static final String TXT_ABOUT		= "about";
+	private static final String TXT_PLAY		= "title_play";
+	private static final String TXT_HIGHSCORES	= "title_rankings";
+	private static final String TXT_BADGES		= "title_badges";
+	private static final String TXT_ABOUT		= "title_about";
 	
 	@Override
 	public void create() {
@@ -67,7 +67,7 @@ public class TitleScene extends PixelScene {
 		placeTorch( title.x + 18, title.y + 20 );
 		placeTorch( title.x + title.width - 18, title.y + 20 );
 
-		I18NBundle i18nBundle = Game.instance.getI18nBundle();
+		final I18NBundle i18nBundle = Game.instance.getI18nBundle();
 		DashboardItem btnBadges = new DashboardItem(i18nBundle.get(TXT_BADGES), 3) {
 			@Override
 			protected void onClick() {
