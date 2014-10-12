@@ -17,7 +17,6 @@
  */
 package com.watabou.pixeldungeon.scenes;
 
-import com.badlogic.gdx.utils.I18NBundle;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Game;
@@ -67,8 +66,7 @@ public class TitleScene extends PixelScene {
 		placeTorch( title.x + 18, title.y + 20 );
 		placeTorch( title.x + title.width - 18, title.y + 20 );
 
-		final I18NBundle i18nBundle = Game.instance.getI18nBundle();
-		DashboardItem btnBadges = new DashboardItem(i18nBundle.get(TXT_BADGES), 3) {
+		DashboardItem btnBadges = new DashboardItem(tr(TXT_BADGES), 3) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( BadgesScene.class );
@@ -77,7 +75,7 @@ public class TitleScene extends PixelScene {
 		btnBadges.setPos( w / 2 - btnBadges.width(), (h + height) / 2 - DashboardItem.SIZE );
 		add( btnBadges );
 		
-		DashboardItem btnAbout = new DashboardItem(i18nBundle.get(TXT_ABOUT), 1) {
+		DashboardItem btnAbout = new DashboardItem(tr(TXT_ABOUT), 1) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( AboutScene.class );
@@ -86,7 +84,7 @@ public class TitleScene extends PixelScene {
 		btnAbout.setPos( w / 2, (h + height) / 2 - DashboardItem.SIZE );
 		add( btnAbout );
 
-		DashboardItem btnPlay = new DashboardItem(i18nBundle.get(TXT_PLAY), 0) {
+		DashboardItem btnPlay = new DashboardItem(tr(TXT_PLAY), 0) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( StartScene.class );
@@ -95,7 +93,7 @@ public class TitleScene extends PixelScene {
 		btnPlay.setPos( w / 2 - btnPlay.width(), btnAbout.top() - DashboardItem.SIZE );
 		add( btnPlay );
 		
-		DashboardItem btnHighscores = new DashboardItem(i18nBundle.get(TXT_HIGHSCORES), 2) {
+		DashboardItem btnHighscores = new DashboardItem(tr(TXT_HIGHSCORES), 2) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( RankingsScene.class );

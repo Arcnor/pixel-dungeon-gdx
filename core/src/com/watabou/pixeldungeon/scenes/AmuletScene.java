@@ -30,20 +30,16 @@ import com.watabou.utils.Random;
 
 public class AmuletScene extends PixelScene {
 
-	private static final String TXT_EXIT	= "Let's call it a day";
-	private static final String TXT_STAY	= "I'm not done yet";
+	private static final String TXT_EXIT	= "amulet_exit";
+	private static final String TXT_STAY	= "amulet_stay";
 	
 	private static final int WIDTH			= 120;
 	private static final int BTN_HEIGHT		= 18;
 	private static final float SMALL_GAP	= 2;
 	private static final float LARGE_GAP	= 8;
 	
-	private static final String TXT = 
-		"You finally hold it in your hands, the Amulet of Yendor. Using its power " +
-		"you can take over the world or bring peace and prosperity to people or whatever. " +
-		"Anyway, your life will change forever and this game will end here. " +
-		"Or you can stay a mere mortal a little longer.";
-	
+	private static final String TXT = "amulet_txt";
+
 	public static boolean noText = false;
 	
 	private Image amulet;
@@ -54,7 +50,7 @@ public class AmuletScene extends PixelScene {
 		
 		BitmapTextMultiline text = null;
 		if (!noText) {
-			text = createMultiline( TXT, 8 );
+			text = createMultiline(tr(TXT), 8);
 			text.maxWidth = WIDTH;
 			text.measure();
 			add( text );
@@ -63,7 +59,7 @@ public class AmuletScene extends PixelScene {
 		amulet = new Image( Assets.AMULET );
 		add( amulet );
 		
-		RedButton btnExit = new RedButton( TXT_EXIT ) {
+		RedButton btnExit = new RedButton(tr(TXT_EXIT)) {
 			@Override
 			protected void onClick() {
 				Dungeon.deleteGame( Dungeon.hero.heroClass, true );
@@ -73,7 +69,7 @@ public class AmuletScene extends PixelScene {
 		btnExit.setSize( WIDTH, BTN_HEIGHT );
 		add( btnExit );
 		
-		RedButton btnStay = new RedButton( TXT_STAY ) {
+		RedButton btnStay = new RedButton(tr(TXT_STAY)) {
 			@Override
 			protected void onClick() {
 				onBackPressed();

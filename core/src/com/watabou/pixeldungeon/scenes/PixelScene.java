@@ -19,9 +19,14 @@ package com.watabou.pixeldungeon.scenes;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.watabou.input.NoosaInputProcessor;
-import com.watabou.noosa.*;
+import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.BitmapText.Font;
+import com.watabou.noosa.BitmapTextMultiline;
+import com.watabou.noosa.Camera;
+import com.watabou.noosa.ColorBlock;
+import com.watabou.noosa.Game;
+import com.watabou.noosa.Scene;
+import com.watabou.noosa.Visual;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.Badges;
@@ -220,7 +225,15 @@ public class PixelScene extends Scene {
 		
 		return result;
 	}
-	
+
+	protected String tr(final String key) {
+		return Game.instance.getI18nBundle().get(key);
+	}
+
+	protected String tr(final String key, final Object... args) {
+		return Game.instance.getI18nBundle().format(key, args);
+	}
+
 	public static float align( Camera camera, float pos ) {
 		return ((int)(pos * camera.zoom)) / camera.zoom;
 	}

@@ -18,7 +18,6 @@
 package com.watabou.pixeldungeon.scenes;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.I18NBundle;
 import com.watabou.input.NoosaInputProcessor;
 import com.watabou.noosa.BitmapTextMultiline;
 import com.watabou.noosa.Camera;
@@ -40,8 +39,7 @@ public class AboutScene extends PixelScene {
 	public void create() {
 		super.create();
 
-		final I18NBundle i18nBundle = Game.instance.getI18nBundle();
-		BitmapTextMultiline text = createMultiline(i18nBundle.format(TXT, "Watabou", "Arcnor", "Cubic_Code", "Brian Walker", "Brogue"), 8);
+		BitmapTextMultiline text = createMultiline(tr(TXT, "Watabou", "Arcnor", "Cubic_Code", "Brian Walker", "Brogue"), 8);
 		text.maxWidth = Math.min( Camera.main.width, 120 );
 		text.measure();
 		add( text );
