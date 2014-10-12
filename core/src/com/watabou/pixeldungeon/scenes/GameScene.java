@@ -84,14 +84,14 @@ import com.watabou.utils.Random;
 
 public class GameScene extends PixelScene {
 	
-	private static final String TXT_WELCOME			= "Welcome to the level %d of Pixel Dungeon!";
-	private static final String TXT_WELCOME_BACK	= "Welcome back to the level %d of Pixel Dungeon!";
-	private static final String TXT_NIGHT_MODE		= "Be cautious, since the dungeon is even more dangerous at night!";
+	private static final String TXT_WELCOME			= "game_welcome";
+	private static final String TXT_WELCOME_BACK	= "game_welcome_back";
+	private static final String TXT_NIGHT_MODE		= "game_night_mode";
 	
-	private static final String TXT_CHASM	= "Your steps echo across the dungeon.";
-	private static final String TXT_WATER	= "You hear the water splashing around you.";
-	private static final String TXT_GRASS	= "The smell of vegetation is thick in the air.";
-	private static final String TXT_SECRETS	= "The atmosphere hints that this floor hides many secrets.";
+	private static final String TXT_CHASM	= "game_chasm";
+	private static final String TXT_WATER	= "game_water";
+	private static final String TXT_GRASS	= "game_grass";
+	private static final String TXT_SECRETS	= "game_secrets";
 	
 	static GameScene scene;
 	
@@ -236,29 +236,29 @@ public class GameScene extends PixelScene {
 		add( log );
 		
 		if (Dungeon.depth < Statistics.deepestFloor) {
-			GLog.i( TXT_WELCOME_BACK, Dungeon.depth );
+			GLog.i( tr(TXT_WELCOME_BACK, Dungeon.depth) );
 		} else {
-			GLog.i( TXT_WELCOME, Dungeon.depth );
+			GLog.i( tr(TXT_WELCOME, Dungeon.depth) );
 			Sample.INSTANCE.play( Assets.SND_DESCEND );
 		}
 		switch (Dungeon.level.feeling) {
 		case CHASM:
-			GLog.w( TXT_CHASM );
+			GLog.w( tr(TXT_CHASM) );
 			break;
 		case WATER:
-			GLog.w( TXT_WATER );
+			GLog.w( tr(TXT_WATER) );
 			break;
 		case GRASS:
-			GLog.w( TXT_GRASS );
+			GLog.w( tr(TXT_GRASS) );
 			break;
 		default:
 		}
 		if (Dungeon.level instanceof RegularLevel && 
 			((RegularLevel)Dungeon.level).secretDoors > Random.IntRange( 3, 4 )) {
-			GLog.w( TXT_SECRETS );
+			GLog.w( tr(TXT_SECRETS) );
 		}
 		if (Dungeon.nightMode && !Dungeon.bossLevel()) {
-			GLog.w( TXT_NIGHT_MODE );
+			GLog.w( tr(TXT_NIGHT_MODE) );
 		}
 		
 		busy = new BusyIndicator();
