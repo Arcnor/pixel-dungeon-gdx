@@ -21,6 +21,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.utils.I18NBundle;
 import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.watabou.glscripts.Script;
 import com.watabou.gltextures.TextureCache;
@@ -50,6 +51,7 @@ public abstract class Game<GameActionType> implements ApplicationListener {
 	private final String basePath;
 	private final NoosaInputProcessor<GameActionType> inputProcessor;
 	private final PDPlatformSupport platformSupport;
+	private I18NBundle i18nBundle;
 
 	// Current scene
 	protected Scene scene;
@@ -79,6 +81,8 @@ public abstract class Game<GameActionType> implements ApplicationListener {
 	@Override
 	public void create() {
 		instance = this;
+
+		this.i18nBundle = I18NBundle.createBundle(Gdx.files.internal("i18n/l10n"));
 		
 		density = Gdx.graphics.getDensity();
 		this.inputProcessor.init();
@@ -257,5 +261,9 @@ public abstract class Game<GameActionType> implements ApplicationListener {
 
 	public PDPlatformSupport getPlatformSupport() {
 		return platformSupport;
+	}
+
+	public I18NBundle getI18nBundle() {
+		return i18nBundle;
 	}
 }

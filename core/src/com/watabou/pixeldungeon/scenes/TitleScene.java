@@ -17,6 +17,7 @@
  */
 package com.watabou.pixeldungeon.scenes;
 
+import com.badlogic.gdx.utils.I18NBundle;
 import com.watabou.noosa.BitmapText;
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.Game;
@@ -33,10 +34,10 @@ import com.watabou.pixeldungeon.ui.PrefsButton;
 
 public class TitleScene extends PixelScene {
 
-	private static final String TXT_PLAY		= "Play";
-	private static final String TXT_HIGHSCORES	= "Rankings";
-	private static final String TXT_BADGES		= "Badges";
-	private static final String TXT_ABOUT		= "About";
+	private static final String TXT_PLAY		= "play";
+	private static final String TXT_HIGHSCORES	= "rankings";
+	private static final String TXT_BADGES		= "badges";
+	private static final String TXT_ABOUT		= "about";
 	
 	@Override
 	public void create() {
@@ -65,8 +66,9 @@ public class TitleScene extends PixelScene {
 		
 		placeTorch( title.x + 18, title.y + 20 );
 		placeTorch( title.x + title.width - 18, title.y + 20 );
-		
-		DashboardItem btnBadges = new DashboardItem( TXT_BADGES, 3 ) {
+
+		I18NBundle i18nBundle = Game.instance.getI18nBundle();
+		DashboardItem btnBadges = new DashboardItem(i18nBundle.get(TXT_BADGES), 3) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( BadgesScene.class );
@@ -75,7 +77,7 @@ public class TitleScene extends PixelScene {
 		btnBadges.setPos( w / 2 - btnBadges.width(), (h + height) / 2 - DashboardItem.SIZE );
 		add( btnBadges );
 		
-		DashboardItem btnAbout = new DashboardItem( TXT_ABOUT, 1 ) {
+		DashboardItem btnAbout = new DashboardItem(i18nBundle.get(TXT_ABOUT), 1) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( AboutScene.class );
@@ -83,8 +85,8 @@ public class TitleScene extends PixelScene {
 		};
 		btnAbout.setPos( w / 2, (h + height) / 2 - DashboardItem.SIZE );
 		add( btnAbout );
-		
-		DashboardItem btnPlay = new DashboardItem( TXT_PLAY, 0 ) {
+
+		DashboardItem btnPlay = new DashboardItem(i18nBundle.get(TXT_PLAY), 0) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( StartScene.class );
@@ -93,7 +95,7 @@ public class TitleScene extends PixelScene {
 		btnPlay.setPos( w / 2 - btnPlay.width(), btnAbout.top() - DashboardItem.SIZE );
 		add( btnPlay );
 		
-		DashboardItem btnHighscores = new DashboardItem( TXT_HIGHSCORES, 2 ) {
+		DashboardItem btnHighscores = new DashboardItem(i18nBundle.get(TXT_HIGHSCORES), 2) {
 			@Override
 			protected void onClick() {
 				Game.switchScene( RankingsScene.class );
