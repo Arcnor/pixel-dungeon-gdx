@@ -93,4 +93,12 @@ public class Gizmo {
 			parent.remove( this );
 		}
 	}
+
+	protected String tr(final String key) {
+		return Game.instance.getI18nBundle().get(key);
+	}
+
+	protected String tr(final String key, final Object... args) {
+		return Game.instance.getI18nBundle().format(key, args);
+	}
 }

@@ -28,7 +28,7 @@ public class IntroScene extends PixelScene {
 	public void create() {
 		super.create();
 		
-		add(new WndStory(tr(TEXT)) {
+		add(new WndStory(TEXT) {
 			@Override
 			public void hide() {
 				super.hide();

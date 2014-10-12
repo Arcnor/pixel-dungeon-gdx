@@ -226,14 +226,6 @@ public class PixelScene extends Scene {
 		return result;
 	}
 
-	protected String tr(final String key) {
-		return Game.instance.getI18nBundle().get(key);
-	}
-
-	protected String tr(final String key, final Object... args) {
-		return Game.instance.getI18nBundle().format(key, args);
-	}
-
 	public static float align( Camera camera, float pos ) {
 		return ((int)(pos * camera.zoom)) / camera.zoom;
 	}

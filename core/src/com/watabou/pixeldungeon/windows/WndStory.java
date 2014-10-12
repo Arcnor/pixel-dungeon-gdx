@@ -41,37 +41,21 @@ public class WndStory extends Window {
 	public static final int ID_CAVES		= 2;
 	public static final int ID_METROPOLIS	= 3;
 	public static final int ID_HALLS		= 4;
-	
+
+	private static final String TXT_SEWERS = "story_sewers";
+	private static final String TXT_PRISON = "story_prison";
+	private static final String TXT_CAVES = "story_caves";
+	private static final String TXT_METROPOLIS = "story_metropolis";
+	private static final String TXT_HALLS = "story_halls";
+
 	private static final SparseArray<String> CHAPTERS = new SparseArray<String>();
 	
 	static {
-		CHAPTERS.put( ID_SEWERS, 
-		"The Dungeon lies right beneath the City, its upper levels actually constitute the City's sewer system. " +
-		"Being nominally a part of the City, these levels are not that dangerous. No one will call it a safe place, " +
-		"but at least you won't need to deal with evil magic here." );
-		
-		CHAPTERS.put( ID_PRISON, 
-		"Many years ago an underground prison was built here for the most dangerous criminals. At the time it seemed " +
-		"like a very clever idea, because this place indeed was very hard to escape. But soon dark miasma started to permeate " +
-		"from below, driving prisoners and guards insane. In the end the prison was abandoned, though some convicts " +
-		"were left locked up here." );
-		
-		CHAPTERS.put( ID_CAVES, 
-		"The caves, which stretch down under the abandoned prison, are sparcely populated. They lie too deep to be exploited " +
-		"by the City and they are too poor in minerals to interest the dwarves. In the past there was a trade outpost " +
-		"somewhere here on the route between these two states, but it has perished since the decline of Dwarven Metropolis. " +
-		"Only omnipresent gnolls and subterranean animals dwell here now." );
-		
-		CHAPTERS.put( ID_METROPOLIS, 
-		"Dwarven Metropolis was once the greatest of dwarven city-states. In its heyday the mechanized army of dwarves " +
-		"has successfully repelled the invasion of the old god and his demon army. But it is said, that the returning warriors " +
-		"have brought seeds of corruption with them, and that victory was the beginning of the end for the underground kingdom." );
-		
-		CHAPTERS.put( ID_HALLS,
-		"In the past these levels were the outskirts of Metropolis. After the costly victory in the war with the old god " +
-		"dwarves were too weakened to clear them of remaining demons. Gradually demons have tightened their grip on this place " +
-		"and now it's called Demon Halls.\n\n" +
-		"Very few adventurers have ever descended this far..." );
+		CHAPTERS.put(ID_SEWERS, TXT_SEWERS);
+		CHAPTERS.put(ID_PRISON, TXT_PRISON);
+		CHAPTERS.put(ID_CAVES, TXT_CAVES);
+		CHAPTERS.put(ID_METROPOLIS, TXT_METROPOLIS);
+		CHAPTERS.put(ID_HALLS, TXT_HALLS);
 	};
 	
 	private BitmapTextMultiline tf;
@@ -81,7 +65,7 @@ public class WndStory extends Window {
 	public WndStory( String text ) {
 		super( 0, 0, Chrome.get( Chrome.Type.SCROLL ) );
 		
-		tf = PixelScene.createMultiline( text, 7 );
+		tf = PixelScene.createMultiline( tr(text), 7 );
 		tf.maxWidth = WIDTH - MARGIN * 2;
 		tf.measure();
 		tf.ra = bgR;
