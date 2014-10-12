@@ -37,15 +37,15 @@ public class InterlevelScene extends PixelScene {
 
 	private static final float TIME_TO_FADE = 0.3f;
 	
-	private static final String TXT_DESCENDING	= "Descending...";
-	private static final String TXT_ASCENDING	= "Ascending...";
-	private static final String TXT_LOADING		= "Loading...";
-	private static final String TXT_RESURRECTING= "Resurrecting...";
-	private static final String TXT_RETURNING	= "Returning...";
-	private static final String TXT_FALLING		= "Falling...";
+	private static final String TXT_DESCENDING	= "game_descending";
+	private static final String TXT_ASCENDING	= "game_ascending";
+	private static final String TXT_LOADING		= "game_loading";
+	private static final String TXT_RESURRECTING= "game_resurrecting";
+	private static final String TXT_RETURNING	= "game_returning";
+	private static final String TXT_FALLING		= "game_falling";
 	
-	private static final String ERR_FILE_NOT_FOUND	= "File not found. For some reason.";
-	private static final String ERR_GENERIC			= "Something went wrong..."	;	
+	private static final String ERR_FILE_NOT_FOUND	= "game_err_file_not_found";
+	private static final String ERR_GENERIC			= "game_err_generic";
 	
 	public static enum Mode {
 		DESCEND, ASCEND, CONTINUE, RESURRECT, RETURN, FALL
@@ -96,7 +96,7 @@ public class InterlevelScene extends PixelScene {
 			break;
 		}
 		
-		message = PixelScene.createText( text, 9 );
+		message = PixelScene.createText(tr(text), 9);
 		message.measure();
 		message.x = (Camera.main.width - message.width()) / 2; 
 		message.y = (Camera.main.height - message.height()) / 2;
@@ -232,12 +232,12 @@ public class InterlevelScene extends PixelScene {
 			
 		case STATIC:
 			if (error != null) {
-				add( new WndError( error ) {
+				add(new WndError(tr(error)) {
 					public void onBackPressed() {
 						super.onBackPressed();
 						Game.switchScene( StartScene.class );
 					};
-				} );
+				});
 			}
 			break;
 		}
