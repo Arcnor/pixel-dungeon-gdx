@@ -94,11 +94,11 @@ public class Gizmo {
 		}
 	}
 
-	protected String tr(final String key) {
+	protected static String tr(final String key) {
 		return Game.instance.getI18nBundle().get(key);
 	}
 
-	protected String tr(final String key, final Object... args) {
+	protected static String tr(final String key, final Object... args) {
 		return Game.instance.getI18nBundle().format(key, args);
 	}
 }

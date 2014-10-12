@@ -218,11 +218,12 @@ public abstract class Actor implements Bundlable {
 		return all;
 	}
 
-	protected String tr(final String key) {
+	// FIXME: Duplicated from Gizmo, move to a common place
+	protected static String tr(final String key) {
 		return Game.instance.getI18nBundle().get(key);
 	}
 
-	protected String tr(final String key, final Object... args) {
+	protected static String tr(final String key, final Object... args) {
 		return Game.instance.getI18nBundle().format(key, args);
 	}
 }

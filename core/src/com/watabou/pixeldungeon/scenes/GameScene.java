@@ -87,6 +87,7 @@ public class GameScene extends PixelScene {
 	private static final String TXT_WELCOME			= "game_welcome";
 	private static final String TXT_WELCOME_BACK	= "game_welcome_back";
 	private static final String TXT_NIGHT_MODE		= "game_night_mode";
+	private static final String TXT_INFO_UNKNOWN	= "game_info_unknown";
 	
 	private static final String TXT_CHASM	= "game_chasm";
 	private static final String TXT_WATER	= "game_water";
@@ -617,7 +618,7 @@ public class GameScene extends PixelScene {
         }
 
         if (cell < 0 || cell > Level.LENGTH || (!Dungeon.level.visited[cell] && !Dungeon.level.mapped[cell])) {
-            GameScene.show( new WndMessage( "You don't know what is there." ) ) ;
+            GameScene.show( new WndMessage( tr(TXT_INFO_UNKNOWN) ) ) ;
             return;
         }
 
