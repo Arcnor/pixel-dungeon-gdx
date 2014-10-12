@@ -57,20 +57,20 @@ public class StartScene extends PixelScene {
 	private static final float BUTTON_HEIGHT	= 24;
 	private static final float GAP				= 2;
 	
-	private static final String TXT_TITLE	= "Select Your Hero";
+	private static final String TXT_TITLE	= "start_title";
 	
-	private static final String TXT_LOAD	= "Load Game";
-	private static final String TXT_NEW		= "New Game";
+	private static final String TXT_LOAD	= "start_load";
+	private static final String TXT_NEW		= "start_new";
 	
-	private static final String TXT_ERASE		= "Erase current game";
-	private static final String TXT_DPTH_LVL	= "Depth: %d, level: %d";
+	private static final String TXT_ERASE		= "start_erase";
+	private static final String TXT_DPTH_LVL	= "start_dpth_lvl";
 	
-	private static final String TXT_REALLY	= "Do you really want to start new game?";
-	private static final String TXT_WARNING	= "Your current game progress will be erased.";
-	private static final String TXT_YES		= "Yes, start new game";
-	private static final String TXT_NO		= "No, return to main menu";
+	private static final String TXT_REALLY	= "start_really";
+	private static final String TXT_WARNING	= "start_warning";
+	private static final String TXT_YES		= "start_yes";
+	private static final String TXT_NO		= "start_no";
 	
-	private static final String TXT_UNLOCK	= "To unlock this character class, slay the 3rd boss with any other class";
+	private static final String TXT_UNLOCK	= "start_unlock";
 	
 	private float width;
 	private float height;
@@ -114,7 +114,7 @@ public class StartScene extends PixelScene {
 		archs.setSize( w, h );
 		add( archs );
 		
-		BitmapText title = PixelScene.createText( TXT_TITLE, 9 );
+		BitmapText title = PixelScene.createText(tr(TXT_TITLE), 9);
 		title.hardlight( Window.TITLE_COLOR );
 		title.measure();
 		title.x = align( (w - title.width()) / 2 );
@@ -145,11 +145,11 @@ public class StartScene extends PixelScene {
 		frame = Chrome.get( Chrome.Type.TOAST_TR );
 		add( frame );
 		
-		btnNewGame = new GameButton( TXT_NEW ) {
+		btnNewGame = new GameButton(tr(TXT_NEW)) {
 			@Override
 			protected void onClick() {
 				if (GamesInProgress.check( curClass ) != null) {
-					StartScene.this.add( new WndOptions( TXT_REALLY, TXT_WARNING, TXT_YES, TXT_NO ) {
+					StartScene.this.add( new WndOptions(tr(TXT_REALLY), tr(TXT_WARNING), tr(TXT_YES), tr(TXT_NO)) {
 						@Override
 						protected void onSelect( int index ) {
 							if (index == 0) {
@@ -165,7 +165,7 @@ public class StartScene extends PixelScene {
 		};
 		add( btnNewGame );
 
-		btnLoad = new GameButton( TXT_LOAD ) {	
+		btnLoad = new GameButton(tr(TXT_LOAD)) {
 			@Override
 			protected void onClick() {
 				InterlevelScene.mode = InterlevelScene.Mode.CONTINUE;
@@ -239,7 +239,7 @@ public class StartScene extends PixelScene {
 		
 		if (!(huntressUnlocked = Badges.isUnlocked( Badges.Badge.BOSS_SLAIN_3 ))) {
 		
-			BitmapTextMultiline text = PixelScene.createMultiline( TXT_UNLOCK, 5 );
+			BitmapTextMultiline text = PixelScene.createMultiline(tr(TXT_UNLOCK), 5);
 			text.maxWidth = (int)frame.innerWidth();
 			text.measure();
 			
@@ -287,9 +287,9 @@ public class StartScene extends PixelScene {
 			if (info != null) {
 				
 				btnLoad.visible = true;
-				btnLoad.secondary( Utils.format( TXT_DPTH_LVL, info.depth, info.level ) );
+				btnLoad.secondary(tr(TXT_DPTH_LVL, info.depth, info.level));
 				btnNewGame.visible = true;
-				btnNewGame.secondary( TXT_ERASE );
+				btnNewGame.secondary(tr(TXT_ERASE));
 				
 				float w = (frame.innerWidth() - GAP) / 2;
 				
