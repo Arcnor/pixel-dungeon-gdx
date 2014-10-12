@@ -26,6 +26,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import com.badlogic.gdx.utils.I18NBundle;
 import com.watabou.noosa.Game;
 import com.watabou.pixeldungeon.actors.mobs.Acidic;
 import com.watabou.pixeldungeon.actors.mobs.Albino;
@@ -50,43 +51,43 @@ import com.watabou.utils.Bundle;
 public class Badges {
 	
 	public static enum Badge {
-		MONSTERS_SLAIN_1( "10 enemies slain", 0, 10 ),
-		MONSTERS_SLAIN_2( "50 enemies slain", 1, 50 ),
-		MONSTERS_SLAIN_3( "150 enemies slain", 2, 150 ),
-		MONSTERS_SLAIN_4( "250 enemies slain", 3, 250 ),
-		GOLD_COLLECTED_1( "100 gold collected", 4, 100 ),
-		GOLD_COLLECTED_2( "500 gold collected", 5, 500 ),
-		GOLD_COLLECTED_3( "2500 gold collected", 6, 2500 ),
-		GOLD_COLLECTED_4( "7500 gold collected", 7, 7500 ),
-		LEVEL_REACHED_1( "Level 6 reached", 8, 6 ),
-		LEVEL_REACHED_2( "Level 12 reached", 9, 12 ),
-		LEVEL_REACHED_3( "Level 18 reached", 10, 18 ),
-		LEVEL_REACHED_4( "Level 24 reached", 11, 24 ),
-		ALL_POTIONS_IDENTIFIED( "All potions identified", 16 ),
-		ALL_SCROLLS_IDENTIFIED( "All scrolls identified", 17 ),
-		ALL_RINGS_IDENTIFIED( "All rings identified", 18 ),
-		ALL_WANDS_IDENTIFIED( "All wands identified", 19 ),
-		ALL_ITEMS_IDENTIFIED( "All potions, scrolls, rings & wands identified", 35, true ),
+		MONSTERS_SLAIN_1( "badge_enemies_slain", 0, 10 ),
+		MONSTERS_SLAIN_2( "badge_enemies_slain", 1, 50 ),
+		MONSTERS_SLAIN_3( "badge_enemies_slain", 2, 150 ),
+		MONSTERS_SLAIN_4( "badge_enemies_slain", 3, 250 ),
+		GOLD_COLLECTED_1( "badge_gold_collected", 4, 100 ),
+		GOLD_COLLECTED_2( "badge_gold_collected", 5, 500 ),
+		GOLD_COLLECTED_3( "badge_gold_collected", 6, 2500 ),
+		GOLD_COLLECTED_4( "badge_gold_collected", 7, 7500 ),
+		LEVEL_REACHED_1( "badge_level_reached", 8, 6 ),
+		LEVEL_REACHED_2( "badge_level_reached", 9, 12 ),
+		LEVEL_REACHED_3( "badge_level_reached", 10, 18 ),
+		LEVEL_REACHED_4( "badge_level_reached", 11, 24 ),
+		ALL_POTIONS_IDENTIFIED( "badge_all_potions", 16 ),
+		ALL_SCROLLS_IDENTIFIED( "badge_all_scrolls", 17 ),
+		ALL_RINGS_IDENTIFIED( "badge_all_rings", 18 ),
+		ALL_WANDS_IDENTIFIED( "badge_all_wands", 19 ),
+		ALL_ITEMS_IDENTIFIED( "badge_all_items", 35, true ),
 		BAG_BOUGHT_SEED_POUCH,
 		BAG_BOUGHT_SCROLL_HOLDER,
 		BAG_BOUGHT_WAND_HOLSTER,
-		ALL_BAGS_BOUGHT( "All bags bought", 23 ),
-		DEATH_FROM_FIRE( "Death from fire", 24 ),
-		DEATH_FROM_POISON( "Death from poison", 25 ),
-		DEATH_FROM_GAS( "Death from toxic gas", 26 ),
-		DEATH_FROM_HUNGER( "Death from hunger", 27 ),
-		DEATH_FROM_GLYPH( "Death from a glyph", 57 ),
-		DEATH_FROM_FALLING( "Death from falling down", 59 ),
-		YASD( "Death from fire, poison, toxic gas & hunger", 34, true ),
+		ALL_BAGS_BOUGHT( "badge_all_bags", 23 ),
+		DEATH_FROM_FIRE( "badge_death_fire", 24 ),
+		DEATH_FROM_POISON( "badge_death_poison", 25 ),
+		DEATH_FROM_GAS( "badge_death_toxic_gas", 26 ),
+		DEATH_FROM_HUNGER( "badge_death_hunger", 27 ),
+		DEATH_FROM_GLYPH( "badge_death_glyph", 57 ),
+		DEATH_FROM_FALLING( "badge_death_falling", 59 ),
+		YASD( "badge_death_yasd", 34, true ),
 		BOSS_SLAIN_1_WARRIOR,
 		BOSS_SLAIN_1_MAGE,
 		BOSS_SLAIN_1_ROGUE,
 		BOSS_SLAIN_1_HUNTRESS,
-		BOSS_SLAIN_1( "1st boss slain", 12, 5 ),
-		BOSS_SLAIN_2( "2nd boss slain", 13, 10 ),
-		BOSS_SLAIN_3( "3rd boss slain", 14, 15 ),
-		BOSS_SLAIN_4( "4th boss slain", 15, 20 ),
-		BOSS_SLAIN_1_ALL_CLASSES( "1st boss slain by Warrior, Mage, Rogue & Huntress", 32, true ),
+		BOSS_SLAIN_1( "badge_boss_1", 12, 5 ),
+		BOSS_SLAIN_2( "badge_boss_2", 13, 10 ),
+		BOSS_SLAIN_3( "badge_boss_3", 14, 15 ),
+		BOSS_SLAIN_4( "badge_boss_4", 15, 20 ),
+		BOSS_SLAIN_1_ALL_CLASSES( "badge_boss_1_all", 32, true ),
 		BOSS_SLAIN_3_GLADIATOR,
 		BOSS_SLAIN_3_BERSERKER,
 		BOSS_SLAIN_3_WARLOCK,
@@ -95,58 +96,56 @@ public class Badges {
 		BOSS_SLAIN_3_ASSASSIN,
 		BOSS_SLAIN_3_SNIPER,
 		BOSS_SLAIN_3_WARDEN,
-		BOSS_SLAIN_3_ALL_SUBCLASSES( 
-			"3rd boss slain by Gladiator, Berserker, Warlock, Battlemage, " +
-			"Freerunner, Assassin, Sniper & Warden", 33, true ),
-		RING_OF_HAGGLER( "Ring of Haggler obtained", 20 ),
-		RING_OF_THORNS( "Ring of Thorns obtained", 21 ),
-		STRENGTH_ATTAINED_1( "13 points of Strength attained", 40, 13 ),
-		STRENGTH_ATTAINED_2( "15 points of Strength attained", 41, 15 ),
-		STRENGTH_ATTAINED_3( "17 points of Strength attained", 42, 17 ),
-		STRENGTH_ATTAINED_4( "19 points of Strength attained", 43, 19 ),
-		FOOD_EATEN_1( "10 pieces of food eaten", 44, 10 ),
-		FOOD_EATEN_2( "20 pieces of food eaten", 45, 20 ),
-		FOOD_EATEN_3( "30 pieces of food eaten", 46, 30 ),
-		FOOD_EATEN_4( "40 pieces of food eaten", 47, 40 ),
+		BOSS_SLAIN_3_ALL_SUBCLASSES("badge_boss_3_all", 33, true ),
+		RING_OF_HAGGLER( "badge_ring_haggler", 20 ),
+		RING_OF_THORNS( "badge_ring_thorns", 21 ),
+		STRENGTH_ATTAINED_1( "badge_strength_attained", 40, 13 ),
+		STRENGTH_ATTAINED_2( "badge_strength_attained", 41, 15 ),
+		STRENGTH_ATTAINED_3( "badge_strength_attained", 42, 17 ),
+		STRENGTH_ATTAINED_4( "badge_strength_attained", 43, 19 ),
+		FOOD_EATEN_1( "badge_food_eaten", 44, 10 ),
+		FOOD_EATEN_2( "badge_food_eaten", 45, 20 ),
+		FOOD_EATEN_3( "badge_food_eaten", 46, 30 ),
+		FOOD_EATEN_4( "badge_food_eaten", 47, 40 ),
 		MASTERY_WARRIOR,
 		MASTERY_MAGE,
 		MASTERY_ROGUE,
 		MASTERY_HUNTRESS,
-		ITEM_LEVEL_1( "Item of level 3 acquired", 48, 3 ),
-		ITEM_LEVEL_2( "Item of level 6 acquired", 49, 6 ),
-		ITEM_LEVEL_3( "Item of level 9 acquired", 50, 9 ),
-		ITEM_LEVEL_4( "Item of level 12 acquired", 51, 12 ),
+		ITEM_LEVEL_1( "badge_item_level", 48, 3 ),
+		ITEM_LEVEL_2( "badge_item_level", 49, 6 ),
+		ITEM_LEVEL_3( "badge_item_level", 50, 9 ),
+		ITEM_LEVEL_4( "badge_item_level", 51, 12 ),
 		RARE_ALBINO,
 		RARE_BANDIT,
 		RARE_SHIELDED,
 		RARE_SENIOR,
 		RARE_ACIDIC,
-		RARE( "All rare monsters slain", 37, true ),
+		RARE( "badge_all_rare", 37, true ),
 		VICTORY_WARRIOR,
 		VICTORY_MAGE,
 		VICTORY_ROGUE,
 		VICTORY_HUNTRESS,
-		VICTORY( "Amulet of Yendor obtained", 22 ),
-		VICTORY_ALL_CLASSES( "Amulet of Yendor obtained by Warrior, Mage, Rogue & Huntress", 36, true ),
-		MASTERY_COMBO( "7-hit combo", 56, 7 ),
-		POTIONS_COOKED_1( "3 potions cooked", 52, 3 ),
-		POTIONS_COOKED_2( "6 potions cooked", 53, 6 ),
-		POTIONS_COOKED_3( "9 potions cooked", 54, 9 ),
-		POTIONS_COOKED_4( "12 potions cooked", 55, 12 ),
-		NO_MONSTERS_SLAIN( "Level completed without killing any monsters", 28 ),
-		GRIM_WEAPON( "Monster killed by a Grim weapon", 29 ),
-		PIRANHAS( "6 piranhas killed", 30, 6 ),
-		NIGHT_HUNTER( "15 monsters killed at nighttime", 58, 15 ),
-		GAMES_PLAYED_1( "10 games played", 60, 10, true ),
-		GAMES_PLAYED_2( "100 games played", 61, 100, true ),
-		GAMES_PLAYED_3( "500 games played", 62, 500, true ),
-		GAMES_PLAYED_4( "2000 games played", 63, 2000, true ),
-		HAPPY_END( "Happy end", 38 ),
-		SUPPORTER( "Thanks for your support!", 31, true );
+		VICTORY( "badge_victory", 22 ),
+		VICTORY_ALL_CLASSES( "badge_victory_all", 36, true ),
+		MASTERY_COMBO( "badge_combo_mastery", 56, 7 ),
+		POTIONS_COOKED_1( "badge_potions_cooked", 52, 3 ),
+		POTIONS_COOKED_2( "badge_potions_cooked", 53, 6 ),
+		POTIONS_COOKED_3( "badge_potions_cooked", 54, 9 ),
+		POTIONS_COOKED_4( "badge_potions_cooked", 55, 12 ),
+		NO_MONSTERS_SLAIN( "badge_no_monsters_slain", 28 ),
+		GRIM_WEAPON( "badge_grim_weapon", 29 ),
+		PIRANHAS( "badge_piranhas", 30, 6 ),
+		NIGHT_HUNTER( "badge_night_hunter", 58, 15 ),
+		GAMES_PLAYED_1( "badge_games_played", 60, 10, true ),
+		GAMES_PLAYED_2( "badge_games_played", 61, 100, true ),
+		GAMES_PLAYED_3( "badge_games_played", 62, 500, true ),
+		GAMES_PLAYED_4( "badge_games_played", 63, 2000, true ),
+		HAPPY_END( "badge_happy_end", 38 ),
+		SUPPORTER( "badge_supporter", 31, true );
 
 		public final boolean meta;
 		
-		public final String description;
+		private final String description;
 		public final int image;
 		/** Used to calculate against some attribute to award this badge, and for I18N purposes **/
 		public final int amount;
@@ -172,6 +171,14 @@ public class Badges {
 		
 		private Badge() {
 			this( "", -1, -1 );
+		}
+
+		public String getDescription() {
+			if (description.length() == 0) {
+				return description;
+			}
+			final I18NBundle i18nBundle = Game.instance.getI18nBundle();
+			return amount >= 0 ? i18nBundle.format(description, amount) : i18nBundle.get(description);
 		}
 	}
 	
@@ -688,7 +695,7 @@ public class Badges {
 		if (global.contains( badge )) {
 			
 			if (!badge.meta) {
-				GLog.h( "Badge endorsed: %s", badge.description );
+				GLog.h( "Badge endorsed: %s", badge.getDescription() );
 			}
 			
 		} else {
@@ -697,9 +704,9 @@ public class Badges {
 			saveNeeded = true;
 			
 			if (badge.meta) {
-				GLog.h( "New super badge: %s", badge.description );
+				GLog.h( "New super badge: %s", badge.getDescription() );
 			} else {
-				GLog.h( "New badge: %s", badge.description );
+				GLog.h( "New badge: %s", badge.getDescription() );
 			}	
 			PixelScene.showBadge( badge );
 		}

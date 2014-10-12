@@ -32,7 +32,7 @@ import com.watabou.pixeldungeon.ui.Window;
 
 public class BadgesScene extends PixelScene {
 	
-	private static final String TXT_TITLE = "Your Badges";
+	private static final String TXT_TITLE = "badges_title";
 	
 	@Override
 	public void create() {
@@ -60,7 +60,7 @@ public class BadgesScene extends PixelScene {
 		panel.y = (h - ph) / 2;
 		add( panel );
 		
-		BitmapText title = PixelScene.createText( TXT_TITLE, 9 );
+		BitmapText title = PixelScene.createText(tr(TXT_TITLE), 9);
 		title.hardlight( Window.TITLE_COLOR );
 		title.measure();
 		title.x = align( (w - title.width()) / 2 );
