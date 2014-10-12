@@ -485,7 +485,7 @@ public class Hero extends Char {
 			
 		} else {
 			if (Dungeon.level.map[pos] == Terrain.SIGN) {
-				GameScene.show( new WndMessage( Dungeon.tip() ) );
+				GameScene.show(new WndMessage(tr(Dungeon.tip())));
 			}
 			ready();
 		}
