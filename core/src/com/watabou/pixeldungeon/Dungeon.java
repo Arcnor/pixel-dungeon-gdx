@@ -322,20 +322,20 @@ public class Dungeon {
 	private static final String RN_GAME_FILE	= "ranger.dat";
 	private static final String RN_DEPTH_FILE	= "ranger%d.dat";
 	
-	private static final String VERSION		= "version";
-	private static final String HERO		= "hero";
-	private static final String GOLD		= "gold";
-	private static final String DEPTH		= "depth";
-	private static final String QUICKSLOT	= "quickslot";
-	private static final String LEVEL		= "level";
-	private static final String POS			= "potionsOfStrength";
-	private static final String SOU			= "scrollsOfEnhancement";
-	private static final String AS			= "arcaneStyli";
-	private static final String DV			= "dewVial";
-	private static final String WT			= "transmutation";
-	private static final String CHAPTERS	= "chapters";
-	private static final String QUESTS		= "quests";
-	private static final String BADGES		= "badges";
+	private static final String BUNDLE_KEY_VERSION = "version";
+	private static final String BUNDLE_KEY_HERO = "hero";
+	private static final String BUNDLE_KEY_GOLD = "gold";
+	private static final String BUNDLE_KEY_DEPTH = "depth";
+	private static final String BUNDLE_KEY_QUICKSLOT = "quickslot";
+	private static final String BUNDLE_KEY_LEVEL = "level";
+	private static final String BUNDLE_KEY_POS = "potionsOfStrength";
+	private static final String BUNDLE_KEY_SOU = "scrollsOfEnhancement";
+	private static final String BUNDLE_KEY_AS = "arcaneStyli";
+	private static final String BUNDLE_KEY_DV = "dewVial";
+	private static final String BUNDLE_KEY_WT = "transmutation";
+	private static final String BUNDLE_KEY_CHAPTERS = "chapters";
+	private static final String BUNDLE_KEY_QUESTS = "quests";
+	private static final String BUNDLE_KEY_BADGES = "badges";
 	
 	public static String gameFile( HeroClass cl ) {
 		switch (cl) {
@@ -367,30 +367,30 @@ public class Dungeon {
 		try {
 			Bundle bundle = new Bundle();
 			
-			bundle.put( VERSION, Game.version );
-			bundle.put( HERO, hero );
-			bundle.put( GOLD, gold );
-			bundle.put( DEPTH, depth );
+			bundle.put(BUNDLE_KEY_VERSION, Game.version );
+			bundle.put(BUNDLE_KEY_HERO, hero );
+			bundle.put(BUNDLE_KEY_GOLD, gold );
+			bundle.put(BUNDLE_KEY_DEPTH, depth );
 			
-			bundle.put( POS, potionOfStrength );
-			bundle.put( SOU, scrollsOfUpgrade );
-			bundle.put( AS, arcaneStyli );
-			bundle.put( DV, dewVial );
-			bundle.put( WT, transmutation );
+			bundle.put(BUNDLE_KEY_POS, potionOfStrength );
+			bundle.put(BUNDLE_KEY_SOU, scrollsOfUpgrade );
+			bundle.put(BUNDLE_KEY_AS, arcaneStyli );
+			bundle.put(BUNDLE_KEY_DV, dewVial );
+			bundle.put(BUNDLE_KEY_WT, transmutation );
 			
 			int count = 0;
 			int ids[] = new int[chapters.size()];
 			for (Integer id : chapters) {
 				ids[count++] = id;
 			}
-			bundle.put( CHAPTERS, ids );
+			bundle.put(BUNDLE_KEY_CHAPTERS, ids );
 			
 			Bundle quests = new Bundle();
 			Ghost		.Quest.storeInBundle( quests );
 			Wandmaker	.Quest.storeInBundle( quests );
 			Blacksmith	.Quest.storeInBundle( quests );
 			Imp			.Quest.storeInBundle( quests );
-			bundle.put( QUESTS, quests );
+			bundle.put(BUNDLE_KEY_QUESTS, quests );
 			
 			Room.storeRoomsInBundle( bundle );
 			
@@ -398,7 +398,7 @@ public class Dungeon {
 			Journal.storeInBundle( bundle );
 			
 			if (quickslot instanceof Class) {
-				bundle.put( QUICKSLOT, ((Class<?>)quickslot).getName() );
+				bundle.put(BUNDLE_KEY_QUICKSLOT, ((Class<?>)quickslot).getName() );
 			}
 			
 			Scroll.save( bundle );
@@ -408,7 +408,7 @@ public class Dungeon {
 			
 			Bundle badges = new Bundle();
 			Badges.saveLocal( badges );
-			bundle.put( BADGES, badges );
+			bundle.put(BUNDLE_KEY_BADGES, badges );
 			
 			OutputStream output = Game.instance.openFileOutput( fileName );
 			Bundle.write( bundle, output );
@@ -422,7 +422,7 @@ public class Dungeon {
 	
 	public static void saveLevel() throws IOException {
 		Bundle bundle = new Bundle();
-		bundle.put( LEVEL, level );
+		bundle.put(BUNDLE_KEY_LEVEL, level );
 		
 		OutputStream output = Game.instance.openFileOutput( 
 			Utils.format( depthFile( hero.heroClass ), depth ) );
@@ -475,22 +475,22 @@ public class Dungeon {
 		Wand.restore( bundle );
 		Ring.restore( bundle );
 		
-		potionOfStrength = bundle.getInt( POS );
-		scrollsOfUpgrade = bundle.getInt( SOU );
-		arcaneStyli = bundle.getInt( AS );
-		dewVial = bundle.getBoolean( DV );
-		transmutation = bundle.getInt( WT );
+		potionOfStrength = bundle.getInt(BUNDLE_KEY_POS);
+		scrollsOfUpgrade = bundle.getInt(BUNDLE_KEY_SOU);
+		arcaneStyli = bundle.getInt(BUNDLE_KEY_AS);
+		dewVial = bundle.getBoolean(BUNDLE_KEY_DV);
+		transmutation = bundle.getInt(BUNDLE_KEY_WT);
 		
 		if (fullLoad) {
 			chapters = new HashSet<Integer>();
-			int ids[] = bundle.getIntArray( CHAPTERS );
+			int ids[] = bundle.getIntArray(BUNDLE_KEY_CHAPTERS);
 			if (ids != null) {
 				for (int id : ids) {
 					chapters.add( id );
 				}
 			}
 			
-			Bundle quests = bundle.getBundle( QUESTS );
+			Bundle quests = bundle.getBundle(BUNDLE_KEY_QUESTS);
 			if (!quests.isNull()) {
 				Ghost.Quest.restoreFromBundle( quests );
 				Wandmaker.Quest.restoreFromBundle( quests );
@@ -506,14 +506,14 @@ public class Dungeon {
 			Room.restoreRoomsFromBundle( bundle );
 		}
 		
-		Bundle badges = bundle.getBundle( BADGES );
+		Bundle badges = bundle.getBundle(BUNDLE_KEY_BADGES);
 		if (!badges.isNull()) {
 			Badges.loadLocal( badges );
 		} else {
 			Badges.reset();
 		}
 		
-		String qsClass = bundle.getString( QUICKSLOT );
+		String qsClass = bundle.getString(BUNDLE_KEY_QUICKSLOT);
 		if (qsClass != null) {
 			try {
 				quickslot = Class.forName( qsClass );
@@ -524,13 +524,13 @@ public class Dungeon {
 		}
 		
 		@SuppressWarnings("unused")
-		String version = bundle.getString( VERSION );
+		String version = bundle.getString(BUNDLE_KEY_VERSION);
 		
 		hero = null;
-		hero = (Hero)bundle.get( HERO );
+		hero = (Hero)bundle.get(BUNDLE_KEY_HERO);
 		
-		gold = bundle.getInt( GOLD );
-		depth = bundle.getInt( DEPTH );
+		gold = bundle.getInt(BUNDLE_KEY_GOLD);
+		depth = bundle.getInt(BUNDLE_KEY_DEPTH);
 		
 		Statistics.restoreFromBundle( bundle );
 		Journal.restoreFromBundle( bundle );
@@ -545,7 +545,7 @@ public class Dungeon {
 		Bundle bundle = Bundle.read( input );
 		input.close();
 		
-		return (Level)bundle.get( "level" );
+		return (Level)bundle.get(BUNDLE_KEY_LEVEL);
 	}
 	
 	public static void deleteGame( HeroClass cl, boolean deleteLevels ) {
@@ -572,11 +572,11 @@ public class Dungeon {
 	}
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
-		info.depth = bundle.getInt( DEPTH );
+		info.depth = bundle.getInt(BUNDLE_KEY_DEPTH);
 		if (info.depth == -1) {
 			info.depth = bundle.getInt( "maxDepth" );	// <-- It has to be refactored!
 		}
-		Hero.preview( info, bundle.getBundle( HERO ) );
+		Hero.preview( info, bundle.getBundle(BUNDLE_KEY_HERO) );
 	}
 	
 	public static void fail( String desc ) {

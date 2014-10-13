@@ -102,17 +102,17 @@ public class Gold extends Item {
 		return this;
 	}
 	
-	private static final String VALUE	= "value";
+	private static final String BUNDLE_KEY_VALUE = "value";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( VALUE, quantity );
+		bundle.put(BUNDLE_KEY_VALUE, quantity);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
-		quantity = bundle.getInt( VALUE );
+		quantity = bundle.getInt(BUNDLE_KEY_VALUE);
 	}
 }

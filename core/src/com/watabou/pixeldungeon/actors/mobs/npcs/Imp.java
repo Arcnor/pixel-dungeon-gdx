@@ -171,41 +171,41 @@ public class Imp extends Mob.NPC {
 			reward = null;
 		}
 		
-		private static final String NODE		= "demon";
+		private static final String BUNDLE_KEY_NODE = "demon";
 		
-		private static final String ALTERNATIVE	= "alternative";
-		private static final String SPAWNED		= "spawned";
-		private static final String GIVEN		= "given";
-		private static final String COMPLETED	= "completed";
-		private static final String REWARD		= "reward";
+		private static final String BUNDLE_KEY_ALTERNATIVE = "alternative";
+		private static final String BUNDLE_KEY_SPAWNED = "spawned";
+		private static final String BUNDLE_KEY_GIVEN = "given";
+		private static final String BUNDLE_KEY_COMPLETED = "completed";
+		private static final String BUNDLE_KEY_REWARD = "reward";
 		
 		public static void storeInBundle( Bundle bundle ) {
 			
 			Bundle node = new Bundle();
-			
-			node.put( SPAWNED, spawned );
-			
+
+			node.put(BUNDLE_KEY_SPAWNED, spawned);
+
 			if (spawned) {
-				node.put( ALTERNATIVE, alternative );
-				
-				node.put( GIVEN, given );
-				node.put( COMPLETED, completed );
-				node.put( REWARD, reward );
+				node.put(BUNDLE_KEY_ALTERNATIVE, alternative);
+
+				node.put(BUNDLE_KEY_GIVEN, given);
+				node.put(BUNDLE_KEY_COMPLETED, completed);
+				node.put(BUNDLE_KEY_REWARD, reward);
 			}
-			
-			bundle.put( NODE, node );
+
+			bundle.put(BUNDLE_KEY_NODE, node);
 		}
 		
 		public static void restoreFromBundle( Bundle bundle ) {
 
-			Bundle node = bundle.getBundle( NODE );
+			Bundle node = bundle.getBundle(BUNDLE_KEY_NODE);
 			
-			if (!node.isNull() && (spawned = node.getBoolean( SPAWNED ))) {
-				alternative	= node.getBoolean( ALTERNATIVE );
+			if (!node.isNull() && (spawned = node.getBoolean(BUNDLE_KEY_SPAWNED))) {
+				alternative	= node.getBoolean(BUNDLE_KEY_ALTERNATIVE);
 				
-				given = node.getBoolean( GIVEN );
-				completed = node.getBoolean( COMPLETED );
-				reward = (Ring)node.get( REWARD );
+				given = node.getBoolean(BUNDLE_KEY_GIVEN);
+				completed = node.getBoolean(BUNDLE_KEY_COMPLETED);
+				reward = (Ring)node.get(BUNDLE_KEY_REWARD);
 			}
 		}
 		

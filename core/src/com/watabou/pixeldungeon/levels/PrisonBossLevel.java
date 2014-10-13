@@ -62,27 +62,27 @@ public class PrisonBossLevel extends RegularLevel {
 		return Assets.WATER_PRISON;
 	}
 	
-	private static final String ARENA	= "arena";
-	private static final String DOOR	= "door";
-	private static final String ENTERED	= "entered";
-	private static final String DROPPED	= "droppped";
+	private static final String BUNDLE_KEY_ARENA = "arena";
+	private static final String BUNDLE_KEY_DOOR = "door";
+	private static final String BUNDLE_KEY_ENTERED = "entered";
+	private static final String BUNDLE_KEY_DROPPED = "droppped";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( ARENA, roomExit );
-		bundle.put( DOOR, arenaDoor );
-		bundle.put( ENTERED, enteredArena );
-		bundle.put( DROPPED, keyDropped );
+		bundle.put(BUNDLE_KEY_ARENA, roomExit);
+		bundle.put(BUNDLE_KEY_DOOR, arenaDoor);
+		bundle.put(BUNDLE_KEY_ENTERED, enteredArena);
+		bundle.put(BUNDLE_KEY_DROPPED, keyDropped);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		roomExit = (Room)bundle.get( ARENA );
-		arenaDoor = bundle.getInt( DOOR );
-		enteredArena = bundle.getBoolean( ENTERED );
-		keyDropped = bundle.getBoolean( DROPPED );
+		roomExit = (Room)bundle.get(BUNDLE_KEY_ARENA);
+		arenaDoor = bundle.getInt(BUNDLE_KEY_DOOR);
+		enteredArena = bundle.getBoolean(BUNDLE_KEY_ENTERED);
+		keyDropped = bundle.getBoolean(BUNDLE_KEY_DROPPED);
 	}
 	
 	@Override

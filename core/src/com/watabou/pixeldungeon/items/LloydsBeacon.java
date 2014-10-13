@@ -66,23 +66,23 @@ public class LloydsBeacon extends Item {
 		unique = true;
 	}
 	
-	private static final String DEPTH	= "depth";
-	private static final String POS		= "pos";
+	private static final String BUNDLE_KEY_DEPTH = "depth";
+	private static final String BUNDLE_KEY_POS = "pos";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( DEPTH, returnDepth );
+		bundle.put(BUNDLE_KEY_DEPTH, returnDepth);
 		if (returnDepth != -1) {
-			bundle.put( POS, returnPos );
+			bundle.put(BUNDLE_KEY_POS, returnPos);
 		}
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
-		returnDepth	= bundle.getInt( DEPTH );
-		returnPos	= bundle.getInt( POS );
+		returnDepth	= bundle.getInt(BUNDLE_KEY_DEPTH);
+		returnPos	= bundle.getInt(BUNDLE_KEY_POS);
 	}
 	
 	@Override

@@ -82,17 +82,17 @@ public abstract class Mob extends Char {
 		}
 	};
 	
-	private static final String STATE	= "state";
-	private static final String TARGET	= "target";
+	private static final String BUNDLE_KEY_STATE = "state";
+	private static final String BUNDLE_KEY_TARGET = "target";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		
 		super.storeInBundle( bundle );
-		
-		bundle.put( STATE, state.toString() );
+
+		bundle.put(BUNDLE_KEY_STATE, state.toString());
 		if (state != State.SLEEPING) {
-			bundle.put( TARGET, target );
+			bundle.put(BUNDLE_KEY_TARGET, target);
 		}
 	}
 	
@@ -101,9 +101,9 @@ public abstract class Mob extends Char {
 		
 		super.restoreFromBundle( bundle );
 		
-		state = State.valueOf( bundle.getString( STATE ) );
+		state = State.valueOf( bundle.getString(BUNDLE_KEY_STATE) );
 		if (state != State.SLEEPING) {
-			target = bundle.getInt( TARGET );
+			target = bundle.getInt(BUNDLE_KEY_TARGET);
 		}
 	}
 	

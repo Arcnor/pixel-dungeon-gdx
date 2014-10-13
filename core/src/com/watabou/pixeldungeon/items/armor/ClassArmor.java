@@ -65,21 +65,21 @@ abstract public class ClassArmor extends Armor {
 		return classArmor;
 	}
 	
-	private static final String ARMOR_STR	= "STR";
-	private static final String ARMOR_DR	= "DR";
+	private static final String BUNDLE_KEY_ARMOR_STR = "STR";
+	private static final String BUNDLE_KEY_ARMOR_DR = "DR";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( ARMOR_STR, STR );
-		bundle.put( ARMOR_DR, DR );
+		bundle.put(BUNDLE_KEY_ARMOR_STR, STR);
+		bundle.put(BUNDLE_KEY_ARMOR_DR, DR);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		STR = bundle.getInt( ARMOR_STR );
-		DR = bundle.getInt( ARMOR_DR );
+		STR = bundle.getInt(BUNDLE_KEY_ARMOR_STR);
+		DR = bundle.getInt(BUNDLE_KEY_ARMOR_DR);
 	}
 	
 	@Override

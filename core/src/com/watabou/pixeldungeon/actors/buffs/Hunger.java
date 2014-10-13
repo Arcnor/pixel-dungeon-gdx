@@ -25,7 +25,6 @@ import com.watabou.pixeldungeon.actors.hero.HeroClass;
 import com.watabou.pixeldungeon.items.rings.RingOfSatiety;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
-import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
@@ -44,18 +43,18 @@ public class Hunger extends Buff implements Hero.Doom {
 	
 	private float level;
 
-	private static final String LEVEL	= "level";
+	private static final String BUNDLE_KEY_LEVEL = "level";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( LEVEL, level );
+		bundle.put(BUNDLE_KEY_LEVEL, level);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		level = bundle.getFloat( LEVEL );
+		level = bundle.getFloat(BUNDLE_KEY_LEVEL);
 	}
 	
 	@Override

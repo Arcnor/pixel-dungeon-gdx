@@ -29,7 +29,6 @@ import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
-import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
@@ -84,19 +83,19 @@ public class Viscosity extends Glyph {
 		
 		protected int damage = 0;
 		
-		private static final String DAMAGE	= "damage";
+		private static final String BUNDLE_KEY_DAMAGE = "damage";
 		
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 			super.storeInBundle( bundle );
-			bundle.put( DAMAGE, damage );
+			bundle.put(BUNDLE_KEY_DAMAGE, damage);
 			
 		}
 		
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );
-			damage = bundle.getInt( DAMAGE );
+			damage = bundle.getInt(BUNDLE_KEY_DAMAGE);
 		}
 		
 		@Override

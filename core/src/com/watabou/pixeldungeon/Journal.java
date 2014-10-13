@@ -46,8 +46,8 @@ public class Journal {
 	
 	public static class Record implements Comparable<Record>, Bundlable {
 		
-		private static final String FEATURE	= "feature";
-		private static final String DEPTH	= "depth";
+		private static final String BUNDLE_KEY_FEATURE = "feature";
+		private static final String BUNDLE_KEY_DEPTH = "depth";
 		
 		public Feature feature;
 		public int depth;
@@ -67,14 +67,14 @@ public class Journal {
 
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
-			feature = Feature.valueOf( bundle.getString( FEATURE ) );
-			depth = bundle.getInt( DEPTH );
+			feature = Feature.valueOf( bundle.getString(BUNDLE_KEY_FEATURE) );
+			depth = bundle.getInt(BUNDLE_KEY_DEPTH);
 		}
 
 		@Override
 		public void storeInBundle( Bundle bundle ) {
-			bundle.put( FEATURE, feature.toString() );
-			bundle.put( DEPTH, depth );
+			bundle.put(BUNDLE_KEY_FEATURE, feature.toString());
+			bundle.put(BUNDLE_KEY_DEPTH, depth);
 		}
 	}
 	

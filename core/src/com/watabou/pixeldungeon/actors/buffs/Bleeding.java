@@ -22,7 +22,6 @@ import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.effects.Splash;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
-import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
@@ -33,19 +32,19 @@ public class Bleeding extends Buff {
 	
 	protected int level;
 	
-	private static final String LEVEL	= "level";
+	private static final String BUNDLE_KEY_LEVEL = "level";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( LEVEL, level );
+		bundle.put(BUNDLE_KEY_LEVEL, level);
 		
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		level = bundle.getInt( LEVEL );
+		level = bundle.getInt(BUNDLE_KEY_LEVEL);
 	}
 	
 	public void set( int level ) {

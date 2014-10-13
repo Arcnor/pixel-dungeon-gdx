@@ -37,7 +37,7 @@ import org.json.JSONTokener;
 
 public class Bundle {
 
-	private static final String CLASS_NAME = "__className";
+	private static final String BUNDLE_KEY_CLASS_NAME = "__className";
 	
 	private static HashMap<String,String> aliases = new HashMap<String, String>();
 	
@@ -81,7 +81,7 @@ public class Bundle {
 	
 	private Bundlable get() {
 		try {
-			String clName = getString( CLASS_NAME );
+			String clName = getString(BUNDLE_KEY_CLASS_NAME);
 			if (aliases.containsKey( clName )) {
 				clName = aliases.get( clName );
 			}
@@ -206,7 +206,7 @@ public class Bundle {
 		if (object != null) {
 			try {
 				Bundle bundle = new Bundle();
-				bundle.put( CLASS_NAME, object.getClass().getName() );
+				bundle.put(BUNDLE_KEY_CLASS_NAME, object.getClass().getName());
 				object.storeInBundle( bundle );
 				data.put( key, bundle.data );
 			} catch (JSONException e) {
@@ -254,7 +254,7 @@ public class Bundle {
 		JSONArray array = new JSONArray();
 		for (Bundlable object : collection) {
 			Bundle bundle = new Bundle();
-			bundle.put( CLASS_NAME, object.getClass().getName() );
+			bundle.put(BUNDLE_KEY_CLASS_NAME, object.getClass().getName() );
 			object.storeInBundle( bundle );
 			array.put( bundle.data );
 		}

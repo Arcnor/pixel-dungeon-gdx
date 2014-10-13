@@ -187,12 +187,12 @@ public class Hero extends Char {
 		return weakened ? STR - 2 : STR;
 	}
 
-	private static final String ATTACK		= "attackSkill";
-	private static final String DEFENSE		= "defenseSkill";
-	private static final String STRENGTH	= "STR";
-	private static final String LEVEL		= "lvl";
-	private static final String EXPERIENCE	= "exp";
-	
+	private static final String BUNDLE_KEY_ATTACK = "attackSkill";
+	private static final String BUNDLE_KEY_DEFENSE = "defenseSkill";
+	private static final String BUNDLE_KEY_STRENGTH = "STR";
+	private static final String BUNDLE_KEY_LEVEL = "lvl";
+	private static final String BUNDLE_KEY_EXPERIENCE = "exp";
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
@@ -200,13 +200,13 @@ public class Hero extends Char {
 		heroClass.storeInBundle( bundle );
 		subClass.storeInBundle( bundle );
 		
-		bundle.put( ATTACK, attackSkill );
-		bundle.put( DEFENSE, defenseSkill );
+		bundle.put(BUNDLE_KEY_ATTACK, attackSkill );
+		bundle.put(BUNDLE_KEY_DEFENSE, defenseSkill );
 		
-		bundle.put( STRENGTH, STR );
+		bundle.put(BUNDLE_KEY_STRENGTH, STR );
 		
-		bundle.put( LEVEL, lvl );
-		bundle.put( EXPERIENCE, exp );
+		bundle.put(BUNDLE_KEY_LEVEL, lvl );
+		bundle.put(BUNDLE_KEY_EXPERIENCE, exp );
 		
 		belongings.storeInBundle( bundle );
 	}
@@ -218,23 +218,23 @@ public class Hero extends Char {
 		heroClass = HeroClass.restoreInBundle( bundle );
 		subClass = HeroSubClass.restoreInBundle( bundle );
 		
-		attackSkill = bundle.getInt( ATTACK );
-		defenseSkill = bundle.getInt( DEFENSE );
+		attackSkill = bundle.getInt(BUNDLE_KEY_ATTACK);
+		defenseSkill = bundle.getInt(BUNDLE_KEY_DEFENSE);
 		
-		STR = bundle.getInt( STRENGTH );
+		STR = bundle.getInt(BUNDLE_KEY_STRENGTH);
 		updateAwareness();
 		
-		lvl = bundle.getInt( LEVEL );
-		exp = bundle.getInt( EXPERIENCE );
+		lvl = bundle.getInt(BUNDLE_KEY_LEVEL);
+		exp = bundle.getInt(BUNDLE_KEY_EXPERIENCE);
 		
 		belongings.restoreFromBundle( bundle );
 	}
 	
 	public static void preview( GamesInProgress.Info info, Bundle bundle ) {
 		// Refactoring needed!
-		Armor armor = (Armor)bundle.get( "armor" );
+		Armor armor = (Armor)bundle.get(Belongings.BUNDLE_KEY_ARMOR);
 		info.armor = armor == null ? 0 : armor.tier;
-		info.level = bundle.getInt( LEVEL );
+		info.level = bundle.getInt(BUNDLE_KEY_LEVEL);
 	}
 	
 	public String className() {

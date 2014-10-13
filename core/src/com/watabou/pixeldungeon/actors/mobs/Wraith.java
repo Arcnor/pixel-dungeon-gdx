@@ -48,18 +48,18 @@ public class Wraith extends Mob {
 		flying = true;
 	}
 	
-	private static final String LEVEL = "level";
+	private static final String BUNDLE_KEY_LEVEL = "level";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( LEVEL, level );
+		bundle.put(BUNDLE_KEY_LEVEL, level);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		level = bundle.getInt( LEVEL );
+		level = bundle.getInt(BUNDLE_KEY_LEVEL);
 		adjustStats( level );
 	}
 	

@@ -56,41 +56,41 @@ public class Statistics {
 		
 	}
 	
-	private static final String GOLD		= "score";
-	private static final String DEEPEST		= "maxDepth";
-	private static final String SLAIN		= "enemiesSlain";
-	private static final String FOOD		= "foodEaten";
-	private static final String ALCHEMY		= "potionsCooked";
-	private static final String PIRANHAS	= "priranhas";
-	private static final String NIGHT		= "nightHunt";
-	private static final String ANKHS		= "ankhsUsed";
-	private static final String DURATION	= "duration";
-	private static final String AMULET		= "amuletObtained";
+	private static final String BUNDLE_KEY_GOLD = "score";
+	private static final String BUNDLE_KEY_DEEPEST = "maxDepth";
+	private static final String BUNDLE_KEY_SLAIN = "enemiesSlain";
+	private static final String BUNDLE_KEY_FOOD = "foodEaten";
+	private static final String BUNDLE_KEY_ALCHEMY = "potionsCooked";
+	private static final String BUNDLE_KEY_PIRANHAS = "priranhas";
+	private static final String BUNDLE_KEY_NIGHT = "nightHunt";
+	private static final String BUNDLE_KEY_ANKHS = "ankhsUsed";
+	private static final String BUNDLE_KEY_DURATION = "duration";
+	private static final String BUNDLE_KEY_AMULET = "amuletObtained";
 	
 	public static void storeInBundle( Bundle bundle ) {
-		bundle.put( GOLD,		goldCollected );
-		bundle.put( DEEPEST,	deepestFloor );
-		bundle.put( SLAIN,		enemiesSlain );
-		bundle.put( FOOD,		foodEaten );
-		bundle.put( ALCHEMY,	potionsCooked );
-		bundle.put( PIRANHAS,	piranhasKilled );
-		bundle.put( NIGHT,		nightHunt );
-		bundle.put( ANKHS,		ankhsUsed );
-		bundle.put( DURATION,	duration );
-		bundle.put( AMULET,		amuletObtained );
+		bundle.put(BUNDLE_KEY_GOLD, goldCollected);
+		bundle.put(BUNDLE_KEY_DEEPEST, deepestFloor);
+		bundle.put(BUNDLE_KEY_SLAIN, enemiesSlain);
+		bundle.put(BUNDLE_KEY_FOOD, foodEaten);
+		bundle.put(BUNDLE_KEY_ALCHEMY, potionsCooked);
+		bundle.put(BUNDLE_KEY_PIRANHAS, piranhasKilled);
+		bundle.put(BUNDLE_KEY_NIGHT, nightHunt);
+		bundle.put(BUNDLE_KEY_ANKHS, ankhsUsed);
+		bundle.put(BUNDLE_KEY_DURATION, duration);
+		bundle.put(BUNDLE_KEY_AMULET, amuletObtained);
 	}
 	
 	public static void restoreFromBundle( Bundle bundle ) {
-		goldCollected	= bundle.getInt( GOLD );
-		deepestFloor	= bundle.getInt( DEEPEST );
-		enemiesSlain	= bundle.getInt( SLAIN );
-		foodEaten		= bundle.getInt( FOOD );
-		potionsCooked	= bundle.getInt( ALCHEMY );
-		piranhasKilled	= bundle.getInt( PIRANHAS );
-		nightHunt		= bundle.getInt( NIGHT );
-		ankhsUsed		= bundle.getInt( ANKHS );
-		duration		= bundle.getFloat( DURATION );
-		amuletObtained	= bundle.getBoolean( AMULET );
+		goldCollected = bundle.getInt(BUNDLE_KEY_GOLD);
+		deepestFloor = bundle.getInt(BUNDLE_KEY_DEEPEST);
+		enemiesSlain = bundle.getInt(BUNDLE_KEY_SLAIN);
+		foodEaten = bundle.getInt(BUNDLE_KEY_FOOD);
+		potionsCooked = bundle.getInt(BUNDLE_KEY_ALCHEMY);
+		piranhasKilled = bundle.getInt(BUNDLE_KEY_PIRANHAS);
+		nightHunt = bundle.getInt(BUNDLE_KEY_NIGHT);
+		ankhsUsed = bundle.getInt(BUNDLE_KEY_ANKHS);
+		duration = bundle.getFloat(BUNDLE_KEY_DURATION);
+		amuletObtained = bundle.getBoolean(BUNDLE_KEY_AMULET);
 	}
 
 }

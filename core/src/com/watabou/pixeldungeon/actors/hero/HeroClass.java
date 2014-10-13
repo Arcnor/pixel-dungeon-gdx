@@ -208,14 +208,14 @@ public enum HeroClass {
 		return null;
 	}
 
-	private static final String CLASS	= "class";
-	
-	public void storeInBundle( Bundle bundle ) {
-		bundle.put( CLASS, toString() );
+	private static final String BUNDLE_KEY_CLASS = "class";
+
+	public void storeInBundle(Bundle bundle) {
+		bundle.put(BUNDLE_KEY_CLASS, toString());
 	}
 	
 	public static HeroClass restoreInBundle( Bundle bundle ) {
-		String value = bundle.getString( CLASS );
+		String value = bundle.getString(BUNDLE_KEY_CLASS);
 		return value.length() > 0 ? valueOf( value ) : ROGUE;
 	}
 }

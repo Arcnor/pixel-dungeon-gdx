@@ -58,18 +58,18 @@ public class DewVial extends Item {
 	
 	private int volume = 0;
 	
-	private static final String VOLUME	= "volume";
+	private static final String BUNDLE_KEY_VOLUME = "volume";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( VOLUME, volume );
+		bundle.put(BUNDLE_KEY_VOLUME, volume);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		volume	= bundle.getInt( VOLUME );
+		volume	= bundle.getInt(BUNDLE_KEY_VOLUME);
 	}
 	
 	@Override

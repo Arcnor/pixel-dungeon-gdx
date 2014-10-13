@@ -34,9 +34,15 @@ import com.watabou.utils.Random;
 import com.watabou.utils.Rect;
 
 public class Room extends Rect implements Graph.Node, Bundlable {
-	
-	public HashSet<Room> neigbours = new HashSet<Room>();
-	public HashMap<Room, Door> connected = new HashMap<Room, Door>();
+
+	private static final String BUNDLE_KEY_LEFT = "left";
+	private static final String BUNDLE_KEY_TOP = "top";
+	private static final String BUNDLE_KEY_RIGHT = "right";
+	private static final String BUNDLE_KEY_BOTTOM = "bottom";
+	private static final String BUNDLE_KEY_TYPE = "type";
+
+	public final HashSet<Room> neigbours = new HashSet<Room>();
+	public final HashMap<Room, Door> connected = new HashMap<Room, Door>();
 	
 	public int distance;
 	public int price = 1;
@@ -166,20 +172,20 @@ public class Room extends Rect implements Graph.Node, Bundlable {
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {	
-		bundle.put( "left", left );
-		bundle.put( "top", top );
-		bundle.put( "right", right );
-		bundle.put( "bottom", bottom );
-		bundle.put( "type", type.toString() );
+		bundle.put(BUNDLE_KEY_LEFT, left );
+		bundle.put(BUNDLE_KEY_TOP, top );
+		bundle.put(BUNDLE_KEY_RIGHT, right );
+		bundle.put(BUNDLE_KEY_BOTTOM, bottom );
+		bundle.put(BUNDLE_KEY_TYPE, type.toString() );
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
-		left = bundle.getInt( "left" );
-		top = bundle.getInt( "top" );
-		right = bundle.getInt( "right" );
-		bottom = bundle.getInt( "bottom" );		
-		type = Type.valueOf( bundle.getString( "type" ) );
+		left = bundle.getInt(BUNDLE_KEY_LEFT);
+		top = bundle.getInt(BUNDLE_KEY_TOP);
+		right = bundle.getInt(BUNDLE_KEY_RIGHT);
+		bottom = bundle.getInt(BUNDLE_KEY_BOTTOM);
+		type = Type.valueOf( bundle.getString(BUNDLE_KEY_TYPE) );
 	}
 	
 	public static void shuffleTypes() {

@@ -62,18 +62,18 @@ public class King extends Mob {
 	
 	private boolean nextPedestal = true;
 	
-	private static final String PEDESTAL = "pedestal";
+	private static final String BUNDLE_KEY_PEDESTAL = "pedestal";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( PEDESTAL, nextPedestal );
+		bundle.put(BUNDLE_KEY_PEDESTAL, nextPedestal);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		nextPedestal = bundle.getBoolean( PEDESTAL );
+		nextPedestal = bundle.getBoolean(BUNDLE_KEY_PEDESTAL);
 	}
 	
 	@Override

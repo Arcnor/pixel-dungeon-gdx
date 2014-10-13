@@ -56,19 +56,19 @@ public class Belongings implements Iterable<Item> {
 		backpack.owner = owner;
 	}
 	
-	private static final String WEAPON		= "weapon";
-	private static final String ARMOR		= "armor";
-	private static final String RING1		= "ring1";
-	private static final String RING2		= "ring2";
+	private static final String BUNDLE_KEY_WEAPON = "weapon";
+	public static final String BUNDLE_KEY_ARMOR = "armor";
+	private static final String BUNDLE_KEY_RING1 = "ring1";
+	private static final String BUNDLE_KEY_RING2 = "ring2";
 	
 	public void storeInBundle( Bundle bundle ) {
 		
 		backpack.storeInBundle( bundle );
 		
-		bundle.put( WEAPON, weapon );
-		bundle.put( ARMOR, armor );
-		bundle.put( RING1, ring1 );
-		bundle.put( RING2, ring2 );
+		bundle.put(BUNDLE_KEY_WEAPON, weapon );
+		bundle.put(BUNDLE_KEY_ARMOR, armor );
+		bundle.put(BUNDLE_KEY_RING1, ring1 );
+		bundle.put(BUNDLE_KEY_RING2, ring2 );
 	}
 	
 	public void restoreFromBundle( Bundle bundle ) {
@@ -76,19 +76,19 @@ public class Belongings implements Iterable<Item> {
 		backpack.clear();
 		backpack.restoreFromBundle( bundle );
 		
-		weapon = (KindOfWeapon)bundle.get( WEAPON );
+		weapon = (KindOfWeapon)bundle.get(BUNDLE_KEY_WEAPON);
 		if (weapon != null) {
 			weapon.activate( owner );
 		}
 		
-		armor = (Armor)bundle.get( ARMOR );
+		armor = (Armor)bundle.get(BUNDLE_KEY_ARMOR);
 		
-		ring1 = (Ring)bundle.get( RING1 );
+		ring1 = (Ring)bundle.get(BUNDLE_KEY_RING1);
 		if (ring1 != null) {
 			ring1.activate( owner );
 		}
 		
-		ring2 = (Ring)bundle.get( RING2 );
+		ring2 = (Ring)bundle.get(BUNDLE_KEY_RING2);
 		if (ring2 != null) {
 			ring2.activate( owner );
 		}

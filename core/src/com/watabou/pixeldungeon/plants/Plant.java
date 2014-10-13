@@ -77,16 +77,16 @@ public class Plant implements Bundlable {
 		}
 	}
 	
-	private static final String POS	= "pos";
+	private static final String BUNDLE_KEY_POS = "pos";
 
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
-		pos = bundle.getInt( POS );
+		pos = bundle.getInt(BUNDLE_KEY_POS);
 	}
 
 	@Override
-	public void storeInBundle( Bundle bundle ) {
-		bundle.put( POS, pos );
+	public void storeInBundle(Bundle bundle) {
+		bundle.put(BUNDLE_KEY_POS, pos);
 	}
 	
 	public String desc() {

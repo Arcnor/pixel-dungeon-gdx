@@ -53,18 +53,18 @@ public class Swarm extends Mob {
 	
 	int generation	= 0;
 	
-	private static final String GENERATION	= "generation";
+	private static final String BUNDLE_KEY_GENERATION = "generation";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( GENERATION, generation );
+		bundle.put(BUNDLE_KEY_GENERATION, generation);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		generation = bundle.getInt( GENERATION );
+		generation = bundle.getInt(BUNDLE_KEY_GENERATION);
 	}
 	
 	@Override

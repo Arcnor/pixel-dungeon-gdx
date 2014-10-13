@@ -62,24 +62,24 @@ public class HallsBossLevel extends Level {
 		return Assets.WATER_HALLS;
 	}
 	
-	private static final String STAIRS	= "stairs";
-	private static final String ENTERED	= "entered";
-	private static final String DROPPED	= "droppped";
+	private static final String BUNDLE_KEY_STAIRS = "stairs";
+	private static final String BUNDLE_KEY_ENTERED = "entered";
+	private static final String BUNDLE_KEY_DROPPED = "droppped";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( STAIRS, stairs );
-		bundle.put( ENTERED, enteredArena );
-		bundle.put( DROPPED, keyDropped );
+		bundle.put(BUNDLE_KEY_STAIRS, stairs);
+		bundle.put(BUNDLE_KEY_ENTERED, enteredArena);
+		bundle.put(BUNDLE_KEY_DROPPED, keyDropped);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		stairs = bundle.getInt( STAIRS );
-		enteredArena = bundle.getBoolean( ENTERED );
-		keyDropped = bundle.getBoolean( DROPPED );
+		stairs = bundle.getInt(BUNDLE_KEY_STAIRS);
+		enteredArena = bundle.getBoolean(BUNDLE_KEY_ENTERED);
+		keyDropped = bundle.getBoolean(BUNDLE_KEY_DROPPED);
 	}
 	
 	@Override

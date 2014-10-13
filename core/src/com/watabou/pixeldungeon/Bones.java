@@ -32,8 +32,8 @@ public class Bones {
 
 	private static final String BONES_FILE	= "bones.dat";
 	
-	private static final String LEVEL	= "level";
-	private static final String ITEM	= "item";
+	private static final String BUNDLE_KEY_LEVEL = "level";
+	private static final String BUNDLE_KEY_ITEM = "item";
 	
 	private static int depth = -1;
 	private static Item item;
@@ -66,8 +66,8 @@ public class Bones {
 		depth = Dungeon.depth;
 		
 		Bundle bundle = new Bundle();
-		bundle.put( LEVEL, depth );
-		bundle.put( ITEM, item );
+		bundle.put(BUNDLE_KEY_LEVEL, depth );
+		bundle.put(BUNDLE_KEY_ITEM, item );
 		
 		try {
 			OutputStream output = Game.instance.openFileOutput( BONES_FILE );
@@ -86,8 +86,8 @@ public class Bones {
 				Bundle bundle = Bundle.read( input );
 				input.close();
 				
-				depth = bundle.getInt( LEVEL );
-				item = (Item)bundle.get( ITEM );
+				depth = bundle.getInt(BUNDLE_KEY_LEVEL);
+				item = (Item)bundle.get(BUNDLE_KEY_ITEM);
 				
 				return get();
 				

@@ -43,18 +43,18 @@ public class Key extends Item {
 		return key;
 	}
 	
-	private static final String DEPTH = "depth";
+	private static final String BUNDLE_KEY_DEPTH = "depth";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( DEPTH, depth );
+		bundle.put(BUNDLE_KEY_DEPTH, depth);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		depth = bundle.getInt( DEPTH );
+		depth = bundle.getInt(BUNDLE_KEY_DEPTH);
 	}
 	
 	@Override

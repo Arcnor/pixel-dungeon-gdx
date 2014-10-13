@@ -150,20 +150,20 @@ public class Pickaxe extends Weapon {
 		}
 	}
 	
-	private static final String BLOODSTAINED = "bloodStained";
+	private static final String BUNDLE_KEY_BLOODSTAINED = "bloodStained";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		
-		bundle.put( BLOODSTAINED, bloodStained );
+
+		bundle.put(BUNDLE_KEY_BLOODSTAINED, bloodStained);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
 		
-		bloodStained = bundle.getBoolean( BLOODSTAINED );
+		bloodStained = bundle.getBoolean(BUNDLE_KEY_BLOODSTAINED);
 	}
 	
 	@Override

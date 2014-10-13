@@ -106,18 +106,18 @@ public class Sungrass extends Plant {
 			return "Herbal healing";
 		}
 		
-		private static final String POS	= "pos";
+		private static final String BUNDLE_KEY_POS = "pos";
 		
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 			super.storeInBundle( bundle );
-			bundle.put( POS, pos );
+			bundle.put(BUNDLE_KEY_POS, pos);
 		}
 		
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );
-			pos = bundle.getInt( POS );
+			pos = bundle.getInt(BUNDLE_KEY_POS);
 		}
 	}
 }

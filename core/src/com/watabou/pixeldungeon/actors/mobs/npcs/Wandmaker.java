@@ -170,45 +170,45 @@ public class Wandmaker extends Mob.NPC {
 			wand2 = null;
 		}
 		
-		private static final String NODE		= "wandmaker";
+		private static final String BUNDLE_KEY_NODE = "wandmaker";
 		
-		private static final String SPAWNED		= "spawned";
-		private static final String ALTERNATIVE	= "alternative";
-		private static final String GIVEN		= "given";
-		private static final String WAND1		= "wand1";
-		private static final String WAND2		= "wand2";
+		private static final String BUNDLE_KEY_SPAWNED = "spawned";
+		private static final String BUNDLE_KEY_ALTERNATIVE = "alternative";
+		private static final String BUNDLE_KEY_GIVEN = "given";
+		private static final String BUNDLE_KEY_WAND1 = "wand1";
+		private static final String BUNDLE_KEY_WAND2 = "wand2";
 		
 		public static void storeInBundle( Bundle bundle ) {
 			
 			Bundle node = new Bundle();
-			
-			node.put( SPAWNED, spawned );
-			
+
+			node.put(BUNDLE_KEY_SPAWNED, spawned);
+
 			if (spawned) {
-				
-				node.put( ALTERNATIVE, alternative );
-				
-				node.put(GIVEN, given );
-				
-				node.put( WAND1, wand1 );
-				node.put( WAND2, wand2 );
+
+				node.put(BUNDLE_KEY_ALTERNATIVE, alternative);
+
+				node.put(BUNDLE_KEY_GIVEN, given);
+
+				node.put(BUNDLE_KEY_WAND1, wand1);
+				node.put(BUNDLE_KEY_WAND2, wand2);
 			}
-			
-			bundle.put( NODE, node );
+
+			bundle.put(BUNDLE_KEY_NODE, node);
 		}
 		
 		public static void restoreFromBundle( Bundle bundle ) {
 
-			Bundle node = bundle.getBundle( NODE );
+			Bundle node = bundle.getBundle(BUNDLE_KEY_NODE);
 			
-			if (!node.isNull() && (spawned = node.getBoolean( SPAWNED ))) {
+			if (!node.isNull() && (spawned = node.getBoolean(BUNDLE_KEY_SPAWNED))) {
 				
-				alternative	=  node.getBoolean( ALTERNATIVE );
+				alternative	=  node.getBoolean(BUNDLE_KEY_ALTERNATIVE);
 				
-				given = node.getBoolean( GIVEN );
+				given = node.getBoolean(BUNDLE_KEY_GIVEN);
 				
-				wand1 = (Wand)node.get( WAND1 );
-				wand2 = (Wand)node.get( WAND2 );
+				wand1 = (Wand)node.get(BUNDLE_KEY_WAND1);
+				wand2 = (Wand)node.get(BUNDLE_KEY_WAND2);
 			} else {
 				reset();
 			}

@@ -123,21 +123,21 @@ public class Earthroot extends Plant {
 			return "Herbal armor";
 		}
 		
-		private static final String POS		= "pos";
-		private static final String LEVEL	= "level";
+		private static final String BUNDLE_KEY_POS = "pos";
+		private static final String BUNDLE_KEY_LEVEL = "level";
 		
 		@Override
 		public void storeInBundle( Bundle bundle ) {
 			super.storeInBundle( bundle );
-			bundle.put( POS, pos );
-			bundle.put( LEVEL, level );
+			bundle.put(BUNDLE_KEY_POS, pos);
+			bundle.put(BUNDLE_KEY_LEVEL, level);
 		}
 		
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			super.restoreFromBundle( bundle );
-			pos = bundle.getInt( POS );
-			level = bundle.getInt( LEVEL );
+			pos = bundle.getInt(BUNDLE_KEY_POS);
+			level = bundle.getInt(BUNDLE_KEY_LEVEL);
 		}
 	}
 }

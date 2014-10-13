@@ -98,20 +98,20 @@ public abstract class Char extends Actor {
 		return false;
 	}
 	
-	private static final String POS			= "pos";
-	private static final String TAG_HP		= "HP";
-	private static final String TAG_HT		= "HT";
-	private static final String BUFFS		= "buffs";
+	private static final String BUNDLE_KEY_POS = "pos";
+	private static final String BUNDLE_KEY_TAG_HP = "HP";
+	private static final String BUNDLE_KEY_TAG_HT = "HT";
+	private static final String BUNDLE_KEY_BUFFS = "buffs";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		
 		super.storeInBundle( bundle );
-		
-		bundle.put( POS, pos );
-		bundle.put( TAG_HP, HP );
-		bundle.put( TAG_HT, HT );
-		bundle.put( BUFFS, buffs );
+
+		bundle.put(BUNDLE_KEY_POS, pos);
+		bundle.put(BUNDLE_KEY_TAG_HP, HP);
+		bundle.put(BUNDLE_KEY_TAG_HT, HT);
+		bundle.put(BUNDLE_KEY_BUFFS, buffs);
 	}
 	
 	@Override
@@ -119,11 +119,11 @@ public abstract class Char extends Actor {
 		
 		super.restoreFromBundle( bundle );
 		
-		pos = bundle.getInt( POS );
-		HP = bundle.getInt( TAG_HP );
-		HT = bundle.getInt( TAG_HT );
+		pos = bundle.getInt(BUNDLE_KEY_POS);
+		HP = bundle.getInt(BUNDLE_KEY_TAG_HP);
+		HT = bundle.getInt(BUNDLE_KEY_TAG_HT);
 		
-		for (Bundlable b : bundle.getCollection( BUFFS )) {
+		for (Bundlable b : bundle.getCollection(BUNDLE_KEY_BUFFS)) {
 			if (b != null) {
 				((Buff)b).attachTo( this );
 			}

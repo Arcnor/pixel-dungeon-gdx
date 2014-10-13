@@ -378,41 +378,41 @@ public class Item implements Bundlable {
 		}
 	}
 	
-	private static final String QUANTITY		= "quantity";
-	private static final String LEVEL			= "level";
-	private static final String LEVEL_KNOWN		= "levelKnown";
-	private static final String CURSED			= "cursed";
-	private static final String CURSED_KNOWN	= "cursedKnown";
-	private static final String QUICKSLOT		= "quickslot";
+	private static final String BUNDLE_KEY_QUANTITY = "quantity";
+	private static final String BUNDLE_KEY_LEVEL = "level";
+	private static final String BUNDLE_KEY_LEVEL_KNOWN = "levelKnown";
+	private static final String BUNDLE_KEY_CURSED = "cursed";
+	private static final String BUNDLE_KEY_CURSED_KNOWN = "cursedKnown";
+	private static final String BUNDLE_KEY_QUICKSLOT = "quickslot";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
-		bundle.put( QUANTITY, quantity );
-		bundle.put( LEVEL, level );
-		bundle.put( LEVEL_KNOWN, levelKnown );
-		bundle.put( CURSED, cursed );
-		bundle.put( CURSED_KNOWN, cursedKnown );
+		bundle.put(BUNDLE_KEY_QUANTITY, quantity);
+		bundle.put(BUNDLE_KEY_LEVEL, level);
+		bundle.put(BUNDLE_KEY_LEVEL_KNOWN, levelKnown);
+		bundle.put(BUNDLE_KEY_CURSED, cursed);
+		bundle.put(BUNDLE_KEY_CURSED_KNOWN, cursedKnown);
 		if (this == Dungeon.quickslot) {
-			bundle.put( QUICKSLOT, true );
+			bundle.put(BUNDLE_KEY_QUICKSLOT, true);
 		}
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
-		quantity	= bundle.getInt( QUANTITY );
-		levelKnown	= bundle.getBoolean( LEVEL_KNOWN );
-		cursedKnown	= bundle.getBoolean( CURSED_KNOWN );
+		quantity	= bundle.getInt(BUNDLE_KEY_QUANTITY);
+		levelKnown	= bundle.getBoolean(BUNDLE_KEY_LEVEL_KNOWN);
+		cursedKnown	= bundle.getBoolean(BUNDLE_KEY_CURSED_KNOWN);
 		
-		int level = bundle.getInt( LEVEL );
+		int level = bundle.getInt(BUNDLE_KEY_LEVEL);
 		if (level > 0) {
 			upgrade( level );
 		} else if (level < 0) {
 			degrade( -level );
 		}
 		
-		cursed	= bundle.getBoolean( CURSED );
+		cursed	= bundle.getBoolean(BUNDLE_KEY_CURSED);
 		
-		if (bundle.getBoolean( QUICKSLOT )) {
+		if (bundle.getBoolean(BUNDLE_KEY_QUICKSLOT)) {
 			Dungeon.quickslot = this;
 		}
 	}

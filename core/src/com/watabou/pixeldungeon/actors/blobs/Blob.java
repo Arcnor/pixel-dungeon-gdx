@@ -49,8 +49,8 @@ public class Blob extends Actor {
 		volume = 0;
 	}
 	
-	private static final String CUR		= "cur";
-	private static final String START	= "start";
+	private static final String BUNDLE_KEY_CUR = "cur";
+	private static final String BUNDLE_KEY_START = "start";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
@@ -71,8 +71,8 @@ public class Blob extends Actor {
 				}
 			}
 			
-			bundle.put( START, start );
-			bundle.put( CUR, trim( start, end + 1 ) );
+			bundle.put(BUNDLE_KEY_START, start);
+			bundle.put(BUNDLE_KEY_CUR, trim( start, end + 1 ));
 			
 		}
 	}
@@ -89,9 +89,9 @@ public class Blob extends Actor {
 		
 		super.restoreFromBundle( bundle );
 		
-		int[] data = bundle.getIntArray( CUR );
+		int[] data = bundle.getIntArray(BUNDLE_KEY_CUR);
 		if (data != null) {
-			int start = bundle.getInt( START );	
+			int start = bundle.getInt(BUNDLE_KEY_START);
 			for (int i=0; i < data.length; i++) {
 				cur[i + start] = data[i];
 				volume += data[i];

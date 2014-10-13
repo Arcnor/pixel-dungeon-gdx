@@ -143,11 +143,11 @@ public enum Rankings {
 	
 	public static class Record implements Bundlable {
 		
-		private static final String REASON	= "reason";
-		private static final String WIN		= "win";
-		private static final String SCORE	= "score";
-		private static final String TIER	= "tier";
-		private static final String GAME	= "gameFile";
+		private static final String BUNDLE_KEY_REASON = "reason";
+		private static final String BUNDLE_KEY_WIN = "win";
+		private static final String BUNDLE_KEY_SCORE = "score";
+		private static final String BUNDLE_KEY_TIER = "tier";
+		private static final String BUNDLE_KEY_GAME = "gameFile";
 		
 		public String info;
 		public boolean win;
@@ -162,27 +162,27 @@ public enum Rankings {
 		@Override
 		public void restoreFromBundle( Bundle bundle ) {
 			
-			info	= bundle.getString( REASON );
-			win		= bundle.getBoolean( WIN );
-			score	= bundle.getInt( SCORE );
+			info	= bundle.getString(BUNDLE_KEY_REASON);
+			win		= bundle.getBoolean(BUNDLE_KEY_WIN);
+			score	= bundle.getInt(BUNDLE_KEY_SCORE);
 			
 			heroClass	= HeroClass.restoreInBundle( bundle );
-			armorTier	= bundle.getInt( TIER );
+			armorTier	= bundle.getInt(BUNDLE_KEY_TIER);
 			
-			gameFile	= bundle.getString( GAME );
+			gameFile	= bundle.getString(BUNDLE_KEY_GAME);
 		}
 		
 		@Override
 		public void storeInBundle( Bundle bundle ) {
-			
-			bundle.put( REASON, info );
-			bundle.put( WIN, win );
-			bundle.put( SCORE, score );
-			
-			heroClass.storeInBundle( bundle );
-			bundle.put( TIER, armorTier );
-			
-			bundle.put( GAME, gameFile );
+
+			bundle.put(BUNDLE_KEY_REASON, info);
+			bundle.put(BUNDLE_KEY_WIN, win);
+			bundle.put(BUNDLE_KEY_SCORE, score);
+
+			heroClass.storeInBundle(bundle);
+			bundle.put(BUNDLE_KEY_TIER, armorTier);
+
+			bundle.put(BUNDLE_KEY_GAME, gameFile);
 		}
 	}
 

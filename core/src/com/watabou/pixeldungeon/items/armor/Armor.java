@@ -63,18 +63,18 @@ public class Armor extends EquipableItem {
 		DR = typicalDR();
 	}
 	
-	private static final String GLYPH	= "glyph";
+	private static final String BUNDLE_KEY_GLYPH = "glyph";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( GLYPH, glyph );
+		bundle.put(BUNDLE_KEY_GLYPH, glyph);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		glyph = (Glyph)bundle.get( GLYPH );
+		glyph = (Glyph)bundle.get(BUNDLE_KEY_GLYPH);
 	}
 	
 	@Override

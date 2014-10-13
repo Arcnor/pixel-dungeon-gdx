@@ -315,23 +315,23 @@ public class Heap implements Bundlable {
 		items = null;
 	}
 
-	private static final String POS		= "pos";
-	private static final String TYPE	= "type";
-	private static final String ITEMS	= "items";
+	private static final String BUNDLE_KEY_POS = "pos";
+	private static final String BUNDLE_KEY_TYPE = "type";
+	private static final String BUNDLE_KEY_ITEMS = "items";
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
-		pos = bundle.getInt( POS );
-		type = Type.valueOf( bundle.getString( TYPE ) );
-		items = new LinkedList( bundle.getCollection( ITEMS ) );
+		pos = bundle.getInt(BUNDLE_KEY_POS);
+		type = Type.valueOf( bundle.getString(BUNDLE_KEY_TYPE) );
+		items = new LinkedList( bundle.getCollection(BUNDLE_KEY_ITEMS) );
 	}
 
 	@Override
 	public void storeInBundle( Bundle bundle ) {
-		bundle.put( POS, pos );
-		bundle.put( TYPE, type.toString() );
-		bundle.put( ITEMS, items );
+		bundle.put(BUNDLE_KEY_POS, pos);
+		bundle.put(BUNDLE_KEY_TYPE, type.toString());
+		bundle.put(BUNDLE_KEY_ITEMS, items);
 	}
 	
 }

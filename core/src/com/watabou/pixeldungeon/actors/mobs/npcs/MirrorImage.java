@@ -45,24 +45,24 @@ public class MirrorImage extends Mob.NPC {
 	private int attack;
 	private int damage;
 	
-	private static final String TIER	= "tier";
-	private static final String ATTACK	= "attack";
-	private static final String DAMAGE	= "damage";
+	private static final String BUNDLE_KEY_TIER = "tier";
+	private static final String BUNDLE_KEY_ATTACK = "attack";
+	private static final String BUNDLE_KEY_DAMAGE = "damage";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( TIER, tier );
-		bundle.put( ATTACK, attack );
-		bundle.put( DAMAGE, damage );
+		bundle.put(BUNDLE_KEY_TIER, tier);
+		bundle.put(BUNDLE_KEY_ATTACK, attack);
+		bundle.put(BUNDLE_KEY_DAMAGE, damage);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		tier = bundle.getInt( TIER );
-		attack = bundle.getInt( ATTACK );
-		damage = bundle.getInt( DAMAGE );
+		tier = bundle.getInt(BUNDLE_KEY_TIER);
+		attack = bundle.getInt(BUNDLE_KEY_ATTACK);
+		damage = bundle.getInt(BUNDLE_KEY_DAMAGE);
 	}
 	
 	public void duplicate( Hero hero ) {

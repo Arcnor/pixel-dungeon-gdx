@@ -70,14 +70,14 @@ public enum HeroSubClass {
 		return desc;
 	}
 	
-	private static final String SUBCLASS	= "subClass";
-	
-	public void storeInBundle( Bundle bundle ) {
-		bundle.put( SUBCLASS, toString() );
+	private static final String BUNDLE_KEY_SUBCLASS = "subClass";
+
+	public void storeInBundle(Bundle bundle) {
+		bundle.put(BUNDLE_KEY_SUBCLASS, toString());
 	}
 	
 	public static HeroSubClass restoreInBundle( Bundle bundle ) {
-		String value = bundle.getString( SUBCLASS );
+		String value = bundle.getString(BUNDLE_KEY_SUBCLASS);
 		try {
 			return valueOf( value );
 		} catch (Exception e) {

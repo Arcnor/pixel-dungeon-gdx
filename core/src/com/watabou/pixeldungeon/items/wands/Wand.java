@@ -367,24 +367,24 @@ public abstract class Wand extends KindOfWeapon {
 		return price;
 	}
 	
-	private static final String MAX_CHARGES			= "maxCharges";
-	private static final String CUR_CHARGES			= "curCharges";
-	private static final String CUR_CHARGE_KNOWN	= "curChargeKnown";
+	private static final String BUNDLE_KEY_MAX_CHARGES = "maxCharges";
+	private static final String BUNDLE_KEY_CUR_CHARGES = "curCharges";
+	private static final String BUNDLE_KEY_CUR_CHARGE_KNOWN = "curChargeKnown";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( MAX_CHARGES, maxCharges );
-		bundle.put( CUR_CHARGES, curCharges );
-		bundle.put( CUR_CHARGE_KNOWN, curChargeKnown );
+		bundle.put(BUNDLE_KEY_MAX_CHARGES, maxCharges);
+		bundle.put(BUNDLE_KEY_CUR_CHARGES, curCharges);
+		bundle.put(BUNDLE_KEY_CUR_CHARGE_KNOWN, curChargeKnown);
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		maxCharges = bundle.getInt( MAX_CHARGES );
-		curCharges = bundle.getInt( CUR_CHARGES );
-		curChargeKnown = bundle.getBoolean( CUR_CHARGE_KNOWN );
+		maxCharges = bundle.getInt(BUNDLE_KEY_MAX_CHARGES);
+		curCharges = bundle.getInt(BUNDLE_KEY_CUR_CHARGES);
+		curChargeKnown = bundle.getBoolean(BUNDLE_KEY_CUR_CHARGE_KNOWN);
 	}
 	
 	protected static CellSelector.Listener zapper = new  CellSelector.Listener() {

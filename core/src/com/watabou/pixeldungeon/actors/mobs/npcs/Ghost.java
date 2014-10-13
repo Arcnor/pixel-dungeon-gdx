@@ -200,58 +200,58 @@ public class Ghost extends Mob.NPC {
 			armor = null;
 		}
 		
-		private static final String NODE		= "sadGhost";
+		private static final String BUNDLE_KEY_NODE = "sadGhost";
 		
-		private static final String SPAWNED		= "spawned";
-		private static final String ALTERNATIVE	= "alternative";
-		private static final String LEFT2KILL	= "left2kill";
-		private static final String GIVEN		= "given";
-		private static final String PROCESSED	= "processed";
-		private static final String DEPTH		= "depth";
-		private static final String WEAPON		= "weapon";
-		private static final String ARMOR		= "armor";
+		private static final String BUNDLE_KEY_SPAWNED = "spawned";
+		private static final String BUNDLE_KEY_ALTERNATIVE = "alternative";
+		private static final String BUNDLE_KEY_LEFT2KILL = "left2kill";
+		private static final String BUNDLE_KEY_GIVEN = "given";
+		private static final String BUNDLE_KEY_PROCESSED = "processed";
+		private static final String BUNDLE_KEY_DEPTH = "depth";
+		private static final String BUNDLE_KEY_WEAPON = "weapon";
+		private static final String BUNDLE_KEY_ARMOR = "armor";
 		
 		public static void storeInBundle( Bundle bundle ) {
 			
 			Bundle node = new Bundle();
-			
-			node.put( SPAWNED, spawned );
-			
+
+			node.put(BUNDLE_KEY_SPAWNED, spawned);
+
 			if (spawned) {
-				
-				node.put( ALTERNATIVE, alternative );
+
+				node.put(BUNDLE_KEY_ALTERNATIVE, alternative);
 				if (!alternative) {
-					node.put( LEFT2KILL, left2kill );
+					node.put(BUNDLE_KEY_LEFT2KILL, left2kill);
 				}
-				
-				node.put( GIVEN, given );
-				node.put( DEPTH, depth );
-				node.put( PROCESSED, processed );
-				
-				node.put( WEAPON, weapon );
-				node.put( ARMOR, armor );
+
+				node.put(BUNDLE_KEY_GIVEN, given);
+				node.put(BUNDLE_KEY_DEPTH, depth);
+				node.put(BUNDLE_KEY_PROCESSED, processed);
+
+				node.put(BUNDLE_KEY_WEAPON, weapon);
+				node.put(BUNDLE_KEY_ARMOR, armor);
 			}
-			
-			bundle.put( NODE, node );
+
+			bundle.put(BUNDLE_KEY_NODE, node);
 		}
 		
 		public static void restoreFromBundle( Bundle bundle ) {
 			
-			Bundle node = bundle.getBundle( NODE );
+			Bundle node = bundle.getBundle(BUNDLE_KEY_NODE);
 			
-			if (!node.isNull() && (spawned = node.getBoolean( SPAWNED ))) {
+			if (!node.isNull() && (spawned = node.getBoolean(BUNDLE_KEY_SPAWNED))) {
 				
-				alternative	=  node.getBoolean( ALTERNATIVE );
+				alternative	=  node.getBoolean(BUNDLE_KEY_ALTERNATIVE);
 				if (!alternative) {
-					left2kill = node.getInt( LEFT2KILL );
+					left2kill = node.getInt(BUNDLE_KEY_LEFT2KILL);
 				}
 				
-				given	= node.getBoolean( GIVEN );
-				depth	= node.getInt( DEPTH );
-				processed	= node.getBoolean( PROCESSED );
+				given	= node.getBoolean(BUNDLE_KEY_GIVEN);
+				depth	= node.getInt(BUNDLE_KEY_DEPTH);
+				processed	= node.getBoolean(BUNDLE_KEY_PROCESSED);
 				
-				weapon	= (Weapon)node.get( WEAPON );
-				armor	= (Armor)node.get( ARMOR );
+				weapon	= (Weapon)node.get(BUNDLE_KEY_WEAPON);
+				armor	= (Armor)node.get(BUNDLE_KEY_ARMOR);
 			} else {
 				reset();
 			}

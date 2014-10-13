@@ -127,15 +127,15 @@ public abstract class Level implements Bundlable {
 	protected static boolean pitRoomNeeded = false;
 	protected static boolean weakFloorCreated = false;
 	
-	private static final String MAP			= "map";
-	private static final String VISITED		= "visited";
-	private static final String MAPPED		= "mapped";
-	private static final String ENTRANCE	= "entrance";
-	private static final String EXIT		= "exit";
-	private static final String HEAPS		= "heaps";
-	private static final String PLANTS		= "plants";
-	private static final String MOBS		= "mobs";
-	private static final String BLOBS		= "blobs";
+	private static final String BUNDLE_KEY_MAP = "map";
+	private static final String BUNDLE_KEY_VISITED = "visited";
+	private static final String BUNDLE_KEY_MAPPED = "mapped";
+	private static final String BUNDLE_KEY_ENTRANCE = "entrance";
+	private static final String BUNDLE_KEY_EXIT = "exit";
+	private static final String BUNDLE_KEY_HEAPS = "heaps";
+	private static final String BUNDLE_KEY_PLANTS = "plants";
+	private static final String BUNDLE_KEY_MOBS = "mobs";
+	private static final String BUNDLE_KEY_BLOBS = "blobs";
 	
 	public void create() {
 		
@@ -220,18 +220,18 @@ public abstract class Level implements Bundlable {
 		blobs = new HashMap<Class<? extends Blob>, Blob>();
 		plants = new SparseArray<Plant>();
 		
-		map		= bundle.getIntArray( MAP );
-		visited	= bundle.getBooleanArray( VISITED );
-		mapped	= bundle.getBooleanArray( MAPPED );
+		map		= bundle.getIntArray(BUNDLE_KEY_MAP);
+		visited	= bundle.getBooleanArray(BUNDLE_KEY_VISITED);
+		mapped	= bundle.getBooleanArray(BUNDLE_KEY_MAPPED);
 		
-		entrance	= bundle.getInt( ENTRANCE );
-		exit		= bundle.getInt( EXIT );
+		entrance	= bundle.getInt(BUNDLE_KEY_ENTRANCE);
+		exit		= bundle.getInt(BUNDLE_KEY_EXIT);
 		
 		weakFloorCreated = false;
 		
 		adjustMapSize();
 		
-		Collection<Bundlable> collection = bundle.getCollection( HEAPS );
+		Collection<Bundlable> collection = bundle.getCollection(BUNDLE_KEY_HEAPS);
 		for (Bundlable h : collection) {
 			Heap heap = (Heap)h;
 			if (resizingNeeded) {
@@ -240,7 +240,7 @@ public abstract class Level implements Bundlable {
 			heaps.put( heap.pos, heap );
 		}
 		
-		collection = bundle.getCollection( PLANTS );
+		collection = bundle.getCollection(BUNDLE_KEY_PLANTS);
 		for (Bundlable p : collection) {
 			Plant plant = (Plant)p;
 			if (resizingNeeded) {
@@ -249,7 +249,7 @@ public abstract class Level implements Bundlable {
 			plants.put( plant.pos, plant );
 		}
 		
-		collection = bundle.getCollection( MOBS );
+		collection = bundle.getCollection(BUNDLE_KEY_MOBS);
 		for (Bundlable m : collection) {
 			Mob mob = (Mob)m;
 			if (mob != null) {
@@ -260,7 +260,7 @@ public abstract class Level implements Bundlable {
 			}
 		}
 		
-		collection = bundle.getCollection( BLOBS );
+		collection = bundle.getCollection(BUNDLE_KEY_BLOBS);
 		for (Bundlable b : collection) {
 			Blob blob = (Blob)b;
 			blobs.put( blob.getClass(), blob );
@@ -272,15 +272,15 @@ public abstract class Level implements Bundlable {
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
-		bundle.put( MAP, map );
-		bundle.put( VISITED, visited );
-		bundle.put( MAPPED, mapped );
-		bundle.put( ENTRANCE, entrance );
-		bundle.put( EXIT, exit );
-		bundle.put( HEAPS, heaps.valuesAsList() );
-		bundle.put( PLANTS, plants.valuesAsList() );
-		bundle.put( MOBS, mobs );
-		bundle.put( BLOBS, blobs.values() );
+		bundle.put(BUNDLE_KEY_MAP, map);
+		bundle.put(BUNDLE_KEY_VISITED, visited);
+		bundle.put(BUNDLE_KEY_MAPPED, mapped);
+		bundle.put(BUNDLE_KEY_ENTRANCE, entrance);
+		bundle.put(BUNDLE_KEY_EXIT, exit);
+		bundle.put(BUNDLE_KEY_HEAPS, heaps.valuesAsList());
+		bundle.put(BUNDLE_KEY_PLANTS, plants.valuesAsList());
+		bundle.put(BUNDLE_KEY_MOBS, mobs);
+		bundle.put(BUNDLE_KEY_BLOBS, blobs.values());
 	}
 	
 	public int tunnelTile() {
