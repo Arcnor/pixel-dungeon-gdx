@@ -28,14 +28,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Metabolism extends Glyph {
 
-	private static final String TXT_METABOLISM	= "%s of metabolism";
+	private static final String TXT_METABOLISM	= "glyph_metabolism";
 	
 	private static ItemSprite.Glowing RED = new ItemSprite.Glowing( 0xCC0000 );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
 		int level = Math.max( 0, armor.level );
 		if (Random.Int( level / 2 + 5 ) >= 4) {
@@ -63,8 +65,8 @@ public class Metabolism extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_METABOLISM, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_METABOLISM, weaponName);
 	}
 
 	@Override

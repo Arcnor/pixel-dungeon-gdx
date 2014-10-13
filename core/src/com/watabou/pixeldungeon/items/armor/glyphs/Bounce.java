@@ -27,12 +27,14 @@ import com.watabou.pixeldungeon.items.armor.Armor.Glyph;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Bounce extends Glyph {
 
-	private static final String TXT_BOUNCE	= "%s of bounce";
+	private static final String TXT_BOUNCE	= "glyph_bounce";
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
 		int level = Math.max( 0, armor.level );
 		
@@ -65,8 +67,8 @@ public class Bounce extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_BOUNCE, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_BOUNCE, weaponName);
 	}
 
 }

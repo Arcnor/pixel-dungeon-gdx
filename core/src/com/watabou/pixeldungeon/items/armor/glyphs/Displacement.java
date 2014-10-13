@@ -28,14 +28,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Displacement extends Glyph {
 
-	private static final String TXT_DISPLACEMENT	= "%s of displacement";
+	private static final String TXT_DISPLACEMENT	= "glyph_displacement";
 	
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x66AAFF );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage ) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage ) {
 
 		if (Dungeon.bossLevel()) {
 			return damage;
@@ -58,8 +60,8 @@ public class Displacement extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_DISPLACEMENT, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_DISPLACEMENT, weaponName);
 	}
 
 	@Override

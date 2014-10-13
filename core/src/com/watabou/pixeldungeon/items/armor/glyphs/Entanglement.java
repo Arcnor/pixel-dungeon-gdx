@@ -30,14 +30,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Entanglement extends Glyph {
 
-	private static final String TXT_ENTANGLEMENT	= "%s of entanglement";
+	private static final String TXT_ENTANGLEMENT	= "glyph_entanglement";
 	
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x448822 );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage ) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage ) {
 
 		int level = Math.max( 0, armor.level );
 		
@@ -54,8 +56,8 @@ public class Entanglement extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_ENTANGLEMENT, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_ENTANGLEMENT, weaponName);
 	}
 
 	@Override

@@ -28,14 +28,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Stench extends Glyph {
 
-	private static final String TXT_STENCH	= "%s of stench";
+	private static final String TXT_STENCH	= "glyph_stench";
 	
 	private static ItemSprite.Glowing GREEN = new ItemSprite.Glowing( 0x22CC44 );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
 		int level = Math.max( 0, armor.level );
 		
@@ -49,8 +51,8 @@ public class Stench extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_STENCH, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_STENCH, weaponName);
 	}
 	
 	@Override

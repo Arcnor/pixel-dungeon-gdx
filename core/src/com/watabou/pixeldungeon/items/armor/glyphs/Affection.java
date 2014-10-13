@@ -29,14 +29,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Affection extends Glyph {
 
-	private static final String TXT_AFFECTION	= "%s of affection";
+	private static final String TXT_AFFECTION	= "glyph_affection";
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xFF4488 );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
 		int level = (int)GameMath.gate( 0, armor.level, 6 );
 		
@@ -55,8 +57,8 @@ public class Affection extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_AFFECTION, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_AFFECTION, weaponName);
 	}
 
 	@Override

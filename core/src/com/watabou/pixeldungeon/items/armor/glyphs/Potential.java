@@ -29,14 +29,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Potential extends Glyph {
 
-	private static final String TXT_POTENTIAL	= "%s of potential";
+	private static final String TXT_POTENTIAL	= "glyph_potential";
 	
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x66CCEE );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
 		int level = Math.max( 0, armor.level );
 		
@@ -61,8 +63,8 @@ public class Potential extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_POTENTIAL, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_POTENTIAL, weaponName);
 	}
 
 	@Override

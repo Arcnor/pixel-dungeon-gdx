@@ -37,12 +37,14 @@ import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Viscosity extends Glyph {
 
-	private static final String TXT_VISCOSITY	= "%s of viscosity";
-	
+	private static final String TXT_VISCOSITY	= "glyph_viscosity";
+	private static final String TXT_DEFERRED = "glyph_viscosity_deferred";
+	private static final String TXT_DEFERRED_DAMAGE = "glyph_viscosity_deferred_damage";
+
 	private static ItemSprite.Glowing PURPLE = new ItemSprite.Glowing( 0x8844CC );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage ) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage ) {
 
 		if (damage == 0) {
 			return 0;
@@ -59,7 +61,7 @@ public class Viscosity extends Glyph {
 			}
 			debuff.prolong( damage );
 			
-			defender.sprite.showStatus( CharSprite.WARNING, "deferred %d", damage );
+			defender.sprite.showStatus( CharSprite.WARNING, tr(TXT_DEFERRED, damage) );
 			
 			return 0;
 			
@@ -69,8 +71,8 @@ public class Viscosity extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_VISCOSITY, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_VISCOSITY, weaponName);
 	}
 
 	@Override
@@ -118,7 +120,7 @@ public class Viscosity extends Glyph {
 		
 		@Override
 		public String toString() {
-			return Utils.format( "Defered damage (%d)", damage );
+			return tr(TXT_DEFERRED_DAMAGE, damage);
 		}
 		
 		@Override

@@ -32,14 +32,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Multiplicity extends Glyph {
 
-	private static final String TXT_MULTIPLICITY	= "%s of multiplicity";
+	private static final String TXT_MULTIPLICITY	= "glyph_multiplicity";
 	
 	private static ItemSprite.Glowing PINK = new ItemSprite.Glowing( 0xCCAA88 );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
 		int level = Math.max( 0, armor.level );
 		
@@ -70,8 +72,8 @@ public class Multiplicity extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_MULTIPLICITY, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_MULTIPLICITY, weaponName);
 	}
 
 	@Override

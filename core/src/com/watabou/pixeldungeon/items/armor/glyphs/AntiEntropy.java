@@ -31,14 +31,16 @@ import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class AntiEntropy extends Glyph {
 
-	private static final String TXT_ANTI_ENTROPY	= "%s of anti-entropy";
+	private static final String TXT_ANTI_ENTROPY	= "glyph_anti_entropy";
 	
 	private static ItemSprite.Glowing BLUE = new ItemSprite.Glowing( 0x0000FF );
 	
 	@Override
-	public int proc( Armor armor, Char attacker, Char defender, int damage) {
+	public int proc(Armor armor, Char attacker, Char defender, int damage) {
 
 		int level = Math.max( 0, armor.level );
 		
@@ -56,8 +58,8 @@ public class AntiEntropy extends Glyph {
 	}
 	
 	@Override
-	public String name( String weaponName) {
-		return String.format( TXT_ANTI_ENTROPY, weaponName );
+	public String name(String weaponName) {
+		return tr(TXT_ANTI_ENTROPY, weaponName);
 	}
 
 	@Override
