@@ -31,6 +31,8 @@ import com.watabou.pixeldungeon.input.GameAction;
 import com.watabou.pixeldungeon.ui.Archs;
 import com.watabou.pixeldungeon.ui.PrefsButton;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class TitleScene extends PixelScene {
 
 	private static final String TXT_PLAY		= "title_play";

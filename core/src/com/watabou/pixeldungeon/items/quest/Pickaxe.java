@@ -39,6 +39,8 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Callback;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Pickaxe extends Weapon {
 	
 	public static final String AC_MINE	= "MINE";
@@ -102,7 +104,7 @@ public class Pickaxe extends Weapon {
 							
 							DarkGold gold = new DarkGold();
 							if (gold.doPickUp( Dungeon.hero )) {
-								GLog.i( Hero.TXT_YOU_NOW_HAVE, gold.name() );
+								GLog.i(tr(Hero.TXT_YOU_NOW_HAVE, gold.name()));
 							} else {
 								Dungeon.level.drop( gold, hero.pos ).sprite.drop();
 							}

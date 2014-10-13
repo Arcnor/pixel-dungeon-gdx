@@ -28,6 +28,8 @@ import com.watabou.pixeldungeon.effects.Speck;
 import com.watabou.pixeldungeon.ui.RedButton;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class AmuletScene extends PixelScene {
 
 	private static final String TXT_EXIT	= "amulet_exit";

@@ -101,30 +101,44 @@ import com.watabou.pixeldungeon.windows.WndTradeItem;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Hero extends Char {
-	
-	private static final String TXT_LEAVE = "One does not simply leave Pixel Dungeon.";
-	
-	private static final String TXT_LEVEL_UP = "level up!";
-	private static final String TXT_NEW_LEVEL = 
-		"Welcome to level %d! Now you are healthier and more focused. " +
-		"It's easier for you to hit enemies and dodge their attacks.";
-	
-	public static final String TXT_YOU_NOW_HAVE	= "You now have %s";
-	
-	private static final String TXT_SOMETHING_ELSE	= "There is something else here";
-	private static final String TXT_LOCKED_CHEST	= "This chest is locked and you don't have matching key";
-	private static final String TXT_LOCKED_DOOR		= "You don't have a matching key";
-	private static final String TXT_NOTICED_SMTH	= "You noticed something";
-	
-	private static final String TXT_WAIT	= "...";
-	private static final String TXT_SEARCH	= "search";
-	
+
+	private static final String TXT_LEAVE = "hero_leave";
+
+	private static final String TXT_LEVEL_UP = "hero_level_up";
+	private static final String TXT_NEW_LEVEL = "hero_new_level";
+
+	public static final String TXT_YOU_NOW_HAVE	= "hero_you_now_have";
+
+	private static final String TXT_SOMETHING_ELSE	= "hero_something_else";
+	private static final String TXT_LOCKED_CHEST	= "hero_locked_chest";
+	private static final String TXT_LOCKED_DOOR		= "hero_locked_door";
+	private static final String TXT_NOTICED_SMTH	= "hero_noticed_smth";
+
+	private static final String TXT_WAIT	= "hero_wait";
+	private static final String TXT_SEARCH	= "hero_search";
+
+	private static final String TXT_NAME = "hero_name";
+
+	private static final String TXT_BUFF_BURNING = "hero_buff_burning";
+	private static final String TXT_BUFF_PARALYSIS = "hero_buff_paralysis";
+	private static final String TXT_BUFF_POISON = "hero_buff_poison";
+	private static final String TXT_BUFF_OOZE = "hero_buff_ooze";
+	private static final String TXT_BUFF_ROOTS = "hero_buff_roots";
+	private static final String TXT_BUFF_WEAKNESS = "hero_buff_weakness";
+	private static final String TXT_BUFF_BLINDNESS = "hero_buff_blindness";
+	private static final String TXT_BUFF_FURY = "hero_buff_fury";
+	private static final String TXT_BUFF_CHARM = "hero_buff_charm";
+	private static final String TXT_BUFF_CRIPPLE = "hero_buff_cripple";
+	private static final String TXT_BUFF_BLEEDING = "hero_buff_bleeding";
+
 	public static final int STARTING_STR = 10;
 	
 	private static final float TIME_TO_REST		= 1f;
 	private static final float TIME_TO_SEARCH	= 2f;
-	
+
 	public HeroClass heroClass = HeroClass.ROGUE;
 	public HeroSubClass subClass = HeroSubClass.NONE;
 	
@@ -158,7 +172,7 @@ public class Hero extends Char {
 	
 	public Hero() {
 		super();
-		name = "you";
+		name = tr(TXT_NAME);
 		
 		HP = HT = 20;
 		STR = STARTING_STR;
@@ -559,14 +573,14 @@ public class Hero extends Char {
 						
 						if ((item instanceof ScrollOfUpgrade && ((ScrollOfUpgrade)item).isKnown()) ||
 							(item instanceof PotionOfStrength && ((PotionOfStrength)item).isKnown())) {
-							GLog.p( TXT_YOU_NOW_HAVE, item.name() );
+							GLog.p(tr(TXT_YOU_NOW_HAVE, item.name()));
 						} else {
-							GLog.i( TXT_YOU_NOW_HAVE, item.name() );
+							GLog.i(tr(TXT_YOU_NOW_HAVE, item.name()));
 						}
 					}
 					
 					if (!heap.isEmpty()) {
-						GLog.i( TXT_SOMETHING_ELSE );
+						GLog.i( tr(TXT_SOMETHING_ELSE) );
 					}
 					curAction = null;
 				} else {
@@ -600,7 +614,7 @@ public class Hero extends Char {
 					theKey = belongings.getKey( GoldenKey.class, Dungeon.depth );
 					
 					if (theKey == null) {
-						GLog.w( TXT_LOCKED_CHEST );
+						GLog.w( tr(TXT_LOCKED_CHEST) );
 						ready();
 						return;
 					}
@@ -656,7 +670,7 @@ public class Hero extends Char {
 				Sample.INSTANCE.play( Assets.SND_UNLOCK );
 				
 			} else {
-				GLog.w( TXT_LOCKED_DOOR );
+				GLog.w( tr(TXT_LOCKED_DOOR) );
 				ready();
 			}
 			
@@ -695,7 +709,7 @@ public class Hero extends Char {
 			if (Dungeon.depth == 1) {
 				
 				if (belongings.getItem( Amulet.class ) == null) {
-					GameScene.show( new WndMessage( TXT_LEAVE ) );
+					GameScene.show( new WndMessage( tr(TXT_LEAVE) ) );
 					ready();
 				} else {
 					Dungeon.deleteGame( Dungeon.hero.heroClass, true );
@@ -745,7 +759,7 @@ public class Hero extends Char {
 	public void rest( boolean tillHealthy ) {
 		spendAndNext( TIME_TO_REST );
 		if (!tillHealthy) {
-			sprite.showStatus( CharSprite.DEFAULT, TXT_WAIT );
+			sprite.showStatus( CharSprite.DEFAULT, tr(TXT_WAIT) );
 		}
 		restoreHealth = tillHealthy;
 	}
@@ -986,8 +1000,8 @@ public class Hero extends Char {
 		
 		if (levelUp) {
 			
-			GLog.p( TXT_NEW_LEVEL, lvl );
-			sprite.showStatus( CharSprite.POSITIVE, TXT_LEVEL_UP );
+			GLog.p( tr(TXT_NEW_LEVEL, lvl) );
+			sprite.showStatus( CharSprite.POSITIVE, tr(TXT_LEVEL_UP) );
 			Sample.INSTANCE.play( Assets.SND_LEVELUP );
 			
 			Badges.validateLevelReached();
@@ -1026,31 +1040,31 @@ public class Hero extends Char {
 		
 		if (sprite != null) {
 			if (buff instanceof Burning) {
-				GLog.w( "You catch fire!" );
+				GLog.w(tr(TXT_BUFF_BURNING));
 				interrupt();
 			} else if (buff instanceof Paralysis) {
-				GLog.w( "You are paralysed!" );
+				GLog.w(tr(TXT_BUFF_PARALYSIS));
 				interrupt();
 			} else if (buff instanceof Poison) {
-				GLog.w( "You are poisoned!" );
+				GLog.w(tr(TXT_BUFF_POISON));
 				interrupt();
 			} else if (buff instanceof Ooze) {
-				GLog.w( "Caustic ooze eats your flesh. Wash away it!" );
+				GLog.w(tr(TXT_BUFF_OOZE));
 			} else if (buff instanceof Roots) {
-				GLog.w( "You can't move!" );
+				GLog.w(tr(TXT_BUFF_ROOTS));
 			} else if (buff instanceof Weakness) {
-				GLog.w( "You feel weakened!" );
+				GLog.w(tr(TXT_BUFF_WEAKNESS));
 			} else if (buff instanceof Blindness) {
-				GLog.w( "You are blinded!" );
+				GLog.w(tr(TXT_BUFF_BLINDNESS));
 			} else if (buff instanceof Fury) {
-				GLog.w( "You become furious!" );
+				GLog.w(tr(TXT_BUFF_FURY));
 				sprite.showStatus( CharSprite.POSITIVE, "furious" );
 			} else if (buff instanceof Charm) {
-				GLog.w( "You are charmed!" );
+				GLog.w(tr(TXT_BUFF_CHARM));
 			}  else if (buff instanceof Cripple) {
-				GLog.w( "You are crippled!" );
+				GLog.w(tr(TXT_BUFF_CRIPPLE));
 			} else if (buff instanceof Bleeding) {
-				GLog.w( "You are bleeding!" );
+				GLog.w(tr(TXT_BUFF_BLEEDING));
 			}
 			
 			else if (buff instanceof Light) {
@@ -1286,7 +1300,7 @@ public class Hero extends Char {
 
 		
 		if (intentional) {
-			sprite.showStatus( CharSprite.DEFAULT, TXT_SEARCH );
+			sprite.showStatus( CharSprite.DEFAULT, tr(TXT_SEARCH) );
 			sprite.operate( pos );
 			if (smthFound) {
 				spendAndNext( Random.Float() < level ? TIME_TO_SEARCH : TIME_TO_SEARCH * 2 );
@@ -1297,7 +1311,7 @@ public class Hero extends Char {
 		}
 		
 		if (smthFound) {
-			GLog.w( TXT_NOTICED_SMTH );
+			GLog.w( tr(TXT_NOTICED_SMTH) );
 			Sample.INSTANCE.play( Assets.SND_SECRET );
 			interrupt();
 		}

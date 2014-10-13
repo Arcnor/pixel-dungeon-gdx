@@ -27,6 +27,8 @@ import com.watabou.pixeldungeon.scenes.PixelScene;
 import com.watabou.pixeldungeon.ui.Window;
 import com.watabou.utils.SparseArray;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WndStory extends Window {
 
 	private static final int WIDTH = 120;

@@ -217,13 +217,4 @@ public abstract class Actor implements Bundlable {
 	public static HashSet<Actor> all() {
 		return all;
 	}
-
-	// FIXME: Duplicated from Gizmo, move to a common place
-	protected static String tr(final String key) {
-		return Game.instance.getI18nBundle().get(key);
-	}
-
-	protected static String tr(final String key, final Object... args) {
-		return Game.instance.getI18nBundle().format(key, args);
-	}
 }

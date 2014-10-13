@@ -52,6 +52,8 @@ import com.watabou.pixeldungeon.windows.WndList;
 import com.watabou.pixeldungeon.windows.WndOptions;
 import com.watabou.pixeldungeon.windows.WndTitledMessage;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class StartScene extends PixelScene {
 
 	private static final float BUTTON_HEIGHT	= 24;

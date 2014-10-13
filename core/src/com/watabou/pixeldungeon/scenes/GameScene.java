@@ -82,6 +82,8 @@ import com.watabou.pixeldungeon.windows.WndStory;
 import com.watabou.pixeldungeon.windows.WndTradeItem;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class GameScene extends PixelScene {
 	
 	private static final String TXT_WELCOME			= "game_welcome";

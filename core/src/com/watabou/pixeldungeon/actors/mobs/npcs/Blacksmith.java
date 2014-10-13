@@ -43,6 +43,8 @@ import com.watabou.pixeldungeon.windows.WndQuest;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Blacksmith extends Mob.NPC {
 
 	private static final String TXT_GOLD_1 =
@@ -98,7 +100,7 @@ public class Blacksmith extends Mob.NPC {
 					
 					Pickaxe pick = new Pickaxe();
 					if (pick.doPickUp( Dungeon.hero )) {
-						GLog.i( Hero.TXT_YOU_NOW_HAVE, pick.name() );
+						GLog.i(tr(Hero.TXT_YOU_NOW_HAVE, pick.name()));
 					} else {
 						Dungeon.level.drop( pick, Dungeon.hero.pos ).sprite.drop();
 					}

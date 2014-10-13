@@ -111,7 +111,8 @@ public class CharSprite extends MovieClip implements Tweener.Listener, MovieClip
 	public void place( int cell ) {
 		point( worldToCamera( cell ) );
 	}
-	
+
+	// FIXME: Remove args from here
 	public void showStatus( int color, String text, Object... args ) {
 		if (visible) {
 			if (args.length > 0) {

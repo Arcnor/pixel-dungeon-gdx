@@ -30,6 +30,8 @@ import com.watabou.pixeldungeon.ui.BadgesList;
 import com.watabou.pixeldungeon.ui.ScrollPane;
 import com.watabou.pixeldungeon.ui.Window;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class BadgesScene extends PixelScene {
 	
 	private static final String TXT_TITLE = "badges_title";

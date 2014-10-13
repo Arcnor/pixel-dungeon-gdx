@@ -29,6 +29,8 @@ import com.watabou.pixeldungeon.ui.Archs;
 import com.watabou.pixeldungeon.ui.Icons;
 import com.watabou.pixeldungeon.ui.Window;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class AboutScene extends PixelScene {
 
 	private static final String TXT = "about_txt";
