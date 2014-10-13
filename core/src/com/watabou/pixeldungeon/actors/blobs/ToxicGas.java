@@ -31,7 +31,9 @@ import com.watabou.pixeldungeon.utils.Utils;
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class ToxicGas extends Blob implements Hero.Doom {
-	
+
+	private static final String TXT_DESC = "blob_toxic_gas_desc";
+
 	@Override
 	protected void evolve() {
 		super.evolve();
@@ -81,7 +83,7 @@ public class ToxicGas extends Blob implements Hero.Doom {
 	
 	@Override
 	public String tileDesc() {
-		return "A greenish cloud of toxic gas is swirling here.";
+		return TXT_DESC;
 	}
 	
 	@Override

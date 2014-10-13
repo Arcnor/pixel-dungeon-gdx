@@ -25,7 +25,9 @@ import com.watabou.pixeldungeon.effects.BlobEmitter;
 import com.watabou.pixeldungeon.effects.particles.WebParticle;
 
 public class Web extends Blob {
-	
+
+	private static final String TXT_DESC = "blob_web_desc";
+
 	@Override
 	protected void evolve() {
 		
@@ -63,6 +65,6 @@ public class Web extends Blob {
 	
 	@Override
 	public String tileDesc() {
-		return "Everything is covered with a thick web here.";
+		return TXT_DESC;
 	}
 }

@@ -186,7 +186,10 @@ public class Blob extends Actor {
 		volume -= cur[cell];
 		cur[cell] = 0;
 	}
-	
+
+	/**
+	 * @return the KEY of the string to translate, not the translated string itself
+	 */
 	public String tileDesc() {
 		return null;
 	}

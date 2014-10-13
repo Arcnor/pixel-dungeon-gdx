@@ -36,13 +36,13 @@ import com.watabou.pixeldungeon.levels.Terrain;
 import com.watabou.pixeldungeon.scenes.GameScene;
 import com.watabou.pixeldungeon.utils.GLog;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WaterOfAwareness extends WellWater {
 
-	private static final String TXT_PROCCED =
-		"As you take a sip, you feel the knowledge pours into your mind. " +
-		"Now you know everything about your equipped items. Also you sense " +
-		"all items on the level and know all its secrets.";
-	
+	private static final String TXT_PROCEED = "blob_water_aware_proceed";
+	private static final String TXT_DESC = "blob_water_aware_desc";
+
 	@Override
 	protected boolean affectHero( Hero hero ) {
 		
@@ -56,7 +56,7 @@ public class WaterOfAwareness extends WellWater {
 			int terr = Dungeon.level.map[i];
 			if ((Terrain.flags[terr] & Terrain.SECRET) != 0) {
 				
-				Level.set( i, Terrain.discover( terr ) );						
+				Level.set( i, Terrain.discover( terr ) );
 				GameScene.updateMap( i );
 				
 				if (Dungeon.visible[i]) {
@@ -70,7 +70,7 @@ public class WaterOfAwareness extends WellWater {
 
 		Dungeon.hero.interrupt();
 	
-		GLog.p( TXT_PROCCED );
+		GLog.p(tr(TXT_PROCEED));
 		
 		Journal.remove( Feature.WELL_OF_AWARENESS );
 		
@@ -101,8 +101,6 @@ public class WaterOfAwareness extends WellWater {
 	
 	@Override
 	public String tileDesc() {
-		return 
-			"Power of knowledge radiates from the water of this well. " +
-			"Take a sip from it to reveal all secrets of equipped items.";
+		return TXT_DESC;
 	}
 }

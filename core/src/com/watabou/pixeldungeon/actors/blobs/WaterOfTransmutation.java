@@ -37,7 +37,9 @@ import com.watabou.pixeldungeon.items.weapon.melee.*;
 import com.watabou.pixeldungeon.plants.Plant;
 
 public class WaterOfTransmutation extends WellWater {
-	
+
+	private static final String TXT_DESC = "blob_water_transmute_desc";
+
 	@Override
 	protected Item affectItem( Item item ) {
 		
@@ -230,8 +232,6 @@ public class WaterOfTransmutation extends WellWater {
 	
 	@Override
 	public String tileDesc() {
-		return 
-			"Power of change radiates from the water of this well. " +
-			"Throw an item into the well to turn it into something else.";
+		return TXT_DESC;
 	}
 }

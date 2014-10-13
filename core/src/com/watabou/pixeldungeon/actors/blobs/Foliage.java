@@ -29,7 +29,9 @@ import com.watabou.pixeldungeon.levels.Terrain;
 import com.watabou.pixeldungeon.scenes.GameScene;
 
 public class Foliage extends Blob {
-	
+
+	private static final String TXT_DESC = "blob_foliage_desc";
+
 	@Override
 	protected void evolve() {
 
@@ -81,6 +83,6 @@ public class Foliage extends Blob {
 	
 	@Override
 	public String tileDesc() {
-		return "Shafts of light pierce the gloom of the underground garden.";
+		return TXT_DESC;
 	}
 }

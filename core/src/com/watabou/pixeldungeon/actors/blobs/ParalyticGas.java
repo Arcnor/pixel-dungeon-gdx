@@ -25,7 +25,9 @@ import com.watabou.pixeldungeon.effects.BlobEmitter;
 import com.watabou.pixeldungeon.effects.Speck;
 
 public class ParalyticGas extends Blob {
-	
+
+	private static final String TXT_DESC = "blob_paralytic_gas_desc";
+
 	@Override
 	protected void evolve() {
 		super.evolve();
@@ -47,6 +49,6 @@ public class ParalyticGas extends Blob {
 	
 	@Override
 	public String tileDesc() {
-		return "A cloud of paralytic gas is swirling here.";
+		return TXT_DESC;
 	}
 }

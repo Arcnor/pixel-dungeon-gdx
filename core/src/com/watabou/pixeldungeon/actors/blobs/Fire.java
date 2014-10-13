@@ -30,7 +30,9 @@ import com.watabou.pixeldungeon.levels.Terrain;
 import com.watabou.pixeldungeon.scenes.GameScene;
 
 public class Fire extends Blob {
-	
+
+	private static final String TXT_DESC = "blob_fire_desc";
+
 	@Override
 	protected void evolve() {
 
@@ -109,6 +111,6 @@ public class Fire extends Blob {
 	
 	@Override
 	public String tileDesc() {
-		return "A fire is raging here.";
+		return TXT_DESC;
 	}
 }

@@ -27,6 +27,8 @@ import com.watabou.pixeldungeon.levels.Terrain;
 import com.watabou.pixeldungeon.scenes.PixelScene;
 import com.watabou.pixeldungeon.ui.Window;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WndInfoCell extends Window {
 	
 	private static final float GAP	= 2;
@@ -69,7 +71,7 @@ public class WndInfoCell extends Window {
 				if (desc.length() > 0) {
 					desc.append( newLine );
 				}
-				desc.append( blob.tileDesc() );
+				desc.append( tr(blob.tileDesc()) );
 			}
 		}
 		

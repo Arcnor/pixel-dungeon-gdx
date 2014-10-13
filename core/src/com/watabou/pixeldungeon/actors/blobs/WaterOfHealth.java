@@ -35,9 +35,9 @@ import com.watabou.pixeldungeon.utils.GLog;
 
 public class WaterOfHealth extends WellWater {
 
-	private static final String TXT_PROCCED =
-		"As you take a sip, you feel your wounds heal completely.";
-	
+	private static final String TXT_PROCEED = "blob_water_health_proceed";
+	private static final String TXT_DESC = "blob_water_health_desc";
+
 	@Override
 	protected boolean affectHero( Hero hero ) {
 		
@@ -45,13 +45,13 @@ public class WaterOfHealth extends WellWater {
 		
 		PotionOfHealing.heal( hero );
 		hero.belongings.uncurseEquipped();
-		((Hunger)hero.buff( Hunger.class )).satisfy( Hunger.STARVING );
+		hero.buff( Hunger.class ).satisfy(Hunger.STARVING);
 		
 		CellEmitter.get( pos ).start( ShaftParticle.FACTORY, 0.2f, 3 );
 
 		Dungeon.hero.interrupt();
 	
-		GLog.p( TXT_PROCCED );
+		GLog.p(TXT_PROCEED);
 		
 		Journal.remove( Feature.WELL_OF_HEALTH );
 		
@@ -76,8 +76,6 @@ public class WaterOfHealth extends WellWater {
 	
 	@Override
 	public String tileDesc() {
-		return 
-			"Power of health radiates from the water of this well. " +
-			"Take a sip from it to heal your wounds and satisfy hunger.";
+		return TXT_DESC;
 	}
 }
