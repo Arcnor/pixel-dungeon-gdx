@@ -36,6 +36,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.pixeldungeon.windows.WndBag;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WandOfMagicMissile extends Wand {
 
 	public static final String AC_DISENCHANT	= "DISENCHANT";
@@ -76,7 +78,7 @@ public class WandOfMagicMissile extends Wand {
 			ch.sprite.burst( 0xFF99CCFF, level / 2 + 2 );
 			
 			if (ch == curUser && !ch.isAlive()) {
-				Dungeon.fail( Utils.format( ResultDescriptions.WAND, name, Dungeon.depth ) );
+				Dungeon.fail( tr(ResultDescriptions.WAND, name, Dungeon.depth) );
 				GLog.n( "You killed yourself with your own Wand of Magic Missile..." );
 			}
 		}

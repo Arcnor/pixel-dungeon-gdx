@@ -40,6 +40,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Burning extends Buff implements Hero.Doom {
 
 	private static final String TXT_BURNS_UP		= "%s burns up!";
@@ -148,7 +150,7 @@ public class Burning extends Buff implements Hero.Doom {
 		
 		Badges.validateDeathFromFire();
 		
-		Dungeon.fail( Utils.format( ResultDescriptions.BURNING, Dungeon.depth ) );
+		Dungeon.fail( tr(ResultDescriptions.BURNING, Dungeon.depth) );
 		GLog.n( TXT_BURNED_TO_DEATH );
 	}
 }

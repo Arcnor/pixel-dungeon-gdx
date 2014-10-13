@@ -38,6 +38,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.pixeldungeon.windows.WndOptions;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Chasm {
 	
 	private static final String TXT_CHASM	= "Chasm";
@@ -96,7 +98,7 @@ public class Chasm {
 			public void onDeath() {
 				Badges.validateDeathFromFalling();
 				
-				Dungeon.fail( Utils.format( ResultDescriptions.FALL, Dungeon.depth ) );
+				Dungeon.fail( tr(ResultDescriptions.FALL, Dungeon.depth) );
 				GLog.n( "You fell to death..." );
 			}
 		} );

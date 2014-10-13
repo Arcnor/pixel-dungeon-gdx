@@ -37,6 +37,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WandOfFirebolt extends Wand {
 
 	{
@@ -66,7 +68,7 @@ public class WandOfFirebolt extends Wand {
 			ch.sprite.emitter().burst( FlameParticle.FACTORY, 5 );
 			
 			if (ch == curUser && !ch.isAlive()) {
-				Dungeon.fail( Utils.format( ResultDescriptions.WAND, name, Dungeon.depth ) );
+				Dungeon.fail( tr(ResultDescriptions.WAND, name, Dungeon.depth) );
 				GLog.n( "You killed yourself with your own Wand of Firebolt..." );
 			}
 		}

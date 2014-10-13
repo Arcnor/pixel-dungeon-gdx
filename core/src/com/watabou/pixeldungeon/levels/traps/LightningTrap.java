@@ -30,6 +30,8 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class LightningTrap {
 
 	private static final String name	= "lightning trap";
@@ -45,7 +47,7 @@ public class LightningTrap {
 				Camera.main.shake( 2, 0.3f );
 				
 				if (!ch.isAlive()) {
-					Dungeon.fail( Utils.format( ResultDescriptions.TRAP, name, Dungeon.depth ) );
+					Dungeon.fail( tr(ResultDescriptions.TRAP, name, Dungeon.depth) );
 					GLog.n( "You were killed by a discharge of a lightning trap..." );
 				} else {
 					((Hero)ch).belongings.charge( false );

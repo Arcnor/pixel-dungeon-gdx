@@ -35,6 +35,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Shaman extends Mob implements Callback {
 
 	private static final float TIME_TO_ZAP	= 2f;
@@ -106,8 +108,8 @@ public class Shaman extends Mob implements Callback {
 					Camera.main.shake( 2, 0.3f );
 					
 					if (!enemy.isAlive()) {
-						Dungeon.fail( Utils.format( ResultDescriptions.MOB, 
-							Utils.indefinite( name ), Dungeon.depth ) );
+						Dungeon.fail( tr(ResultDescriptions.MOB,
+								Utils.indefinite(name), Dungeon.depth) );
 						GLog.n( TXT_LIGHTNING_KILLED, name );
 					}
 				}

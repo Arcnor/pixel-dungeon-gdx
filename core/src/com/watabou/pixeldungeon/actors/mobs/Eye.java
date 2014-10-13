@@ -38,6 +38,8 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Eye extends Mob {
 	
 	private static final String TXT_DEATHGAZE_KILLED = "%s's deathgaze killed you...";
@@ -132,7 +134,7 @@ public class Eye extends Mob {
 				}
 				
 				if (!ch.isAlive() && ch == Dungeon.hero) {
-					Dungeon.fail( Utils.format( ResultDescriptions.MOB, Utils.indefinite( name ), Dungeon.depth ) );
+					Dungeon.fail( tr(ResultDescriptions.MOB, Utils.indefinite(name), Dungeon.depth) );
 					GLog.n( TXT_DEATHGAZE_KILLED, name );
 				}
 			} else {

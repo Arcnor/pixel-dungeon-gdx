@@ -29,6 +29,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Hunger extends Buff implements Hero.Doom {
 
 	private static final float STEP	= 10f;
@@ -153,7 +155,7 @@ public class Hunger extends Buff implements Hero.Doom {
 		
 		Badges.validateDeathFromHunger();
 		
-		Dungeon.fail( Utils.format( ResultDescriptions.HUNGER, Dungeon.depth ) );
+		Dungeon.fail( tr(ResultDescriptions.HUNGER, Dungeon.depth) );
 		GLog.n( TXT_DEATH );
 	}
 }

@@ -35,6 +35,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WandOfLightning extends Wand {
 
 	{
@@ -51,7 +53,7 @@ public class WandOfLightning extends Wand {
 		// The actual effect is processed in "fx" method
 		
 		if (!curUser.isAlive()) {
-			Dungeon.fail( Utils.format( ResultDescriptions.WAND, name, Dungeon.depth ) );
+			Dungeon.fail( tr(ResultDescriptions.WAND, name, Dungeon.depth) );
 			GLog.n( "You killed yourself with your own Wand of Lightning..." );
 		}
 	}

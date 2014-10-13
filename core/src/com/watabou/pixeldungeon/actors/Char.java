@@ -61,7 +61,7 @@ import static com.watabou.noosa.NoosaI18N.tr;
 
 public abstract class Char extends Actor {
 
-	protected static final String TXT_KILL	= "char_kill";
+	public static final String TXT_KILL	= "char_kill";
 	private static final String TXT_HIT		= "char_hit";
 	private static final String TXT_DEFEAT	= "char_defeat";
 	
@@ -167,15 +167,15 @@ public abstract class Char extends Actor {
 					
 					if (Dungeon.hero.killerGlyph != null) {
 						
-						Dungeon.fail( Utils.format( ResultDescriptions.GLYPH, Dungeon.hero.killerGlyph.name(), Dungeon.depth ) );
+						Dungeon.fail( tr(ResultDescriptions.GLYPH, Dungeon.hero.killerGlyph.name(), Dungeon.depth) );
 						GLog.n( tr(TXT_KILL, Dungeon.hero.killerGlyph.name()) );
 						
 					} else {
 						if (Bestiary.isUnique( this )) {
-							Dungeon.fail( Utils.format( ResultDescriptions.BOSS, name, Dungeon.depth ) );
+							Dungeon.fail(tr(ResultDescriptions.BOSS, name, Dungeon.depth));
 						} else {
-							Dungeon.fail( Utils.format( ResultDescriptions.MOB, 
-								Utils.indefinite( name ), Dungeon.depth ) );
+							Dungeon.fail( tr(ResultDescriptions.MOB,
+									Utils.indefinite(name), Dungeon.depth) );
 						}
 						
 						GLog.n( tr(TXT_KILL, name) );

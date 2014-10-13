@@ -28,6 +28,8 @@ import com.watabou.pixeldungeon.effects.Speck;
 import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class ToxicGas extends Blob implements Hero.Doom {
 	
 	@Override
@@ -87,7 +89,7 @@ public class ToxicGas extends Blob implements Hero.Doom {
 		
 		Badges.validateDeathFromGas();
 		
-		Dungeon.fail( Utils.format( ResultDescriptions.GAS, Dungeon.depth ) );
+		Dungeon.fail( tr(ResultDescriptions.GAS, Dungeon.depth) );
 		GLog.n( "You died from a toxic gas.." );
 	}
 }

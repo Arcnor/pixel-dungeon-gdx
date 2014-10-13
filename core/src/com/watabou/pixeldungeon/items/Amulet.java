@@ -29,6 +29,8 @@ import com.watabou.pixeldungeon.actors.hero.Hero;
 import com.watabou.pixeldungeon.scenes.AmuletScene;
 import com.watabou.pixeldungeon.sprites.ItemSpriteSheet;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Amulet extends Item {
 	
 	private static final String AC_END = "END THE GAME";
@@ -66,7 +68,7 @@ public class Amulet extends Item {
 			
 			if (!Statistics.amuletObtained) {
 				Statistics.amuletObtained = true;
-				Dungeon.win( ResultDescriptions.WIN );
+				Dungeon.win( tr(ResultDescriptions.WIN) );
 				Badges.validateVictory();
 
 				showAmuletScene( true );

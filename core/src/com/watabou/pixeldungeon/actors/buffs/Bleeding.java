@@ -27,6 +27,8 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.PointF;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Bleeding extends Buff {
 	
 	protected int level;
@@ -73,7 +75,7 @@ public class Bleeding extends Buff {
 				}
 				
 				if (target == Dungeon.hero && !target.isAlive()) {
-					Dungeon.fail( Utils.format( ResultDescriptions.BLEEDING, Dungeon.depth ) );
+					Dungeon.fail( tr(ResultDescriptions.BLEEDING, Dungeon.depth) );
 					GLog.n( "You bled to death..." );
 				}
 				

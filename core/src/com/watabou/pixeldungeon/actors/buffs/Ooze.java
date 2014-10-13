@@ -24,6 +24,8 @@ import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Ooze extends Buff {
 	
 	private static final String TXT_HERO_KILLED = "%s killed you...";
@@ -45,7 +47,7 @@ public class Ooze extends Buff {
 		if (target.isAlive()) {
 			target.damage( damage, this );
 			if (!target.isAlive() && target == Dungeon.hero) {
-				Dungeon.fail( Utils.format( ResultDescriptions.OOZE, Dungeon.depth ) );
+				Dungeon.fail( tr(ResultDescriptions.OOZE, Dungeon.depth) );
 				GLog.n( TXT_HERO_KILLED, toString() );
 			}
 			spend( TICK );

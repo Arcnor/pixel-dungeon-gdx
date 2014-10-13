@@ -28,6 +28,8 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Poison extends Buff implements Hero.Doom {
 	
 	public static final int DOT	= 2;
@@ -92,7 +94,7 @@ public class Poison extends Buff implements Hero.Doom {
 	public void onDeath() {
 		Badges.validateDeathFromPoison();
 		
-		Dungeon.fail( Utils.format( ResultDescriptions.POISON, Dungeon.depth ) );
+		Dungeon.fail( tr(ResultDescriptions.POISON, Dungeon.depth) );
 		GLog.n( "You died from poison..." );
 	}
 }

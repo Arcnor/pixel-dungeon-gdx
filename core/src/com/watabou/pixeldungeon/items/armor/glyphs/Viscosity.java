@@ -33,6 +33,8 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Viscosity extends Glyph {
 
 	private static final String TXT_VISCOSITY	= "%s of viscosity";
@@ -127,8 +129,8 @@ public class Viscosity extends Glyph {
 				if (target == Dungeon.hero && !target.isAlive()) {
 					// Refactoring needed!
 					Glyph glyph = new Viscosity();
-					Dungeon.fail( Utils.format( ResultDescriptions.GLYPH, glyph.name(), Dungeon.depth ) );
-					GLog.n( "%s killed you...", glyph.name() );
+					Dungeon.fail( tr(ResultDescriptions.GLYPH, glyph.name(), Dungeon.depth) );
+					GLog.n( tr(Char.TXT_KILL, glyph.name()) );
 					
 					Badges.validateDeathFromGlyph();
 				}

@@ -38,6 +38,8 @@ import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WandOfAvalanche extends Wand {
 
 	{
@@ -81,7 +83,7 @@ public class WandOfAvalanche extends Wand {
 		}
 		
 		if (!curUser.isAlive()) {
-			Dungeon.fail( Utils.format( ResultDescriptions.WAND, name, Dungeon.depth ) );
+			Dungeon.fail( tr(ResultDescriptions.WAND, name, Dungeon.depth) );
 			GLog.n( "You killed yourself with your own Wand of Avalanche..." );
 		}
 	}
