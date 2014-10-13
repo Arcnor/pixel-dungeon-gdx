@@ -57,21 +57,24 @@ import com.watabou.utils.Bundlable;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public abstract class Char extends Actor {
 
-	protected static final String TXT_HIT		= "%s hit %s";
-	protected static final String TXT_KILL		= "%s killed you...";
-	protected static final String TXT_DEFEAT	= "%s defeated %s";
+	protected static final String TXT_KILL	= "char_kill";
+	private static final String TXT_HIT		= "char_hit";
+	private static final String TXT_DEFEAT	= "char_defeat";
 	
-	private static final String TXT_YOU_MISSED	= "%s %s your attack";
-	private static final String TXT_SMB_MISSED	= "%s %s %s's attack";
+	private static final String TXT_YOU_MISSED	= "char_you_missed";
+	private static final String TXT_SMB_MISSED	= "char_smb_missed";
 	
-	private static final String TXT_OUT_OF_PARALYSIS	= "The pain snapped %s out of paralysis";
+	private static final String TXT_OUT_OF_PARALYSIS	= "char_out_of_paralysis";
 	
 	public int pos = 0;
 	
 	public CharSprite sprite;
-	
+
+	// FIXME: Do we need to I18N this, or is it never used?
 	public String name = "mob";
 	
 	public int HT;
@@ -134,7 +137,7 @@ public abstract class Char extends Actor {
 		if (hit( this, enemy, false )) {
 			
 			if (visibleFight) {
-				GLog.i( TXT_HIT, name, enemy.name );
+				GLog.i( tr(TXT_HIT, name, enemy.name) );
 			}
 			
 			// Refactoring needed!
@@ -165,7 +168,7 @@ public abstract class Char extends Actor {
 					if (Dungeon.hero.killerGlyph != null) {
 						
 						Dungeon.fail( Utils.format( ResultDescriptions.GLYPH, Dungeon.hero.killerGlyph.name(), Dungeon.depth ) );
-						GLog.n( TXT_KILL, Dungeon.hero.killerGlyph.name() );
+						GLog.n( tr(TXT_KILL, Dungeon.hero.killerGlyph.name()) );
 						
 					} else {
 						if (Bestiary.isUnique( this )) {
@@ -175,11 +178,11 @@ public abstract class Char extends Actor {
 								Utils.indefinite( name ), Dungeon.depth ) );
 						}
 						
-						GLog.n( TXT_KILL, name );
+						GLog.n( tr(TXT_KILL, name) );
 					}
 					
 				} else {
-					GLog.i( TXT_DEFEAT, name, enemy.name );
+					GLog.i( tr(TXT_DEFEAT, name, enemy.name) );
 				}
 			}
 			
@@ -191,9 +194,9 @@ public abstract class Char extends Actor {
 				String defense = enemy.defenseVerb();
 				enemy.sprite.showStatus( CharSprite.NEUTRAL, defense );
 				if (this == Dungeon.hero) {
-					GLog.i( TXT_YOU_MISSED, enemy.name, defense );
+					GLog.i( tr(TXT_YOU_MISSED, enemy.name, defense) );
 				} else {
-					GLog.i( TXT_SMB_MISSED, enemy.name, defense, name );
+					GLog.i( tr(TXT_SMB_MISSED, enemy.name, defense, name) );
 				}
 				
 				Sample.INSTANCE.play( Assets.SND_MISS );
@@ -203,7 +206,7 @@ public abstract class Char extends Actor {
 			
 		}
 	}
-	
+
 	public static boolean hit( Char attacker, Char defender, boolean magic ) {
 		float acuRoll = Random.Float( attacker.attackSkill( defender ) );
 		float defRoll = Random.Float( defender.defenseSkill( attacker ) );
@@ -261,7 +264,7 @@ public abstract class Char extends Actor {
 			if (Random.Int( dmg ) >= Random.Int( HP )) {
 				Buff.detach( this, Paralysis.class );
 				if (Dungeon.visible[pos]) {
-					GLog.i( TXT_OUT_OF_PARALYSIS, name );
+					GLog.i( tr(TXT_OUT_OF_PARALYSIS, name) );
 				}
 			}
 		}

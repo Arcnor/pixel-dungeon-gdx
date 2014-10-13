@@ -52,6 +52,8 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Yog extends Mob {
 	
 	{
@@ -336,7 +338,7 @@ public class Yog extends Mob {
 					
 					if (!enemy.isAlive() && enemy == Dungeon.hero) {
 						Dungeon.fail( Utils.format( ResultDescriptions.BOSS, name, Dungeon.depth ) );
-						GLog.n( TXT_KILL, name );
+						GLog.n( tr(TXT_KILL, name) );
 					}
 					return true;
 					
