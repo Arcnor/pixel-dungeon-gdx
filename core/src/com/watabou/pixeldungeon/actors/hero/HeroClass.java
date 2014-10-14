@@ -35,48 +35,21 @@ import com.watabou.pixeldungeon.items.weapon.missiles.Dart;
 import com.watabou.pixeldungeon.items.weapon.missiles.Boomerang;
 import com.watabou.utils.Bundle;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public enum HeroClass {
 
-	WARRIOR( "warrior" ), MAGE( "mage" ), ROGUE( "rogue" ), HUNTRESS( "huntress" );
+	WARRIOR( "warrior", "war", 5 ), MAGE( "mage", "mag", 5), ROGUE( "rogue", "rog", 6), HUNTRESS( "huntress", "hun", 5);
 	
-	private String title;
-	
-	private HeroClass( String title ) {
+	private final String title;
+	private final String i18nPrefix;
+	private final int numI18nStrings;
+
+	private HeroClass(String title, String i18nPrefix, int numI18nStrings) {
 		this.title = title;
+		this.i18nPrefix = i18nPrefix;
+		this.numI18nStrings = numI18nStrings;
 	}
-	
-	public static final String[] WAR_PERKS = {
-		"Warriors start with 11 points of Strength.",
-		"Warriors start with a unique short sword. This sword can be later \"reforged\" to upgrade another melee weapon.",
-		"Warriors are less proficient with missile weapons.",
-		"Any piece of food restores some health when eaten.",
-		"Potions of Strength are identified from the beginning.",
-	};
-	
-	public static final String[] MAG_PERKS = {
-		"Mages start with a unique Wand of Magic Missile. This wand can be later \"disenchanted\" to upgrade another wand.",
-		"Mages recharge their wands faster.",
-		"When eaten, any piece of food restores 1 charge for all wands in the inventory.",
-		"Mages can use wands as a melee weapon.",
-		"Scrolls of Identify are identified from the beginning."
-	};
-	
-	public static final String[] ROG_PERKS = {
-		"Rogues start with a Ring of Shadows+1.",
-		"Rogues identify a type of a ring on equipping it.",
-		"Rogues are proficient with light armor, dodging better while wearing one.",
-		"Rogues are proficient in detecting hidden doors and traps.",
-		"Rogues can go without food longer.",
-		"Scrolls of Magic Mapping are identified from the beginning."
-	};
-	
-	public static final String[] HUN_PERKS = {
-		"Huntresses start with 15 points of Health.",
-		"Huntresses start with a unique upgradeable boomerang.",
-		"Huntresses are proficient with missile weapons and get damage bonus for excessive strength when using them.",
-		"Huntresses gain more health from dewdrops.",
-		"Huntresses sense neighbouring monsters even if they are hidden behind obstacles."
-	};
 	
 	public void initHero( Hero hero ) {
 		
@@ -193,19 +166,13 @@ public enum HeroClass {
 	}
 	
 	public String[] perks() {
-		
-		switch (this) {
-		case WARRIOR:
-			return WAR_PERKS;
-		case MAGE:
-			return MAG_PERKS;
-		case ROGUE:
-			return ROG_PERKS;
-		case HUNTRESS:
-			return HUN_PERKS;
+		final String[] result = new String[numI18nStrings];
+
+		for (int j = 0; j < numI18nStrings; j++) {
+			result[j] = tr("perk_" + i18nPrefix + "_" + j);
 		}
-		
-		return null;
+
+		return result;
 	}
 
 	private static final String BUNDLE_KEY_CLASS = "class";

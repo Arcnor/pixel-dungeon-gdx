@@ -29,14 +29,16 @@ import com.watabou.pixeldungeon.ui.Icons;
 import com.watabou.pixeldungeon.ui.RedButton;
 import com.watabou.pixeldungeon.ui.Window;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class WndGame extends Window {
 	
-	private static final String TXT_SETTINGS	= "Settings";
-	private static final String TXT_RANKINGS	= "Rankings";
-	private static final String TXT_START		= "Start New Game";
-	private static final String TXT_MENU		= "Main Menu";
-	private static final String TXT_EXIT		= "Exit Pixel Dungeon";
-	private static final String TXT_RETURN		= "Return to Game";
+	private static final String TXT_SETTINGS	= "wgame_settings";
+	private static final String TXT_RANKINGS	= "wgame_rankings";
+	private static final String TXT_START		= "wgame_start";
+	private static final String TXT_MENU		= "wgame_menu";
+	private static final String TXT_EXIT		= "wgame_exit";
+	private static final String TXT_RETURN		= "wgame_return";
 	
 	private static final int WIDTH		= 120;
 	private static final int BTN_HEIGHT	= 20;
@@ -48,7 +50,7 @@ public class WndGame extends Window {
 		
 		super();
 		
-		addButton( new RedButton( TXT_SETTINGS ) {
+		addButton( new RedButton( tr(TXT_SETTINGS) ) {
 			@Override
 			protected void onClick() {
 				hide();
@@ -60,7 +62,7 @@ public class WndGame extends Window {
 		if (!Dungeon.hero.isAlive()) {
 			
 			RedButton btnStart;
-			addButton( btnStart = new RedButton( TXT_START ) {
+			addButton( btnStart = new RedButton( tr(TXT_START) ) {
 				@Override
 				protected void onClick() {
 					Dungeon.hero = null;
@@ -71,7 +73,7 @@ public class WndGame extends Window {
 			} );
 			btnStart.icon( Icons.get( Dungeon.hero.heroClass ) );
 			
-			addButton( new RedButton( TXT_RANKINGS ) {
+			addButton( new RedButton( tr(TXT_RANKINGS) ) {
 				@Override
 				protected void onClick() {
 					InterlevelScene.mode = InterlevelScene.Mode.DESCEND;
@@ -81,7 +83,7 @@ public class WndGame extends Window {
 		}
 				
 		// Main menu
-		addButton( new RedButton( TXT_MENU ) {
+		addButton( new RedButton( tr(TXT_MENU) ) {
 			@Override
 			protected void onClick() {
 				try {
@@ -94,7 +96,7 @@ public class WndGame extends Window {
 		} );
 		
 		// Exit
-		addButton( new RedButton( TXT_EXIT ) {
+		addButton( new RedButton( tr(TXT_EXIT) ) {
 			@Override
 			protected void onClick() {
 				Game.instance.finish();
@@ -102,7 +104,7 @@ public class WndGame extends Window {
 		} );
 		
 		// Cancel
-		addButton( new RedButton( TXT_RETURN ) {
+		addButton( new RedButton( tr(TXT_RETURN) ) {
 			@Override
 			protected void onClick() {
 				hide();

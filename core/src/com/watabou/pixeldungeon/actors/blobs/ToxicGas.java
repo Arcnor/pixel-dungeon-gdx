@@ -33,6 +33,7 @@ import static com.watabou.noosa.NoosaI18N.tr;
 public class ToxicGas extends Blob implements Hero.Doom {
 
 	private static final String TXT_DESC = "blob_toxic_gas_desc";
+	private static final String TXT_DEATH = "blob_toxic_gas_death";
 
 	@Override
 	protected void evolve() {
@@ -92,6 +93,6 @@ public class ToxicGas extends Blob implements Hero.Doom {
 		Badges.validateDeathFromGas();
 		
 		Dungeon.fail( tr(ResultDescriptions.GAS, Dungeon.depth) );
-		GLog.n( "You died from a toxic gas.." );
+		GLog.n(tr(TXT_DEATH));
 	}
 }

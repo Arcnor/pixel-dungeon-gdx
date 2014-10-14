@@ -130,6 +130,7 @@ public class Hero extends Char {
 	private static final String TXT_BUFF_WEAKNESS = "hero_buff_weakness";
 	private static final String TXT_BUFF_BLINDNESS = "hero_buff_blindness";
 	private static final String TXT_BUFF_FURY = "hero_buff_fury";
+	private static final String TXT_BUFF_FURY_STATUS = "hero_buff_fury_status";
 	private static final String TXT_BUFF_CHARM = "hero_buff_charm";
 	private static final String TXT_BUFF_CRIPPLE = "hero_buff_cripple";
 	private static final String TXT_BUFF_BLEEDING = "hero_buff_bleeding";
@@ -1058,7 +1059,7 @@ public class Hero extends Char {
 				GLog.w(tr(TXT_BUFF_BLINDNESS));
 			} else if (buff instanceof Fury) {
 				GLog.w(tr(TXT_BUFF_FURY));
-				sprite.showStatus( CharSprite.POSITIVE, "furious" );
+				sprite.showStatus( CharSprite.POSITIVE, tr(TXT_BUFF_FURY_STATUS));
 			} else if (buff instanceof Charm) {
 				GLog.w(tr(TXT_BUFF_CHARM));
 			}  else if (buff instanceof Cripple) {
