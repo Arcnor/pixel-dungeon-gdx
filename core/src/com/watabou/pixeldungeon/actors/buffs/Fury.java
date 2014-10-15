@@ -19,7 +19,10 @@ package com.watabou.pixeldungeon.actors.buffs;
 
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Fury extends Buff {
+	private static final String TXT_NAME = "buff_fury_name";
 	
 	public static float LEVEL	= 0.4f;
 	
@@ -41,6 +44,6 @@ public class Fury extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Fury";
+		return tr(TXT_NAME);
 	}
 }

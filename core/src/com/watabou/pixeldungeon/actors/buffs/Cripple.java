@@ -19,7 +19,10 @@ package com.watabou.pixeldungeon.actors.buffs;
 
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Cripple extends FlavourBuff {
+	private static final String TXT_NAME = "buff_cripple_name";
 
 	public static final float DURATION	= 10f;
 	
@@ -30,6 +33,6 @@ public class Cripple extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Crippled";
+		return tr(TXT_NAME);
 	}
 }

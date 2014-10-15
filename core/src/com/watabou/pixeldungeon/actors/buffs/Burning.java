@@ -36,13 +36,13 @@ import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.scenes.GameScene;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
-import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Burning extends Buff implements Hero.Doom {
+	private static final String TXT_NAME = "buff_burning_name";
 
 	private static final String TXT_BURNS_UP		= "%s burns up!";
 	private static final String TXT_BURNED_TO_DEATH	= "You burned to death...";
@@ -137,7 +137,7 @@ public class Burning extends Buff implements Hero.Doom {
 	
 	@Override
 	public String toString() {
-		return "Burning";
+		return tr(TXT_NAME);
 	}
 
 	public static float duration( Char ch ) {

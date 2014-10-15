@@ -22,9 +22,12 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Combo extends Buff {
+	private static final String TXT_NAME = "buff_combo_name";
 	
-	private static String TXT_COMBO = "%d hit combo!";
+	private static final String TXT_COMBO = "%d hit combo!";
 	
 	public int count = 0;
 	
@@ -35,7 +38,7 @@ public class Combo extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Combo";
+		return tr(TXT_NAME);
 	}
 	
 	public int hit( Char enemy, int damage ) {

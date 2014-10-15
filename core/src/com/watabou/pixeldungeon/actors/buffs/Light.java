@@ -21,7 +21,10 @@ import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Light extends FlavourBuff {
+	private static final String TXT_NAME = "buff_light_name";
 
 	public static final float DURATION	= 250f;
 	public static final int DISTANCE	= 4;
@@ -54,6 +57,6 @@ public class Light extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Illuminated";
+		return tr(TXT_NAME);
 	}
 }

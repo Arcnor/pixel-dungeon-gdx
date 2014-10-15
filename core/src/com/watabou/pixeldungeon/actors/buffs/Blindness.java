@@ -20,7 +20,10 @@ package com.watabou.pixeldungeon.actors.buffs;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Blindness extends FlavourBuff {
+	private static final String TXT_NAME = "buff_blindness_name";
 	
 	@Override
 	public void detach() {
@@ -35,6 +38,6 @@ public class Blindness extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Blinded";
+		return tr(TXT_NAME);
 	}
 }

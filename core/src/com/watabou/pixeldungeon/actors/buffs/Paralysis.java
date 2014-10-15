@@ -21,7 +21,10 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.items.rings.RingOfElements.Resistance;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Paralysis extends FlavourBuff {
+	private static final String TXT_NAME = "buff_paralysis_name";
 
 	private static final float DURATION	= 10f;
 	
@@ -48,7 +51,7 @@ public class Paralysis extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Paralysed";
+		return tr(TXT_NAME);
 	}
 
 	public static float duration( Char ch ) {

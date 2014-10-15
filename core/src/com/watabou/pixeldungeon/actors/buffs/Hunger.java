@@ -36,7 +36,10 @@ public class Hunger extends Buff implements Hero.Doom {
 	
 	public static final float HUNGRY	= 260f;
 	public static final float STARVING	= 360f;
-	
+
+	private static final String TXT_NAME_HUNGRY = "buff_hungry_name";
+	private static final String TXT_NAME_STARVING = "buff_starving_name";
+
 	private static final String TXT_HUNGRY		= "You are hungry.";
 	private static final String TXT_STARVING	= "You are starving!";
 	private static final String TXT_DEATH		= "You starved to death...";
@@ -142,11 +145,7 @@ public class Hunger extends Buff implements Hero.Doom {
 	
 	@Override
 	public String toString() {
-		if (level < STARVING) {
-			return "Hungry";
-		} else {
-			return "Starving";
-		}
+		return tr(level < STARVING ? TXT_NAME_HUNGRY : TXT_NAME_STARVING);
 	}
 
 	@Override

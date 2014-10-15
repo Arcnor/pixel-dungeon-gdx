@@ -29,6 +29,7 @@ import com.watabou.utils.Random;
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Bleeding extends Buff {
+	private static final String TXT_NAME = "buff_bleeding_name";
 	
 	protected int level;
 	
@@ -58,7 +59,7 @@ public class Bleeding extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Bleeding";
+		return tr(TXT_NAME);
 	}
 	
 	@Override

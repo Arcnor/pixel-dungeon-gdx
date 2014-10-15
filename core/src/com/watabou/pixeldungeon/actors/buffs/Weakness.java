@@ -22,7 +22,10 @@ import com.watabou.pixeldungeon.actors.hero.Hero;
 import com.watabou.pixeldungeon.items.rings.RingOfElements.Resistance;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Weakness extends FlavourBuff {
+	private static final String TXT_NAME = "buff_weakness_name";
 
 	private static final float DURATION = 40f;
 
@@ -33,7 +36,7 @@ public class Weakness extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Weakened";
+		return tr(TXT_NAME);
 	}
 	
 	@Override

@@ -19,8 +19,11 @@ package com.watabou.pixeldungeon.actors.buffs;
 
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Amok extends FlavourBuff {
-	
+	private static final String TXT_NAME = "buff_amok_name";
+
 	@Override
 	public int icon() {
 		return BuffIndicator.AMOK;
@@ -28,6 +31,6 @@ public class Amok extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Amok";
+		return tr(TXT_NAME);
 	}
 }

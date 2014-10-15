@@ -20,7 +20,10 @@ package com.watabou.pixeldungeon.actors.buffs;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Roots extends FlavourBuff {
+	private static final String TXT_NAME = "buff_roots_name";
 	
 	@Override
 	public boolean attachTo( Char target ) {
@@ -45,6 +48,6 @@ public class Roots extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Rooted";
+		return tr(TXT_NAME);
 	}
 }

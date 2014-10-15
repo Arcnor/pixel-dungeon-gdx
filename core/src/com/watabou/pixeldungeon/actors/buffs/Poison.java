@@ -25,12 +25,12 @@ import com.watabou.pixeldungeon.actors.hero.Hero;
 import com.watabou.pixeldungeon.items.rings.RingOfElements.Resistance;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
-import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Poison extends Buff implements Hero.Doom {
+	private static final String TXT_NAME = "buff_poison_name";
 	
 	public static final int DOT	= 2;
 	
@@ -62,7 +62,7 @@ public class Poison extends Buff implements Hero.Doom {
 	
 	@Override
 	public String toString() {
-		return "Poisoned";
+		return tr(TXT_NAME);
 	}
 	
 	@Override

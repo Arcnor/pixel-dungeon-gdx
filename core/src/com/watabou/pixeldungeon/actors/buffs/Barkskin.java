@@ -19,7 +19,10 @@ package com.watabou.pixeldungeon.actors.buffs;
 
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Barkskin extends Buff {
+	private static final String TXT_NAME = "buff_barkskin_name";
 
 	private int level = 0;
 	
@@ -58,6 +61,6 @@ public class Barkskin extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Barkskin";
+		return tr(TXT_NAME);
 	}
 }

@@ -17,12 +17,15 @@
  */
 package com.watabou.pixeldungeon.actors.buffs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.actors.blobs.ToxicGas;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class GasesImmunity extends FlavourBuff {
+	private static final String TXT_NAME = "buff_gasesimmunity_name";
 	
 	public static final float DURATION	= 5f;
 	
@@ -33,7 +36,7 @@ public class GasesImmunity extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Immune to gases";
+		return tr(TXT_NAME);
 	}
 	
 	public static final HashSet<Class<?>> IMMUNITIES = new HashSet<Class<?>>();

@@ -41,7 +41,7 @@ public class AboutScene extends PixelScene {
 	public void create() {
 		super.create();
 
-		BitmapTextMultiline text = createMultiline(tr(TXT, "Watabou", "Arcnor", "Cubic_Code", "Brian Walker", "Brogue"), 8);
+		BitmapTextMultiline text = createMultiline(tr(TXT, "Watabou", "Arcnor", "Cubic_Code", "Brian Walker", "Brogue"), 8);    // NON-NLS
 		text.maxWidth = Math.min( Camera.main.width, 120 );
 		text.measure();
 		add( text );
@@ -61,7 +61,7 @@ public class AboutScene extends PixelScene {
 		TouchArea hotArea = new TouchArea( link ) {
 			@Override
 			protected void onClick( NoosaInputProcessor.Touch touch ) {
-				Gdx.net.openURI("http://" + LNK);
+				Gdx.net.openURI("http://" + LNK);   // NON-NLS
 			}
 		};
 		add( hotArea );

@@ -22,11 +22,11 @@ import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.pixeldungeon.utils.GLog;
-import com.watabou.pixeldungeon.utils.Utils;
 
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Ooze extends Buff {
+	private static final String TXT_NAME = "buff_ooze_name";
 	
 	private static final String TXT_HERO_KILLED = "%s killed you...";
 	
@@ -39,7 +39,7 @@ public class Ooze extends Buff {
 	
 	@Override
 	public String toString() {
-		return "Caustic ooze";
+		return tr(TXT_NAME);
 	}
 	
 	@Override

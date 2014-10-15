@@ -22,7 +22,10 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Terror extends FlavourBuff {
+	private static final String TXT_NAME = "buff_terror_name";
 
 	public static final float DURATION = 10f;
 	public Char source;
@@ -41,7 +44,7 @@ public class Terror extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Terror";
+		return tr(TXT_NAME);
 	}
 	
 	public static void recover( Char target ) {

@@ -24,7 +24,10 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 import com.watabou.utils.Bundle;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Shadows extends Invisibility {
+	private static final String TXT_NAME = "buff_shadows_name";
 	
 	protected float left;
 	
@@ -90,7 +93,7 @@ public class Shadows extends Invisibility {
 	
 	@Override
 	public String toString() {
-		return "Shadowmelded";
+		return tr(TXT_NAME);
 	}
 	
 }

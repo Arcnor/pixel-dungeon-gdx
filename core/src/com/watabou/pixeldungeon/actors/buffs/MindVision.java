@@ -20,7 +20,10 @@ package com.watabou.pixeldungeon.actors.buffs;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class MindVision extends FlavourBuff {
+	private static final String TXT_NAME = "buff_mindvision_name";
 
 	public static final float DURATION = 20f;
 	
@@ -33,7 +36,7 @@ public class MindVision extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Mind vision";
+		return tr(TXT_NAME);
 	}
 
 	@Override

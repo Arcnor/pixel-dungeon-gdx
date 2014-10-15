@@ -21,7 +21,10 @@ import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Levitation extends FlavourBuff {
+	private static final String TXT_NAME = "buff_levitation_name";
 
 	public static final float DURATION	= 20f;
 	
@@ -50,6 +53,6 @@ public class Levitation extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Levitating";
+		return tr(TXT_NAME);
 	}
 }

@@ -21,7 +21,10 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.items.rings.RingOfElements.Resistance;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Charm extends FlavourBuff {
+	private static final String TXT_NAME = "buff_charm_name";
 	
 	@Override
 	public boolean attachTo( Char target ) {
@@ -46,7 +49,7 @@ public class Charm extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Charmed";
+		return tr(TXT_NAME);
 	}
 	
 	public static float durationFactor( Char ch ) {

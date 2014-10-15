@@ -19,7 +19,10 @@ package com.watabou.pixeldungeon.actors.buffs;
 
 import com.watabou.pixeldungeon.ui.BuffIndicator;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class SnipersMark extends FlavourBuff {
+	private static final String TXT_NAME = "buff_snipersmark_name";
 	
 	@Override
 	public int icon() {
@@ -28,6 +31,6 @@ public class SnipersMark extends FlavourBuff {
 	
 	@Override
 	public String toString() {
-		return "Sniper's mark";
+		return tr(TXT_NAME);
 	}
 }
