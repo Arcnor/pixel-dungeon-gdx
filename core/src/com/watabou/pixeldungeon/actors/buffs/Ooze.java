@@ -27,8 +27,7 @@ import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Ooze extends Buff {
 	private static final String TXT_NAME = "buff_ooze_name";
-	
-	private static final String TXT_HERO_KILLED = "%s killed you...";
+	private static final String TXT_HERO_KILLED = "buff_ooze_killed";
 	
 	public int damage	= 1;
 	
@@ -48,7 +47,7 @@ public class Ooze extends Buff {
 			target.damage( damage, this );
 			if (!target.isAlive() && target == Dungeon.hero) {
 				Dungeon.fail( tr(ResultDescriptions.OOZE, Dungeon.depth) );
-				GLog.n( TXT_HERO_KILLED, toString() );
+				GLog.n(tr(TXT_HERO_KILLED));
 			}
 			spend( TICK );
 		}

@@ -31,24 +31,25 @@ import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Poison extends Buff implements Hero.Doom {
 	private static final String TXT_NAME = "buff_poison_name";
-	
+	private static final String TXT_HERO_KILLED = "buff_poison_killed";
+
 	public static final int DOT	= 2;
-	
+
 	protected float left;
 	
-	private static final String LEFT	= "left";
+	private static final String BUNDLE_KEY_LEFT = "left";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( LEFT, left );
+		bundle.put(BUNDLE_KEY_LEFT, left );
 		
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		left = bundle.getFloat( LEFT );
+		left = bundle.getFloat(BUNDLE_KEY_LEFT);
 	}
 	
 	public void set( float duration ) {
@@ -95,6 +96,6 @@ public class Poison extends Buff implements Hero.Doom {
 		Badges.validateDeathFromPoison();
 		
 		Dungeon.fail( tr(ResultDescriptions.POISON, Dungeon.depth) );
-		GLog.n( "You died from poison..." );
+		GLog.n(tr(TXT_HERO_KILLED));
 	}
 }

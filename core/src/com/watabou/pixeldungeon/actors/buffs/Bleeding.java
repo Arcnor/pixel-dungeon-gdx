@@ -30,7 +30,8 @@ import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Bleeding extends Buff {
 	private static final String TXT_NAME = "buff_bleeding_name";
-	
+	private static final String TXT_HERO_KILLED = "buff_bleeding_killed";
+
 	protected int level;
 	
 	private static final String BUNDLE_KEY_LEVEL = "level";
@@ -76,7 +77,7 @@ public class Bleeding extends Buff {
 				
 				if (target == Dungeon.hero && !target.isAlive()) {
 					Dungeon.fail( tr(ResultDescriptions.BLEEDING, Dungeon.depth) );
-					GLog.n( "You bled to death..." );
+					GLog.n(tr(TXT_HERO_KILLED));
 				}
 				
 				spend( TICK );

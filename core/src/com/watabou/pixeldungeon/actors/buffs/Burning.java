@@ -43,26 +43,25 @@ import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Burning extends Buff implements Hero.Doom {
 	private static final String TXT_NAME = "buff_burning_name";
+	private static final String TXT_HERO_KILLED = "buff_burning_killed";
+	private static final String TXT_BURNS_UP = "buff_burning_burns";
 
-	private static final String TXT_BURNS_UP		= "%s burns up!";
-	private static final String TXT_BURNED_TO_DEATH	= "You burned to death...";
-	
 	private static final float DURATION = 8f;
 	
 	private float left;
 	
-	private static final String LEFT	= "left";
+	private static final String BUNDLE_KEY_LEFT = "left";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( LEFT, left );
+		bundle.put(BUNDLE_KEY_LEFT, left );
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle(bundle);
-		left = bundle.getFloat( LEFT );
+		left = bundle.getFloat(BUNDLE_KEY_LEFT);
 	}
 	
 	@Override
@@ -82,7 +81,7 @@ public class Burning extends Buff implements Hero.Doom {
 				if (item instanceof Scroll) {
 					
 					item = item.detach( ((Hero)target).belongings.backpack );
-					GLog.w( TXT_BURNS_UP, item.toString() );
+					GLog.w(tr(TXT_BURNS_UP, item.toString()));
 					
 					Heap.burnFX( target.pos );
 					
@@ -151,6 +150,6 @@ public class Burning extends Buff implements Hero.Doom {
 		Badges.validateDeathFromFire();
 		
 		Dungeon.fail( tr(ResultDescriptions.BURNING, Dungeon.depth) );
-		GLog.n( TXT_BURNED_TO_DEATH );
+		GLog.n(tr(TXT_HERO_KILLED));
 	}
 }

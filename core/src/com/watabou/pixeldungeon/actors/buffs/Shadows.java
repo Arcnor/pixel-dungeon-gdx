@@ -31,19 +31,19 @@ public class Shadows extends Invisibility {
 	
 	protected float left;
 	
-	private static final String LEFT	= "left";
+	private static final String BUNDLE_KEY_LEFT = "left";
 	
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
-		bundle.put( LEFT, left );
+		bundle.put(BUNDLE_KEY_LEFT, left );
 		
 	}
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
 		super.restoreFromBundle( bundle );
-		left = bundle.getFloat( LEFT );
+		left = bundle.getFloat(BUNDLE_KEY_LEFT);
 	}
 	
 	@Override

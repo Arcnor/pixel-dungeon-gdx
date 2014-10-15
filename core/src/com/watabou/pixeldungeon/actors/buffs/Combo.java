@@ -26,8 +26,7 @@ import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Combo extends Buff {
 	private static final String TXT_NAME = "buff_combo_name";
-	
-	private static final String TXT_COMBO = "%d hit combo!";
+	private static final String TXT_COMBO = "buff_combo_combo";
 	
 	public int count = 0;
 	
@@ -49,7 +48,7 @@ public class Combo extends Buff {
 			
 			Badges.validateMasteryCombo( count );
 			
-			GLog.p( TXT_COMBO, count );
+			GLog.p(tr(TXT_COMBO, count));
 			postpone( 1.41f - count / 10f );
 			return (int)(damage * (count - 2) / 5f);
 			
