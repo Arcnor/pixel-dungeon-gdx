@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.actors.Actor;
@@ -36,14 +34,19 @@ import com.watabou.pixeldungeon.mechanics.Ballistica;
 import com.watabou.pixeldungeon.sprites.SuccubusSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Succubus extends Mob {
+	private static final String TXT_NAME = "mob_succubus_name";
 	
 	private static final int BLINK_DELAY	= 5;
 	
 	private int delay = 0;
 	
 	{
-		name = "succubus";
+		name = tr(TXT_NAME);
 		spriteClass = SuccubusSprite.class;
 		
 		HP = HT = 80;

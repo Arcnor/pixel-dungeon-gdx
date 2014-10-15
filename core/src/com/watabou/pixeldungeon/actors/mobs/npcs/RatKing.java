@@ -21,13 +21,15 @@ import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.buffs.Buff;
 import com.watabou.pixeldungeon.actors.mobs.Mob;
-
 import com.watabou.pixeldungeon.sprites.RatKingSprite;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class RatKing extends Mob.NPC {
+	private static final String TXT_NAME = "mob_ratking_name";
 
 	{
-		name = "rat king";
+		name = tr(TXT_NAME);
 		spriteClass = RatKingSprite.class;
 		
 		state = State.SLEEPING;

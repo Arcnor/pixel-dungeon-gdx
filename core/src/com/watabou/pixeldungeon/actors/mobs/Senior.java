@@ -24,10 +24,13 @@ import com.watabou.pixeldungeon.actors.buffs.Paralysis;
 import com.watabou.pixeldungeon.sprites.SeniorSprite;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Senior extends Monk {
+	private static final String TXT_NAME = "mob_senior_name";
 
 	{
-		name = "senior monk";
+		name = tr(TXT_NAME);
 		spriteClass = SeniorSprite.class;
 	}
 	

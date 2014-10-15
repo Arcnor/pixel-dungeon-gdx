@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.Camera;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
@@ -44,10 +42,15 @@ import com.watabou.pixeldungeon.sprites.DM300Sprite;
 import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class DM300 extends Mob {
+	private static final String TXT_NAME = "mob_dm300_name";
 	
 	{
-		name = "DM-300";
+		name = tr(TXT_NAME);
 		spriteClass = DM300Sprite.class;
 		
 		HP = HT = 200;

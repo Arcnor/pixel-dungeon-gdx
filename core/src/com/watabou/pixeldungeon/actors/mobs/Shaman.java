@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.Camera;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.ResultDescriptions;
@@ -35,16 +33,19 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Shaman extends Mob implements Callback {
+	private static final String TXT_NAME = "mob_shaman_name";
 
 	private static final float TIME_TO_ZAP	= 2f;
 	
 	private static final String TXT_LIGHTNING_KILLED = "%s's lightning bolt killed you...";
 	
 	{
-		name = "gnoll shaman";
+		name = tr(TXT_NAME);
 		spriteClass = ShamanSprite.class;
 		
 		HP = HT = 18;

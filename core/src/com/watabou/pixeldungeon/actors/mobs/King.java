@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.Badges;
@@ -45,12 +43,17 @@ import com.watabou.utils.Bundle;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class King extends Mob {
+	private static final String TXT_NAME = "mob_king_name";
 	
 	private static final int MAX_ARMY_SIZE	= 5;
 	
 	{
-		name = "King of Dwarves";
+		name = tr(TXT_NAME);
 		spriteClass = KingSprite.class;
 		
 		HP = HT = 300;
@@ -234,11 +237,12 @@ public class King extends Mob {
 	}
 	
 	public static class Undead extends Mob {
-		
+		private static final String TXT_NAME = "mob_undead_name";
+
 		public static int count = 0;
 		
 		{
-			name = "undead dwarf";
+			name = tr(TXT_NAME);
 			spriteClass = UndeadSprite.class;
 			
 			HP = HT = 28;

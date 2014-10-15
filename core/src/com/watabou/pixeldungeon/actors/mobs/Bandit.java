@@ -26,12 +26,15 @@ import com.watabou.pixeldungeon.items.Item;
 import com.watabou.pixeldungeon.sprites.BanditSprite;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Bandit extends Thief {
+	private static final String TXT_NAME = "mob_bandit_name";
 	
 	public Item item;
 	
 	{
-		name = "crazy bandit";
+		name = tr(TXT_NAME);
 		spriteClass = BanditSprite.class;
 	}
 	

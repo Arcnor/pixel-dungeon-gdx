@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs.npcs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.Dungeon;
@@ -49,10 +47,15 @@ import com.watabou.pixeldungeon.windows.WndSadGhost;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Ghost extends Mob.NPC {
+	private static final String TXT_NAME = "mob_ghost_name";
 
 	{
-		name = "sad ghost";
+		name = tr(TXT_NAME);
 		spriteClass = GhostSprite.class;
 		
 		flying = true;
@@ -334,9 +337,10 @@ public class Ghost extends Mob.NPC {
 	}
 	
 	public static class FetidRat extends Mob {
+		private static final String TXT_NAME = "mob_fetidrat_name";
 
 		{
-			name = "fetid rat";
+			name = tr(TXT_NAME);
 			spriteClass = FetidRatSprite.class;
 			
 			HP = HT = 15;

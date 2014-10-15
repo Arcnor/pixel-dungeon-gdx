@@ -22,10 +22,13 @@ import com.watabou.pixeldungeon.actors.mobs.npcs.Ghost;
 import com.watabou.pixeldungeon.sprites.RatSprite;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Rat extends Mob {
+	private static final String TXT_NAME = "mob_rat_name";
 
 	{
-		name = "marsupial rat";
+		name = tr(TXT_NAME);
 		spriteClass = RatSprite.class;
 		
 		HP = HT = 8;

@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.blobs.Blob;
 import com.watabou.pixeldungeon.actors.blobs.Web;
@@ -31,10 +29,15 @@ import com.watabou.pixeldungeon.scenes.GameScene;
 import com.watabou.pixeldungeon.sprites.SpinnerSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Spinner extends Mob {
+	private static final String TXT_NAME = "mob_spinner_name";
 	
 	{
-		name = "cave spinner";
+		name = tr(TXT_NAME);
 		spriteClass = SpinnerSprite.class;
 		
 		HP = HT = 50;

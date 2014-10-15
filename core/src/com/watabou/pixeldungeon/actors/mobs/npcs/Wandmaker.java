@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs.npcs;
 
-import java.util.ArrayList;
-
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.Dungeon;
@@ -62,10 +60,15 @@ import com.watabou.pixeldungeon.windows.WndWandmaker;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.ArrayList;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Wandmaker extends Mob.NPC {
+	private static final String TXT_NAME = "mob_wandmaker_name";
 
 	{	
-		name = "old wandmaker";
+		name = tr(TXT_NAME);
 		spriteClass = WandmakerSprite.class;
 	}
 	

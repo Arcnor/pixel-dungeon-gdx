@@ -23,10 +23,13 @@ import com.watabou.pixeldungeon.items.food.MysteryMeat;
 import com.watabou.pixeldungeon.sprites.CrabSprite;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Crab extends Mob {
+	private static final String TXT_NAME = "mob_crab_name";
 
 	{
-		name = "sewer crab";
+		name = tr(TXT_NAME);
 		spriteClass = CrabSprite.class;
 		
 		HP = HT = 15;

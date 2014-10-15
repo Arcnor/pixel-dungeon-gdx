@@ -20,10 +20,13 @@ package com.watabou.pixeldungeon.actors.mobs;
 import com.watabou.pixeldungeon.Badges;
 import com.watabou.pixeldungeon.sprites.ShieldedSprite;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Shielded extends Brute {
+	private static final String TXT_NAME = "mob_shielded_name";
 
 	{
-		name = "shielded brute";
+		name = tr(TXT_NAME);
 		spriteClass = ShieldedSprite.class;
 		
 		defenseSkill = 20;

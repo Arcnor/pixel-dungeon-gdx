@@ -22,10 +22,13 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.sprites.AcidicSprite;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Acidic extends Scorpio {
+	private static final String TXT_NAME = "mob_acidic_name";
 
 	{
-		name = "acidic scorpio";
+		name = tr(TXT_NAME);
 		spriteClass = AcidicSprite.class;
 	}
 	

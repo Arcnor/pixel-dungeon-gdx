@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.Journal;
 import com.watabou.pixeldungeon.actors.Char;
@@ -35,10 +33,15 @@ import com.watabou.pixeldungeon.sprites.StatueSprite;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Statue extends Mob {
+	private static final String TXT_NAME = "mob_statue_name";
 	
 	{
-		name = "animated statue";
+		name = tr(TXT_NAME);
 		spriteClass = StatueSprite.class;
 
 		EXP = 0;

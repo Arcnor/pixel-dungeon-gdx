@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs.npcs;
 
-import java.util.Collection;
-
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.Badges;
@@ -43,9 +41,12 @@ import com.watabou.pixeldungeon.windows.WndQuest;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.Collection;
+
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Blacksmith extends Mob.NPC {
+	private static final String TXT_NAME = "mob_blacksmith_name";
 
 	private static final String TXT_GOLD_1 =
 		"Hey human! Wanna be useful, eh? Take dis pickaxe and mine me some _dark gold ore_, _15 pieces_ should be enough. " +
@@ -71,7 +72,7 @@ public class Blacksmith extends Mob.NPC {
 	private static final String TXT_LOOKS_BETTER	= "your %s certainly looks better now";
 	
 	{
-		name = "troll blacksmith";
+		name = tr(TXT_NAME);
 		spriteClass = BlacksmithSprite.class;
 	}
 	

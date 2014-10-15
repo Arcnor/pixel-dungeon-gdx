@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.tweeners.AlphaTweener;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Actor;
@@ -32,14 +30,19 @@ import com.watabou.pixeldungeon.sprites.WraithSprite;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Wraith extends Mob {
+	private static final String TXT_NAME = "mob_wraith_name";
 
 	private static final float SPAWN_DELAY	= 2f;
 	
 	private int level;
 	
 	{
-		name = "wraith";
+		name = tr(TXT_NAME);
 		spriteClass = WraithSprite.class;
 		
 		HP = HT = 1;

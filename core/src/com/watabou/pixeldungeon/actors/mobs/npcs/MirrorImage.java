@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs.npcs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.hero.Hero;
@@ -29,10 +27,15 @@ import com.watabou.pixeldungeon.sprites.MirrorSprite;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class MirrorImage extends Mob.NPC {
+	private static final String TXT_NAME = "mob_mirrorimage_name";
 	
 	{
-		name = "mirror image";
+		name = tr(TXT_NAME);
 		spriteClass = MirrorSprite.class;
 		
 		state = State.HUNTING;

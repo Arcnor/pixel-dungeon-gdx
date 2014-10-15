@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.Dungeon;
@@ -33,14 +31,17 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Skeleton extends Mob {
+	private static final String TXT_NAME = "mob_skeleton_name";
 
 	private static final String TXT_HERO_KILLED = "You were killed by the explosion of bones...";
 	
 	{
-		name = "skeleton";
+		name = tr(TXT_NAME);
 		spriteClass = SkeletonSprite.class;
 		
 		HP = HT = 25;

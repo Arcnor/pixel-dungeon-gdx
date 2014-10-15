@@ -25,12 +25,15 @@ import com.watabou.pixeldungeon.items.Heap;
 import com.watabou.pixeldungeon.sprites.ImpSprite;
 import com.watabou.pixeldungeon.utils.Utils;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class ImpShopkeeper extends Shopkeeper {
+	private static final String TXT_NAME = "mob_impshopkeeper_name";
 
 	private static final String TXT_GREETINGS = "Hello, friend!";
 	
 	{
-		name = "ambitious imp";
+		name = tr(TXT_NAME);
 		spriteClass = ImpSprite.class;
 	}
 	

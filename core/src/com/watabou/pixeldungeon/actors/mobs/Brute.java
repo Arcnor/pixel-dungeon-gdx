@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.buffs.Terror;
@@ -29,12 +27,17 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Brute extends Mob {
+	private static final String TXT_NAME = "mob_brute_name";
 
 	private static final String TXT_ENRAGED = "%s becomes enraged!";
 	
 	{
-		name = "gnoll brute";
+		name = tr(TXT_NAME);
 		spriteClass = BruteSprite.class;
 		
 		HP = HT = 40;

@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.ArrayList;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Actor;
 import com.watabou.pixeldungeon.actors.Char;
@@ -35,10 +33,15 @@ import com.watabou.pixeldungeon.sprites.SwarmSprite;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import java.util.ArrayList;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Swarm extends Mob {
+	private static final String TXT_NAME = "mob_swarm_name";
 
 	{
-		name = "swarm of flies";
+		name = tr(TXT_NAME);
 		spriteClass = SwarmSprite.class;
 		
 		HP = HT = 80;

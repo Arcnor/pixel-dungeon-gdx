@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.Camera;
 import com.watabou.pixeldungeon.Badges;
 import com.watabou.pixeldungeon.Dungeon;
@@ -39,12 +37,17 @@ import com.watabou.pixeldungeon.sprites.GooSprite;
 import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Goo extends Mob {
+	private static final String TXT_NAME = "mob_goo_name";
 
 	private static final float PUMP_UP_DELAY	= 2f;
 	
 	{
-		name = "Goo";
+		name = tr(TXT_NAME);
 		HP = HT = 80;
 		EXP = 10;
 		defenseSkill = 12;

@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.buffs.Buff;
 import com.watabou.pixeldungeon.actors.buffs.Burning;
@@ -31,10 +29,15 @@ import com.watabou.pixeldungeon.items.weapon.enchantments.Fire;
 import com.watabou.pixeldungeon.sprites.ElementalSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Elemental extends Mob {
+	private static final String TXT_NAME = "mob_elemental_name";
 
 	{
-		name = "fire elemental";
+		name = tr(TXT_NAME);
 		spriteClass = ElementalSprite.class;
 		
 		HP = HT = 65;

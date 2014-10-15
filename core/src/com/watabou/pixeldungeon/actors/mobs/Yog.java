@@ -17,9 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.actors.Actor;
@@ -49,15 +46,18 @@ import com.watabou.pixeldungeon.sprites.LarvaSprite;
 import com.watabou.pixeldungeon.sprites.RottingFistSprite;
 import com.watabou.pixeldungeon.sprites.YogSprite;
 import com.watabou.pixeldungeon.utils.GLog;
-import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Yog extends Mob {
+	private static final String TXT_NAME = "mob_yog_name";
 	
 	{
-		name = "Yog-Dzewa";
+		name = tr(TXT_NAME);
 		spriteClass = YogSprite.class;
 		
 		HP = HT = 300;
@@ -183,11 +183,12 @@ public class Yog extends Mob {
 	}
 	
 	public static class RottingFist extends Mob {
-	
+		private static final String TXT_NAME = "mob_rottingfist_name";
+
 		private static final int REGENERATION	= 4;
 		
 		{
-			name = "rotting fist";
+			name = tr(TXT_NAME);
 			spriteClass = RottingFistSprite.class;
 			
 			HP = HT = 300;
@@ -278,9 +279,10 @@ public class Yog extends Mob {
 	}
 	
 	public static class BurningFist extends Mob {
-		
+		private static final String TXT_NAME = "mob_burningfist_name";
+
 		{
-			name = "burning fist";
+			name = tr(TXT_NAME);
 			spriteClass = BurningFistSprite.class;
 			
 			HP = HT = 200;
@@ -395,9 +397,10 @@ public class Yog extends Mob {
 	}
 	
 	public static class Larva extends Mob {
-		
+		private static final String TXT_NAME = "mob_larva_name";
+
 		{
-			name = "god's larva";
+			name = tr(TXT_NAME);
 			spriteClass = LarvaSprite.class;
 			
 			HP = HT = 25;

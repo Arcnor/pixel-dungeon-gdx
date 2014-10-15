@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.buffs.Amok;
@@ -32,12 +30,17 @@ import com.watabou.pixeldungeon.sprites.MonkSprite;
 import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Monk extends Mob {
+	private static final String TXT_NAME = "mob_monk_name";
 
 	public static final String TXT_DISARM	= "%s has knocked the %s from your hands!";
 	
 	{
-		name = "dwarf monk";
+		name = tr(TXT_NAME);
 		spriteClass = MonkSprite.class;
 		
 		HP = HT = 70;

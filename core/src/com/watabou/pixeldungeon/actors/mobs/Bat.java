@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.effects.Speck;
 import com.watabou.pixeldungeon.items.potions.PotionOfHealing;
@@ -26,10 +24,15 @@ import com.watabou.pixeldungeon.items.weapon.enchantments.Leech;
 import com.watabou.pixeldungeon.sprites.BatSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Bat extends Mob {
+	private static final String TXT_NAME = "mob_bat_name";
 
 	{
-		name = "vampire bat";
+		name = tr(TXT_NAME);
 		spriteClass = BatSprite.class;
 		
 		HP = HT = 30;

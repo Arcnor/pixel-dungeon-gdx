@@ -38,10 +38,13 @@ import com.watabou.pixeldungeon.windows.WndQuest;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Imp extends Mob.NPC {
+	private static final String TXT_NAME = "mob_imp_name";
 
 	{
-		name = "ambitious imp";
+		name = tr(TXT_NAME);
 		spriteClass = ImpSprite.class;
 	}
 	

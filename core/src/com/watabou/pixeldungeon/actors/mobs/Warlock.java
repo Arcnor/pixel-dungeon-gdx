@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.actors.Char;
@@ -35,16 +33,19 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Warlock extends Mob implements Callback {
+	private static final String TXT_NAME = "mob_warlock_name";
 	
 	private static final float TIME_TO_ZAP	= 1f;
 	
 	private static final String TXT_SHADOWBOLT_KILLED = "%s's shadow bolt killed you...";
 	
 	{
-		name = "dwarf warlock";
+		name = tr(TXT_NAME);
 		spriteClass = WarlockSprite.class;
 		
 		HP = HT = 70;

@@ -29,10 +29,13 @@ import com.watabou.pixeldungeon.sprites.ShopkeeperSprite;
 import com.watabou.pixeldungeon.windows.WndBag;
 import com.watabou.pixeldungeon.windows.WndTradeItem;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Shopkeeper extends Mob.NPC {
+	private static final String TXT_NAME = "mob_shopkeeper_name";
 
 	{
-		name = "shopkeeper";
+		name = tr(TXT_NAME);
 		spriteClass = ShopkeeperSprite.class;
 	}
 	

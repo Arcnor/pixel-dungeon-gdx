@@ -23,10 +23,13 @@ import com.watabou.pixeldungeon.items.Gold;
 import com.watabou.pixeldungeon.sprites.GnollSprite;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Gnoll extends Mob {
+	private static final String TXT_NAME = "mob_gnoll_name";
 	
 	{
-		name = "gnoll scout";
+		name = tr(TXT_NAME);
 		spriteClass = GnollSprite.class;
 		
 		HP = HT = 12;

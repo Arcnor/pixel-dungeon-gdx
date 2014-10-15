@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.ResultDescriptions;
 import com.watabou.pixeldungeon.actors.Actor;
@@ -38,14 +36,17 @@ import com.watabou.pixeldungeon.utils.GLog;
 import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
 import static com.watabou.noosa.NoosaI18N.tr;
 
 public class Eye extends Mob {
+	private static final String TXT_NAME = "mob_eye_name";
 	
 	private static final String TXT_DEATHGAZE_KILLED = "%s's deathgaze killed you...";
 	
 	{
-		name = "evil eye";
+		name = tr(TXT_NAME);
 		spriteClass = EyeSprite.class;
 		
 		HP = HT = 100;

@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Badges;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.Statistics;
@@ -33,10 +31,15 @@ import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.sprites.PiranhaSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Piranha extends Mob {
+	private static final String TXT_NAME = "mob_piranha_name";
 	
 	{
-		name = "giant piranha";
+		name = tr(TXT_NAME);
 		spriteClass = PiranhaSprite.class;
 
 		baseSpeed = 2f;

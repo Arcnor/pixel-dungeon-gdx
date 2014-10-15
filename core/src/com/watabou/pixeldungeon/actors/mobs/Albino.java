@@ -24,10 +24,13 @@ import com.watabou.pixeldungeon.actors.buffs.Buff;
 import com.watabou.pixeldungeon.sprites.AlbinoSprite;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Albino extends Rat {
+	private static final String TXT_NAME = "mob_albino_name";
 
 	{
-		name = "albino rat";
+		name = tr(TXT_NAME);
 		spriteClass = AlbinoSprite.class;
 		
 		HP = HT = 15;

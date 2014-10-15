@@ -31,7 +31,10 @@ import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Thief extends Mob {
+	private static final String TXT_NAME = "mob_thief_name";
 
 	protected static final String TXT_STOLE	= "%s stole %s from you!";
 	protected static final String TXT_CARRIES	= "\n\n%s is carrying a _%s_. Stolen obviously.";
@@ -39,7 +42,7 @@ public class Thief extends Mob {
 	public Item item;
 	
 	{
-		name = "crazy thief";
+		name = tr(TXT_NAME);
 		spriteClass = ThiefSprite.class;
 		
 		HP = HT = 20;

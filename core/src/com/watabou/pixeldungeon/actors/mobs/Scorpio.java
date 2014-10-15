@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.buffs.Buff;
@@ -33,10 +31,15 @@ import com.watabou.pixeldungeon.mechanics.Ballistica;
 import com.watabou.pixeldungeon.sprites.ScorpioSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Scorpio extends Mob {
+	private static final String TXT_NAME = "mob_scorpio_name";
 	
 	{
-		name = "scorpio";
+		name = tr(TXT_NAME);
 		spriteClass = ScorpioSprite.class;
 		
 		HP = HT = 95;

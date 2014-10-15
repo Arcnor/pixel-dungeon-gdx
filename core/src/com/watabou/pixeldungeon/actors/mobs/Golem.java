@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.actors.buffs.Amok;
 import com.watabou.pixeldungeon.actors.buffs.Sleep;
@@ -28,10 +26,15 @@ import com.watabou.pixeldungeon.items.scrolls.ScrollOfPsionicBlast;
 import com.watabou.pixeldungeon.sprites.GolemSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Golem extends Mob {
+	private static final String TXT_NAME = "mob_golem_name";
 	
 	{
-		name = "golem";
+		name = tr(TXT_NAME);
 		spriteClass = GolemSprite.class;
 		
 		HP = HT = 85;

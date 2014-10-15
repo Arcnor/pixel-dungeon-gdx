@@ -17,8 +17,6 @@
  */
 package com.watabou.pixeldungeon.actors.mobs;
 
-import java.util.HashSet;
-
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.Assets;
 import com.watabou.pixeldungeon.Badges;
@@ -42,12 +40,17 @@ import com.watabou.pixeldungeon.scenes.GameScene;
 import com.watabou.pixeldungeon.sprites.TenguSprite;
 import com.watabou.utils.Random;
 
+import java.util.HashSet;
+
+import static com.watabou.noosa.NoosaI18N.tr;
+
 public class Tengu extends Mob {
+	private static final String TXT_NAME = "mob_tengu_name";
 
 	private static final int JUMP_DELAY = 5;
 	
 	{
-		name = "Tengu";
+		name = tr(TXT_NAME);
 		spriteClass = TenguSprite.class;
 		
 		HP = HT = 120;
