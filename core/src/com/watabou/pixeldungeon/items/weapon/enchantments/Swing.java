@@ -22,6 +22,7 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.items.weapon.Weapon;
 import com.watabou.pixeldungeon.items.weapon.Weapon.Enchantment;
 import com.watabou.pixeldungeon.levels.Level;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class Swing extends Enchantment {
@@ -68,7 +69,7 @@ public class Swing extends Enchantment {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_WILD, weaponName );
+		return Utils.format(TXT_WILD, weaponName);
 	}
 
 }

@@ -23,7 +23,7 @@ public enum Music {
 	
 	INSTANCE;
 	
-	private com.badlogic.gdx.audio.Music player;
+	private transient com.badlogic.gdx.audio.Music player;
 	
 	private String lastPlayed;
 	private boolean lastLooping;

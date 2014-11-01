@@ -24,6 +24,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 
+import com.badlogic.gdx.utils.reflect.ClassReflection;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.watabou.noosa.Game;
 import com.watabou.pixeldungeon.actors.Actor;
 import com.watabou.pixeldungeon.actors.Char;
@@ -555,8 +557,8 @@ public class Dungeon {
 		String qsClass = bundle.getString( QUICKSLOT );
 		if (qsClass != null) {
 			try {
-				quickslot = Class.forName( qsClass );
-			} catch (ClassNotFoundException e) {
+				quickslot = ClassReflection.forName(qsClass);
+			} catch (ReflectionException e) {
 			}
 		} else {
 			quickslot = null;

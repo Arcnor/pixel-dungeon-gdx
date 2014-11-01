@@ -19,6 +19,7 @@ package com.watabou.pixeldungeon.actors.hero;
 
 import java.util.Iterator;
 
+import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.watabou.pixeldungeon.Badges;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.items.Item;
@@ -98,7 +99,7 @@ public class Belongings implements Iterable<Item> {
 	public<T extends Item> T getItem( Class<T> itemClass ) {
 
 		for (Item item : this) {
-			if (itemClass.isInstance( item )) {
+			if (ClassReflection.isInstance(itemClass, item)) {
 				return (T)item;
 			}
 		}

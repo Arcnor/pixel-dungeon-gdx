@@ -38,6 +38,7 @@ import com.watabou.pixeldungeon.items.Item;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.sprites.CharSprite;
 import com.watabou.pixeldungeon.utils.GLog;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Bundle;
 import com.watabou.utils.Random;
 
@@ -451,7 +452,7 @@ public abstract class Mob extends Char {
 		
 		@Override
 		public String status() {
-			return String.format( "This %s is sleeping", name );
+			return Utils.format( "This %s is sleeping", name );
 		}
 	}
 	
@@ -488,7 +489,7 @@ public abstract class Mob extends Char {
 		
 		@Override
 		public String status() {
-			return String.format( "This %s is wandering", name );
+			return Utils.format( "This %s is wandering", name );
 		}
 	}
 	
@@ -527,7 +528,7 @@ public abstract class Mob extends Char {
 		
 		@Override
 		public String status() {
-			return String.format( "This %s is hunting", name );
+			return Utils.format( "This %s is hunting", name );
 		}
 	}
 	
@@ -562,7 +563,7 @@ public abstract class Mob extends Char {
 		
 		@Override
 		public String status() {
-			return String.format( "This %s is fleeing", name );
+			return Utils.format( "This %s is fleeing", name );
 		}
 	}
 	
@@ -579,7 +580,7 @@ public abstract class Mob extends Char {
 		
 		@Override
 		public String status() {
-			return String.format( "This %s is passive", name );
+			return Utils.format("This %s is passive", name);
 		}
 	}
 }

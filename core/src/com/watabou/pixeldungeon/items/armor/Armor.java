@@ -19,6 +19,7 @@ package com.watabou.pixeldungeon.items.armor;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.utils.reflect.ClassReflection;
 import com.watabou.pixeldungeon.Badges;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.actors.Char;
@@ -72,7 +73,7 @@ public class Armor extends EquipableItem {
 	
 	@Override
 	public void restoreFromBundle( Bundle bundle ) {
-		super.restoreFromBundle( bundle );
+		super.restoreFromBundle(bundle);
 		glyph = (Glyph)bundle.get( GLYPH );
 	}
 	
@@ -371,7 +372,7 @@ public class Armor extends EquipableItem {
 		@SuppressWarnings("unchecked")
 		public static Glyph random() {
 			try {
-				return ((Class<Glyph>)glyphs[ Random.chances( chances ) ]).newInstance();
+				return ClassReflection.newInstance((Class<Glyph>) glyphs[Random.chances(chances)]);
 			} catch (Exception e) {
 				return null;
 			}

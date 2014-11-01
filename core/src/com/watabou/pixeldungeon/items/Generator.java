@@ -64,7 +64,7 @@ public class Generator {
 		
 		public static int order( Item item ) {
 			for (int i=0; i < values().length; i++) {
-				if (values()[i].superClass.isInstance( item )) {
+				if (ClassReflection.isInstance(values()[i].superClass, item)) {
 					return i;
 				}
 			}
@@ -210,7 +210,7 @@ public class Generator {
 			case WEAPON:
 				return randomWeapon();
 			default:
-				return ((Item)cat.classes[Random.chances( cat.probs )].newInstance()).random();
+				return ((Item)ClassReflection.newInstance(cat.classes[Random.chances(cat.probs)])).random();
 			}
 			
 		} catch (Exception e) {
@@ -238,8 +238,8 @@ public class Generator {
 		
 		Category cat = Category.ARMOR;
 		
-		Armor a1 = (Armor)cat.classes[Random.chances( cat.probs )].newInstance();
-		Armor a2 = (Armor)cat.classes[Random.chances( cat.probs )].newInstance();
+		Armor a1 = (Armor)ClassReflection.newInstance(cat.classes[Random.chances(cat.probs)]);
+		Armor a2 = (Armor)ClassReflection.newInstance(cat.classes[Random.chances( cat.probs )]);
 		
 		a1.random();
 		a2.random();
@@ -253,8 +253,8 @@ public class Generator {
 		
 		Category cat = Category.WEAPON;
 		
-		Weapon w1 = (Weapon)cat.classes[Random.chances( cat.probs )].newInstance();
-		Weapon w2 = (Weapon)cat.classes[Random.chances( cat.probs )].newInstance();
+		Weapon w1 = (Weapon)ClassReflection.newInstance(cat.classes[Random.chances(cat.probs)]);
+		Weapon w2 = (Weapon)ClassReflection.newInstance(cat.classes[Random.chances(cat.probs)]);
 		
 		w1.random();
 		w2.random();

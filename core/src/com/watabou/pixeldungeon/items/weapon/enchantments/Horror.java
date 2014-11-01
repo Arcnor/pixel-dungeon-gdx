@@ -25,6 +25,7 @@ import com.watabou.pixeldungeon.actors.buffs.Vertigo;
 import com.watabou.pixeldungeon.items.weapon.Weapon;
 import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class Horror extends Weapon.Enchantment {
@@ -61,7 +62,7 @@ public class Horror extends Weapon.Enchantment {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_ELDRITCH, weaponName );
+		return Utils.format(TXT_ELDRITCH, weaponName);
 	}
 
 }

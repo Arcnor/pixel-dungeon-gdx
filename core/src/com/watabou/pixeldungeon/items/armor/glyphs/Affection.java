@@ -26,6 +26,7 @@ import com.watabou.pixeldungeon.items.armor.Armor.Glyph;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.GameMath;
 import com.watabou.utils.Random;
 
@@ -56,7 +57,7 @@ public class Affection extends Glyph {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_AFFECTION, weaponName );
+		return Utils.format(TXT_AFFECTION, weaponName);
 	}
 
 	@Override

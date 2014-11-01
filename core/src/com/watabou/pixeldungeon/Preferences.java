@@ -43,7 +43,7 @@ public enum Preferences {
 
 	public static final String FILE_NAME = "pd-prefs";
 
-	private com.badlogic.gdx.Preferences prefs;
+	private transient com.badlogic.gdx.Preferences prefs;
 	
 	private com.badlogic.gdx.Preferences get() {
 		if (prefs == null) {

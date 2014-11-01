@@ -29,6 +29,7 @@ import com.watabou.pixeldungeon.items.armor.Armor.Glyph;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class AntiEntropy extends Glyph {
@@ -57,7 +58,7 @@ public class AntiEntropy extends Glyph {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_ANTI_ENTROPY, weaponName );
+		return Utils.format(TXT_ANTI_ENTROPY, weaponName);
 	}
 
 	@Override

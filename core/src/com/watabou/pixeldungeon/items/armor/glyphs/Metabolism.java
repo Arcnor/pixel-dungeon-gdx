@@ -26,6 +26,7 @@ import com.watabou.pixeldungeon.sprites.CharSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
 import com.watabou.pixeldungeon.ui.BuffIndicator;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class Metabolism extends Glyph {
@@ -64,7 +65,7 @@ public class Metabolism extends Glyph {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_METABOLISM, weaponName );
+		return Utils.format(TXT_METABOLISM, weaponName);
 	}
 
 	@Override

@@ -26,6 +26,7 @@ import com.watabou.pixeldungeon.items.wands.WandOfBlink;
 import com.watabou.pixeldungeon.levels.Level;
 import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class Displacement extends Glyph {
@@ -59,7 +60,7 @@ public class Displacement extends Glyph {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_DISPLACEMENT, weaponName );
+		return Utils.format(TXT_DISPLACEMENT, weaponName);
 	}
 
 	@Override

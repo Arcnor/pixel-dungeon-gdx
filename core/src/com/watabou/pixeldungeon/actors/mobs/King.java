@@ -156,7 +156,8 @@ public class King extends Mob {
 		sprite.centerEmitter().start( Speck.factory( Speck.SCREAM ), 0.4f, 2 );		
 		Sample.INSTANCE.play( Assets.SND_CHALLENGE );
 		
-		boolean[] passable = Level.passable.clone();
+		boolean[] passable = new boolean[Level.passable.length];
+		System.arraycopy(Level.passable, 0, passable, 0, Level.passable.length);
 		for (Actor actor : Actor.all()) {
 			if (actor instanceof Char) {
 				passable[((Char)actor).pos] = false;

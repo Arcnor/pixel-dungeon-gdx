@@ -17,13 +17,14 @@
  */
 package com.watabou.pixeldungeon.levels;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import com.badlogic.gdx.utils.reflect.ClassReflection;
+import com.badlogic.gdx.utils.reflect.Method;
 import com.watabou.pixeldungeon.PixelDungeon;
 import com.watabou.pixeldungeon.levels.painters.*;
 import com.watabou.utils.Bundlable;
@@ -67,11 +68,11 @@ public class Room extends Rect implements Graph.Node, Bundlable {
 		WEAK_FLOOR	( WeakFloorPainter.class ),
 		PIT			( PitPainter.class );
 		
-		private Method paint;
+		private transient Method paint;
 		
 		private Type( Class<? extends Painter> painter ) {
 			try {
-				paint = painter.getMethod( "paint", Level.class, Room.class );
+				paint = ClassReflection.getMethod(painter, "paint", Level.class, Room.class );
 			} catch (Exception e) {
 				paint = null;
 			}
@@ -203,7 +204,7 @@ public class Room extends Rect implements Graph.Node, Bundlable {
 	private static final String ROOMS	= "rooms";
 	
 	public static void restoreRoomsFromBundle( Bundle bundle ) {
-		if (bundle.contains( ROOMS )) {
+		if (bundle.contains(ROOMS)) {
 			SPECIALS.clear();
 			for (String type : bundle.getStringArray( ROOMS )) {
 				SPECIALS.add( Type.valueOf( type ));

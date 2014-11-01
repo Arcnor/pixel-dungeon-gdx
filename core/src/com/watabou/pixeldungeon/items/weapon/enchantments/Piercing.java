@@ -22,6 +22,7 @@ import com.watabou.pixeldungeon.actors.Char;
 import com.watabou.pixeldungeon.items.weapon.Weapon;
 import com.watabou.pixeldungeon.items.weapon.Weapon.Enchantment;
 import com.watabou.pixeldungeon.levels.Level;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class Piercing extends Enchantment {
@@ -69,7 +70,7 @@ public class Piercing extends Enchantment {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_PIERCING, weaponName );
+		return Utils.format(TXT_PIERCING, weaponName);
 	}
 
 }

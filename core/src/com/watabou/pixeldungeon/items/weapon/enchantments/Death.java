@@ -24,6 +24,7 @@ import com.watabou.pixeldungeon.effects.particles.ShadowParticle;
 import com.watabou.pixeldungeon.items.weapon.Weapon;
 import com.watabou.pixeldungeon.sprites.ItemSprite;
 import com.watabou.pixeldungeon.sprites.ItemSprite.Glowing;
+import com.watabou.pixeldungeon.utils.Utils;
 import com.watabou.utils.Random;
 
 public class Death extends Weapon.Enchantment {
@@ -64,7 +65,7 @@ public class Death extends Weapon.Enchantment {
 	
 	@Override
 	public String name( String weaponName) {
-		return String.format( TXT_GRIM, weaponName );
+		return Utils.format(TXT_GRIM, weaponName);
 	}
 
 }

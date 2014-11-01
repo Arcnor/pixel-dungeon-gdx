@@ -172,7 +172,7 @@ public class Plant implements Bundlable {
 		
 		@Override
 		public String info() {
-			return String.format( TXT_INFO, Utils.indefinite( plantName ), desc() );
+			return Utils.format( TXT_INFO, Utils.indefinite( plantName ), desc() );
 		}
 	}
 }
