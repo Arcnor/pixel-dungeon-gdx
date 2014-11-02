@@ -133,7 +133,7 @@ public class Item implements Bundlable {
 	public void execute( Hero hero ) {
 		execute( hero, defaultAction );
 	}
-	
+
 	protected void onThrow( int cell ) {
 		Heap heap = Dungeon.level.drop( this, cell );
 		if (!heap.isEmpty()) {
@@ -156,8 +156,10 @@ public class Item implements Bundlable {
 		}
 		
 		if (stackable) {
+			
+			Class<?>c = getClass();
 			for (Item item:items) {
-				if (isSimilar( item )) {
+				if (item.getClass() == c) {
 					item.quantity += quantity;
 					item.updateQuickslot();
 					return true;
@@ -188,7 +190,7 @@ public class Item implements Bundlable {
 		return collect( Dungeon.hero.belongings.backpack );
 	}
 	
-	public Item detach( Bag container ) {
+	public final Item detach( Bag container ) {
 		
 		if (quantity <= 0) {
 			
@@ -205,24 +207,26 @@ public class Item implements Bundlable {
 			updateQuickslot();
 			
 			try { 
-				return ClassReflection.newInstance(getClass());
+				Item detached = ClassReflection.newInstance(getClass());
+				detached.onDetach( );
+				return detached;
 			} catch (Exception e) {
 				return null;
 			}
 		}
 	}
 	
-	public Item detachAll( Bag container ) {
+	public final Item detachAll( Bag container ) {
 		for (Item item : container.items) {
 			if (item == this) {
 				container.items.remove( this );
+				item.onDetach( );
 				QuickSlot.refresh();
 				return this;
 			} else if (item instanceof Bag) {
 				Bag bag = (Bag)item;
 				if (bag.contains( this )) {
-					detachAll( bag );
-					return this;
+					return detachAll( bag );
 				}
 			}
 		}
@@ -230,8 +234,7 @@ public class Item implements Bundlable {
 		return this;
 	}
 	
-	public boolean isSimilar( Item item ) {
-		return getClass() == item.getClass();
+	protected void onDetach( ) {
 	}
 	
 	public Item upgrade() {
@@ -429,7 +432,7 @@ public class Item implements Bundlable {
 		float delay = TIME_TO_THROW;
 		if (this instanceof MissileWeapon) {
 
-			// Refactoring needed!
+			// FIXME
 			delay *= ((MissileWeapon)this).speedFactor( user );
 			if (enemy != null && enemy.buff( SnipersMark.class ) != null) {
 				delay *= 0.5f;

@@ -181,7 +181,7 @@ public class Generator {
 			Firebloom.Seed.class,
 			Icecap.Seed.class,
 			Sorrowmoss.Seed.class,
-			Blindweed.Seed.class,
+			Dreamweed.Seed.class,
 			Sungrass.Seed.class,
 			Earthroot.Seed.class,
 			Fadeleaf.Seed.class,

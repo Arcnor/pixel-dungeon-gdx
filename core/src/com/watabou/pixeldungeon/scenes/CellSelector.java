@@ -191,7 +191,7 @@ public class CellSelector extends TouchArea<GameAction> {
 			int zoom = Math.round( camera.zoom );
 			camera.zoom( zoom );
 			PixelDungeon.zoom( (int)(zoom - PixelScene.defaultZoom) );
-			
+
 			dragging = true;
 			if (t == touch) {
 				touch = another;
@@ -224,10 +224,12 @@ public class CellSelector extends TouchArea<GameAction> {
 		if (pinching) {
 
 			float curSpan = PointF.distance( touch.current, another.current );
-			camera.zoom( GameMath.gate( 
-				PixelScene.minZoom, 
-				startZoom * curSpan / startSpan, 
-				PixelScene.maxZoom ) );
+			if (startSpan != 0){
+				camera.zoom( GameMath.gate(
+					PixelScene.minZoom,
+					startZoom * curSpan / startSpan,
+					PixelScene.maxZoom ) );
+			}
 
 		} else {
 		

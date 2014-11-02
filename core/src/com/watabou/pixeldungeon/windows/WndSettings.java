@@ -61,10 +61,10 @@ public class WndSettings extends Window {
 	public WndSettings( boolean inGame ) {
 		super();
 		
+		
 		if (inGame) {
 			int w = BTN_HEIGHT;
 			
-			// Zoom out
 			btnZoomOut = new RedButton( TXT_ZOOM_OUT ) {
 				@Override
 				protected void onClick() {
@@ -73,7 +73,6 @@ public class WndSettings extends Window {
 			};
 			add( btnZoomOut.setRect( 0, 0, w, BTN_HEIGHT) );
 			
-			// Zoom in
 			btnZoomIn = new RedButton( TXT_ZOOM_IN ) {
 				@Override
 				protected void onClick() {
@@ -82,7 +81,6 @@ public class WndSettings extends Window {
 			};
 			add( btnZoomIn.setRect( WIDTH - w, 0, w, BTN_HEIGHT) );
 			
-			// Default zoom
 			add( new RedButton( TXT_ZOOM_DEFAULT ) {
 				@Override
 				protected void onClick() {

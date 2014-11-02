@@ -140,6 +140,7 @@ public class ItemSprite extends MovieClip {
 			place( from );
 	
 			speed.offset( (px-x) / DROP_INTERVAL, (py-y) / DROP_INTERVAL );
+			
 		}
 	}
 	

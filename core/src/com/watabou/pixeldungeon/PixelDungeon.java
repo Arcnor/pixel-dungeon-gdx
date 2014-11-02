@@ -26,6 +26,7 @@ import com.watabou.noosa.audio.Music;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.pixeldungeon.input.GameAction;
 import com.watabou.pixeldungeon.scenes.GameScene;
+import com.watabou.pixeldungeon.scenes.PixelScene;
 import com.watabou.pixeldungeon.scenes.TitleScene;
 import com.watabou.utils.PDPlatformSupport;
 import com.watabou.utils.Signal;
@@ -61,9 +62,6 @@ public class PixelDungeon extends Game<GameAction> {
 		com.watabou.utils.Bundle.addAlias( 
 			com.watabou.pixeldungeon.actors.hero.Hero.class, 
 			"com.watabou.pixeldungeon.actors.Hero" );
-	//	com.watabou.utils.Bundle.addAlias( 
-	//		com.watabou.pixeldungeon.items.weapon.missiles.Javelin.class, 
-	//		"com.watabou.pixeldungeon.items.weapon.missiles.Boomerang" );
 		com.watabou.utils.Bundle.addAlias( 
 			com.watabou.pixeldungeon.actors.mobs.npcs.Shopkeeper.class,
 			"com.watabou.pixeldungeon.actors.mobs.Shopkeeper" );
@@ -87,6 +85,13 @@ public class PixelDungeon extends Game<GameAction> {
 		com.watabou.utils.Bundle.addAlias( 
 			com.watabou.pixeldungeon.items.rings.RingOfPower.class,
 			"com.watabou.pixeldungeon.items.rings.RingOfEnergy" );
+		// 1.7.2
+		com.watabou.utils.Bundle.addAlias( 
+			com.watabou.pixeldungeon.plants.Dreamweed.class,
+			"com.watabou.pixeldungeon.plants.Blindweed" );
+		com.watabou.utils.Bundle.addAlias( 
+			com.watabou.pixeldungeon.plants.Dreamweed.Seed.class,
+			"com.watabou.pixeldungeon.plants.Blindweed$Seed" );
 	}
 	
 	@Override
@@ -214,12 +219,26 @@ public class PixelDungeon extends Game<GameAction> {
 		return Preferences.INSTANCE.getInt( Preferences.KEY_LAST_CLASS, 0 );
 	}
 	
+	public static void challenges( int value ) {
+		Preferences.INSTANCE.put( Preferences.KEY_CHALLENGES, value );
+	}
+	
+	public static int challenges() {
+		return Preferences.INSTANCE.getInt( Preferences.KEY_CHALLENGES, 0 );
+	}
+	
 	public static void intro( boolean value ) {
 		Preferences.INSTANCE.put( Preferences.KEY_INTRO, value );
 	}
 	
 	public static boolean intro() {
 		return Preferences.INSTANCE.getBoolean( Preferences.KEY_INTRO, true );
+	}
+	
+	
+	public static void switchNoFade( Class<? extends PixelScene> c ) {
+		PixelScene.noFade = true;
+		switchScene( c );
 	}
 	
 	/*
