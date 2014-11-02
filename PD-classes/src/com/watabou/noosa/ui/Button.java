@@ -53,7 +53,7 @@ public class Button<T> extends Component {
 			protected void onClick( NoosaInputProcessor.Touch touch ) {
 				if (!processed) {
 					if (NoosaInputProcessor.modifier && onLongClick()) {
-					// ...
+					// Do nothing
 					} else {
 						Button.this.onClick();
 					}
