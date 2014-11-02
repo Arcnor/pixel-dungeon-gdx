@@ -40,6 +40,7 @@ import com.watabou.pixeldungeon.windows.WndGame;
 import com.watabou.pixeldungeon.windows.WndCatalogus;
 import com.watabou.pixeldungeon.windows.WndHero;
 import com.watabou.pixeldungeon.windows.WndJournal;
+import com.watabou.pixeldungeon.windows.WndSettings;
 
 public class StatusPane extends Component {
 	
@@ -271,6 +272,12 @@ public class StatusPane extends Component {
 		@Override
 		protected void onClick() {
 			GameScene.show( new WndGame() );
+		}
+
+		@Override
+		protected boolean onLongClick() {
+			GameScene.show( new WndSettings( true ) );
+			return true;
 		}
 	}
 }
