@@ -128,10 +128,11 @@ public class WndSettings extends Window {
 		btnSound.checked( PixelDungeon.soundFx() );
 		add( btnSound );
 
+		Application.ApplicationType type = Gdx.app.getType();
+
 		Button lastBtn = btnSound;
 		if (!inGame) {
-			Application.ApplicationType type = Gdx.app.getType();
-			if (type == Application.ApplicationType.Android || type == Application.ApplicationType.iOS) {
+		/*	if (type == Application.ApplicationType.Android || type == Application.ApplicationType.iOS) {
 				RedButton btnOrientation = new RedButton(orientationText()) {
 					@Override
 					protected void onClick() {
@@ -142,16 +143,7 @@ public class WndSettings extends Window {
 				add(btnOrientation);
 
 				lastBtn = btnOrientation;
-			} else if (type == Application.ApplicationType.Desktop) {
-
-				RedButton btnKeymap = new RedButton( TXT_BINDINGS ) {
-					@Override
-					protected void onClick() {
-						parent.add(new WndKeymap());
-					}
-				};
-				btnKeymap.setRect(0, btnSound.bottom() + GAP, WIDTH, BTN_HEIGHT);
-				add(btnKeymap);
+			} else*/ if (type == Application.ApplicationType.Desktop) {
 
 				RedButton btnResolution = new RedButton(resolutionText()) {
 					@Override
@@ -160,7 +152,7 @@ public class WndSettings extends Window {
 					}
 				};
 				btnResolution.enable( PixelDungeon.instance.getPlatformSupport().isFullscreenEnabled() );
-				btnResolution.setRect(0, btnKeymap.bottom() + GAP, WIDTH, BTN_HEIGHT);
+				btnResolution.setRect(0, btnSound.bottom() + GAP, WIDTH, BTN_HEIGHT);
 				add(btnResolution);
 
 				lastBtn = btnResolution;
@@ -181,6 +173,21 @@ public class WndSettings extends Window {
 			lastBtn = btnBrightness;
 			
 		}
+
+		if (type == Application.ApplicationType.Desktop) {
+
+			RedButton btnKeymap = new RedButton(TXT_BINDINGS) {
+				@Override
+				protected void onClick() {
+					parent.add(new WndKeymap());
+				}
+			};
+			btnKeymap.setRect(0, lastBtn.bottom() + GAP, WIDTH, BTN_HEIGHT);
+			add(btnKeymap);
+
+			lastBtn = btnKeymap;
+		}
+
 		resize(WIDTH, (int) lastBtn.bottom());
 	}
 	
