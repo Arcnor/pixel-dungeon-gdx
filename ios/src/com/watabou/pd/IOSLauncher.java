@@ -1,5 +1,6 @@
 package com.watabou.pd;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.iosrobovm.IOSApplication;
 import com.badlogic.gdx.backends.iosrobovm.IOSApplicationConfiguration;
 import com.watabou.pixeldungeon.PixelDungeon;

@@ -19,7 +19,9 @@ package com.watabou.pixeldungeon.windows;
 
 import java.io.IOException;
 
+import com.badlogic.gdx.utils.SharedLibraryLoader;
 import com.watabou.noosa.Game;
+import com.watabou.pixeldungeon.Badges;
 import com.watabou.pixeldungeon.Dungeon;
 import com.watabou.pixeldungeon.PixelDungeon;
 import com.watabou.pixeldungeon.scenes.GameScene;
@@ -107,6 +109,11 @@ public class WndGame extends Window {
 		addButton( new RedButton( TXT_EXIT ) {
 			@Override
 			protected void onClick() {
+				// On iOS the game doesn't get saved "automatically"
+				// (GameScene.pause() is not called?) so we need to do it "manually"
+                if (SharedLibraryLoader.isIos) {
+					Game.scene().pause();
+                }
 				Game.instance.finish();
 			}
 		} );
